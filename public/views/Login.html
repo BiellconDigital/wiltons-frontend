@@ -1,0 +1,71 @@
+<div class="layerFondo contenido" id='contenido' ng-controller="LoginController">
+	<h3>Iniciar sesión</h3>
+	<hr/>
+	<div class="container">
+		<div class="row info">
+
+			<div class="col-sm-6 col-md-7 content-panels-login sin-borde">
+			<div class="thumbnail padding-thumbs panels-login sin-borde">
+
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<img src="img/usuario.png" class="img-responsive center-block foto-login" />
+					</div>
+					<div class="col-sm-6 col-md-9">
+						<form class="form-horizontal" role="form" name="loginUserForm">
+
+						  <div class="form-group">
+						    <label for="inputEmail" class="col-sm-3 control-label">Correo: </label>
+						    <div class="col-sm-9">
+                                <input type="email" required class="form-control" id="inputEmail" placeholder="Email"
+                                       ng-model="username">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputPassword" class="col-sm-3 control-label">Clave: &nbsp;</label>
+						    <div class="col-sm-9">
+                                <input type="password" required class="form-control" id="inputPassword" placeholder="Password"
+                                       ng-model="password">
+                                <input type="hidden" ng-model="rememberme" name="rememberme"/>
+						    </div>
+						  </div>
+<!--							  <div class="form-group">
+                                                        <label>
+                                                          <input type="radio" ng-model="rememberme" name="rememberme" id="rememberme">
+                                                               Recordarme 
+                                                        </label>
+						  </div>-->
+						  <div class="form-group">
+						    <div class="col-sm-offset-6 col-sm-6">
+						      <button type="submit" ng-disabled="!loginUserForm.$valid"
+                                                                  class="btn btn-block" ng-click="login()">Ingresar</button>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-offset-3 col-sm-9">
+                                                        <br/>
+                                                        <a ui-sref="anon.recuperar_clave" id="buttonRecuClave" class="btn-block">¿Olvidaste tu clave?</a>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			</div>
+	  
+			<div class="col-sm-6 col-md-5 text-center content-panels-login sin-borde">
+				<div class="thumbnail padding-thumbs panels-login sin-borde fondo-cian">
+
+					<p>¿Aún no eres usuario de Delibouquet?</p>
+					<br/><br/><br/>
+					<a href="#/registrarse">Registrate aquí</a>
+				    <br/><br/>
+				</div>
+			</div>
+	  
+		</div>
+	</div>
+
+
+</div>

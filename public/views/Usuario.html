@@ -1,0 +1,315 @@
+<div class="layerFondo contenido" id='contenido' ng-controller="UsuarioController">
+    
+        <h3>Bienvenido! &nbsp;&nbsp;&nbsp;<span class="name-user">{{user.username}}</span></h3>
+	<hr/>
+	<div class="container">
+		<div class="row infoUsuario">
+
+			<div class="col-sm-3 col-md-3 hidden-xs">
+				<div class="">
+                                    <ul class="nav nav-tabs nav-stacked" id="navMenuUsuario">
+                                        <li class="active" ng-class="{'active' : isActiveMenu('Datos personales')}">
+                                            <a href="#datos-personales" ng-click="menuActivo('Datos personales')">Datos personales</a>
+                                        </li>                
+                                        <li ng-class="{'active' : isActiveMenu('Cambiar tu clave')}">
+                                            <a href="#cambiar-clave" ng-click="menuActivo('Cambiar tu clave')">Cambiar tu clave</a>
+                                        </li>                
+<!--                                        <li class="">
+                                            <a href="#estado-compras">Estado de tus compras</a>
+                                        </li>                -->
+                                        <li ng-class="{'active' : isActiveMenu('¿Cómo comprar?')}">
+                                            <a href="#como-comprar" ng-click="menuActivo('¿Cómo comprar?')">¿Cómo comprar?</a>
+                                        </li>                
+                                    </ul>
+				</div>
+			</div>
+                    
+			<div class="col-xs-12 col-sm-3 col-md-3 visible-xs">
+                            <br/>
+                            
+                            <ul id="myTab" class="nav nav-tabs">
+                              <li class="dropdown active">
+                                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">
+                                    {{menuSelec}}<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                                  <li>
+                                      <a href="#datos-personales" tabindex="-1" data-toggle="tab" ng-click="menuActivo('Datos personales')">Datos personales</a>
+                                  </li>
+                                  <li>
+                                      <a href="#cambiar-clave" tabindex="-1" data-toggle="tab" ng-click="menuActivo('Cambiar tu clave')">Cambiar tu clave</a>
+                                  </li>
+                                  <li>
+                                      <a href="#como-comprar" tabindex="-1" data-toggle="tab" ng-click="menuActivo('¿Cómo comprar?')">¿Cómo comprar?</a>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                            
+                            <br/>
+                        </div>                    
+	  
+                    
+			<div class="col-md-offset-1 col-xs-12 col-sm-8 col-md-8 sin-padding">
+                            
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="datos-personales">
+                                    <h3 class="hidden-xs">Datos personales</h3>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body small">
+                                                <form class="form-horizontal" role="form" name="editUserForm">
+                                                          <div class="form-group">
+                                                            <label for="email" class="col-sm-1 col-md-1 control-label text-left">Email:</label>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                <input required type="email" class="form-control input-sm" name="email" placeholder="email"
+                                                                       ng-model="user.email">
+                                                            </div>
+                                                            <label for="emailConfir" class="col-sm-3 col-md-3 control-label text-left">Confirmar email:</label>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                <input type="email" class="form-control input-sm" id="emailConfir" placeholder="confirmar email">
+                                                            </div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <label for="nombre" class="col-sm-4 col-md-2 control-label text-left">Nombre :</label>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                <input required type="text" class="form-control input-sm" id="nombre" 
+                                                                       ng-model="user.nombres" placeholder="nombres">
+                                                            </div>
+                                                            <div class="col-sm-4 col-md-3">
+                                                                <input required type="text" class="form-control input-sm" id="nombre" 
+                                                                       ng-model="user.apellidoPaterno" placeholder="ap. paterno">
+                                                            </div>
+                                                            <div class="col-sm-4 col-md-3">
+                                                                <input required type="text" class="form-control input-sm" id="nombre" 
+                                                                       ng-model="user.apellidoMaterno" placeholder="ap. materno">
+                                                            </div>
+                                                          </div>
+                                                            <div class="form-group">
+                                                              <label for="tipoDocumento" class="col-sm-4 col-md-4 control-label text-left">
+                                                                  Documento Identidad*:
+                                                              </label>
+                                                              <div class="col-sm-4 col-md-4">
+                                                                  <select required class="form-control input-sm"
+                                                                           ng-options="tipoDocumento.idtipoDocumento as tipoDocumento.descripcionTdoc for tipoDocumento in tipoDocumentos" 
+                                                                           ng-model="user.tipoDocumento.idtipoDocumento">
+                                                                  </select>
+                                                              </div>
+                                                              <div class="col-sm-4 col-md-4">
+                                                                  <input required type="text" class="form-control input-sm" id="nroDocumento" 
+                                                                         ng-model="user.nroDocumento" placeholder="número">
+                                                              </div>
+                                                            </div>
+                                                    
+                                                          <div class="form-group">
+                                                            <label for="fechaNacimiento" class="col-sm-4 col-md-4 control-label text-left">Fecha de nacimiento:</label>
+                                                            <div class="col-sm-8 col-md-4">
+                                                                <input required type="date" class="form-control input-sm" name="fechaNacimiento"
+                                                                       ng-model="user.fechaNacimiento">
+                                                            </div>
+                                                          </div>
+                                                    
+                                                          <div class="form-group">
+                                                            <label for="ciudad" class="col-sm-4 col-md-4 control-label text-left">Ciudad:</label>
+                                                            <div class="col-sm-8 col-md-8">
+                                                                <input required type="text" class="form-control input-sm" name="ciudad"
+                                                                       ng-model="user.ciudad">
+                                                            </div>
+                                                          </div>
+                                                    
+                                                          <div class="form-group">
+                                                            <label for="direccion" class="col-sm-4 col-md-4 control-label text-left">Dirección:</label>
+                                                            <div class="col-sm-8 col-md-8">
+                                                                <input required type="text" class="form-control input-sm" name="direccion"
+                                                                       ng-model="user.direccion">
+                                                            </div>
+                                                          </div>
+                                                    
+                                                          <div class="form-group">
+                                                            <label for="fechaNacimiento" class="col-sm-4 col-md-4 control-label text-left">Fecha de nacimiento:</label>
+                                                            <div class="col-sm-8 col-md-4">
+                                                                <input required type="date" class="form-control input-sm" name="fechaNacimiento"
+                                                                       ng-model="user.fechaNacimiento">
+                                                            </div>
+                                                          </div>
+                                                    
+                                                          <div class="form-group">
+                                                            <label for="telefono" class="col-sm-4 col-md-4 control-label text-left">Teléfono de casa:</label>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                <input type="text" class="form-control input-sm" id="telefono"
+                                                                       ng-model="user.telefonoCasa">
+                                                            </div>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                 (cod área - número)
+                                                            </div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <label for="celular" class="col-sm-4 col-md-4 control-label text-left">Celular:</label>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                <input type="text" class="form-control input-sm" id="celular"
+                                                                       ng-model="user.movil">
+                                                            </div>
+                                                            <div class="col-sm-4 col-md-4">
+                                                                 (sólo va numero)
+                                                            </div>
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <div class="col-sm-offset-8 col-sm-4">
+                                                                <button type="submit" class="btn btn-block" ng-click="guardarUsuario()"
+                                                                      ng-disabled="!editUserForm.$valid">Guardar</button>
+                                                            </div>
+                                                          </div>
+                                                </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="tab-pane" id="cambiar-clave">
+                                    <h3 class="hidden-xs">Cambia tu clave</h3>
+                                    <p  class="hidden-xs">Ingresa tu clave actual y crea una nueva</p>
+                                    <div class="panel panel-default sin-borde">
+                                      <div class="panel-body">
+                                          <div  class="col-xs-offset-2 col-xs-8 visible-xs text-center" style="padding-bottom: 1em;">Ingresa tu clave actual y crea una nueva</div>
+                                            <div class="thumbnail padding-thumbs sin-borde small">
+
+                                                <div class="row">
+                                                        <div class="col-sm-6 col-md-3 col-lg-2">
+                                                            <img src="img/usuario.png" class="img-responsive center-block foto-login" />
+                                                        </div>
+                                                        <div class="col-sm-6 col-md-9 col-lg-10">
+                                                                <form class="form-horizontal" role="form" name="cambioClaveForm">
+
+                                                                          <div class="form-group">
+                                                                            <label for="claveActual" class="col-sm-4 control-label text-left">Clave actual: &nbsp;</label>
+                                                                            <div class="col-sm-8">
+                                                                              <input type="password" class="form-control input-sm" id="claveActual" 
+                                                                                     required ng-model="userChange.clave" placeholder="clave actual">
+                                                                            </div>
+                                                                          </div>
+                                                                          <div class="form-group">
+                                                                            <label for="claveNueva" class="col-sm-4 control-label text-left">Clave nueva: &nbsp;</label>
+                                                                            <div class="col-sm-8">
+                                                                              <input type="password" class="form-control input-sm" id="claveNueva"
+                                                                                     required ng-model="userChange.claveNueva">
+                                                                            </div>
+                                                                          </div>
+                                                                          <div class="form-group">
+                                                                            <label for="claveNuevaConf" class="col-sm-4 control-label text-left">Confirmar clave nueva: &nbsp;</label>
+                                                                            <div class="col-sm-8">
+                                                                              <input type="password" class="form-control input-sm" id="claveNuevaConf"
+                                                                                     required ng-model="userChange.claveNuevaConf">
+                                                                            </div>
+                                                                          </div>
+                                                                          <div class="form-group">
+                                                                            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-6 col-sm-6">
+                                                                                <br/>
+                                                                              <button type="submit" class="btn btn-block" ng-click="cambiarClave()"
+                                                                                    ng-disabled="!cambioClaveForm.$valid">
+                                                                                  Cambiar clave
+                                                                              </button>
+                                                                            </div>
+                                                                          </div>
+                                                                </form>
+                                                        </div>
+                                                </div>
+
+                                            </div>
+                                            
+                                      </div>
+                                    </div>
+                                </div>
+                                
+<!--                                <div class="tab-pane" id="estado-compras">
+                                    <p>Estado de tu compra</p>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            estado de compras....
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+-->
+                                <div class="tab-pane" id="como-comprar">
+                                    <h3 class="hidden-xs">¿Cómo comprar en Delibouquet?</h3>
+                                    <div class="panel">
+                                        <div class="">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-2 col-sm-3 col-md-3">
+                                                          <img src="img/1.png" class="img-responsive">
+                                                        </div>
+                                                        <div class="col-xs-10 col-sm-9 col-md-9 subtitulo-paso-compra">
+                                                          Paso
+                                                        </div>
+                                                    </div>
+                                                    <div class="thumbnail">
+                                                      <div class="caption">
+                                                          <p>BUSCA TU PRODUCTO Y AGREGALO A TU CARRO DE COMPRAS</p>
+                                                          <p>Agregar todos los productos que quieras e inicia el proceso de compras.</p>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-2 col-sm-3 col-md-3">
+                                                          <img src="img/2.png" class="img-responsive">
+                                                        </div>
+                                                        <div class="col-xs-10 col-sm-9 col-md-9 subtitulo-paso-compra">
+                                                          Paso
+                                                        </div>
+                                                    </div>
+                                                    <div class="thumbnail">
+                                                      <div class="caption">
+                                                          <p>PROGRAMA TU ENVÍO</p>
+                                                          <p>Selecciona la dirección y fecha en la que quieres recibir tu compra.</p>
+                                                          <p>&nbsp;</p>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-2 col-sm-3 col-md-3">
+                                                          <img src="img/3.png" class="img-responsive">
+                                                        </div>
+                                                        <div class="col-xs-10 col-sm-9 col-md-9 subtitulo-paso-compra">
+                                                          Paso
+                                                        </div>
+                                                    </div>
+                                                    <div class="thumbnail">
+                                                      <div class="caption">
+                                                          <p>REALIZAR EL PAGO</p>
+                                                          <p>Ingresa tu número de tarjeta.</p>
+                                                          <p>&nbsp;</p>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-2 col-sm-3 col-md-3">
+                                                          <img src="img/4.png" class="img-responsive">
+                                                        </div>
+                                                        <div class="col-xs-10 col-sm-9 col-md-9 subtitulo-paso-compra">
+                                                          Paso
+                                                        </div>
+                                                    </div>
+                                                    <div class="thumbnail">
+                                                      <div class="caption">
+                                                          <p>RESUMEN Y PAGO DE COMPRA</p>
+                                                          <p>Revise que la información que ingresaste este correcta y finaliza el proceso de compra.</p>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+			</div>
+	  
+		</div>
+	</div>
+
+</div>

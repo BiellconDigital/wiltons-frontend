@@ -1,0 +1,264 @@
+<div class="container productos" ng-controller="CarroConfirmacionController">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10 hidden-print">
+            <p class="bg-info">Su Orden de Compra ha sido procesada.</p>
+            <a href="" onclick="window.print();return false;"
+                class="btn btn-primary" style="margin-bottom: 6px;">
+                <span class="glyphicon glyphicon-print"></span>
+                imprimir
+            </a>
+        </div>
+
+        <div class="col-md-offset-1 col-md-10 visible-print text-right">
+            <img src="img/logotipo.png" height="60"/>
+        </div>
+
+          <div class="col-md-offset-1 col-md-10">
+            <div class="thumbnail">
+              <div class="caption">
+                  <h3>Orden de Compra</h3>
+
+
+
+                  <div class="row hidden-print">
+                    <div class="col-sm-5 col-md-4">
+                        <p>Número de Compra:</p>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <p><b>{{pedido.head[0].idOrden}}&nbsp;</b></p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Tipo de Pago:</p>
+                    </div>
+                    <div class="col-sm-7 col-md-8">
+                        <p><b>{{pedido.head.tipoPagoDescripcion}}&nbsp;</b></p>
+                    </div>
+
+                    <div class="col-sm-5 col-md-4">
+                        <p>RUC/Doc Cliente:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedido.head[0].rucCliente}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Nombre o R. Social:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedido.head[0].razonSocial}}&nbsp;</p>
+                    </div>
+
+                    <div class="col-sm-5 col-md-4">
+                        <p>Fecha de entrega:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedido.head[0].fechaEnvio.date | date : "d-m-Y"}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Dirección envio:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedido.head[0].direccionEnvio}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Estado de compra:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p><b>{{pedido.head[0].ordenEstado.languages[0].nombre}}&nbsp;</b></p>
+                    </div>
+                </div>
+
+                <div ng-show="pedido.head[0].tipoPago == 3" class="row hidden-print">
+                    <div class="col-md-12">
+                        <h4>Datos desde VISA</h4>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Respuesta:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.estado}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Acción:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.msj_accion_cliente}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Emisor:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.nom_emisor}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Titular:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.nombre_th}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Nro. Cuenta:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.pan}}&nbsp;</p>
+                    </div>
+                    <div class="col-sm-5 col-md-4">
+                        <p>Fecha y Hora:</p>
+                    </div> 
+                    <div class="col-sm-7 col-md-8">
+                        <p>{{pedidoVisa.fechayhora_tx}}&nbsp;</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <table class="visible-print">
+                    <tr >
+                        <td>Número de Compra:</td>
+                        <td><b>{{pedido.head[0].idOrden}}&nbsp;</b></td>
+                    </tr>
+                    <tr >
+                        <td>Tipo de Pago:</td>
+                        <td><b>{{pedido.head.tipoPagoDescripcion}}&nbsp;</b></td>
+                    </tr>
+
+                    <tr >
+                        <td>RUC/Doc Cliente:</td>
+                        <td>{{pedido.head[0].rucCliente}}&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre o R. Social:</td>
+                        <td>{{pedido.head[0].razonSocial}}&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fecha de entrega:</td>
+                        <td>{{pedido.head[0].fechaEnvio.date | date : "d-m-Y"}}&nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td>Dirección envio:</td>
+                        <td>{{pedido.head[0].direccionEnvio}}&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Estado de compra:</td>
+                        <td><b>{{pedido.head[0].ordenEstado.languages[0].nombre}}&nbsp;</b></td>
+                    </tr>
+                </table>
+
+                <table ng-show="pedido.head[0].tipoPago == 3" class="visible-print">
+                    <tr>
+                        <td colspan="2"><h4>Datos desde VISA</h4></td>
+                    </tr>
+                    <tr>
+                        <td>Respuesta:</td>
+                        <td>{{pedidoVisa.estado}}&nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td>Acción:</td>
+                        <td>{{pedidoVisa.msj_accion_cliente}}&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Emisor:</td>
+                        <td>{{pedidoVisa.nom_emisor}}&nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td>Titular:</td>
+                        <td>{{pedidoVisa.nombre_th}}&nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td>Nro. Cuenta:</td>
+                        <td>{{pedidoVisa.pan}}&nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td>Fecha y Hora:</td>
+                        <td>{{pedidoVisa.fechayhora_tx}}&nbsp;</td>
+                    </tr>
+                </table>
+
+
+
+
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr class="well">
+                              <th class="text-center">Descripción del producto</th>
+                              <th class="text-center hidden-xs">Precio</th>
+                              <th class="text-center hidden-xs">Cantidad</th>
+                              <th class="text-center">Sub-total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in pedido.detalle | orderBy:'productoNombre'" class="fondo-blanco">
+                                <td width="30%" class="hidden-xs">
+                                    <p>{{item.productoNombre}}</p>
+                                </td>
+
+                                <td width="40%" class="visible-xs">
+                                    <p>{{item.productoNombre}}</p>
+                                    <table class="table table-responsive table-bordered">
+                                        <tr><td>Precio</td><td>Cantidad</td></tr>
+                                        <tr>
+                                            <td class="text-right">
+                                                {{item.precioUnitario | currency:'S/.'}}
+                                            </td>
+                                            <td class="text-right">
+                                                {{item.cantidad}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td width="12%" class="hidden-xs text-right">
+                                    {{item.precioUnitario | currency:'S/.'}}
+                                </td>
+                                <td width="12%" class="hidden-xs text-right">
+                                    {{item.cantidad}}
+                                </td>
+                                <td width="14%" class="text-right">
+                                    {{item.precioTotal | currency:'S/.'}}
+                                </td>
+                            </tr>
+
+                            <tr class="well hidden-xs">
+                                <td colspan="2"></td>
+                                <td>Sub-total</td>
+                                <td class="text-right">{{pedido.head[0].moneda.signo}} {{pedido.head[0].totalFinal | currency:''}}</td>
+                            </tr>
+                            <tr class="hidden-xs">
+                                <td colspan="2"></td>
+                                <td class="well">Delivery</td>
+                                <td class="text-right well">{{pedido.head[0].moneda.signo}} {{pedido.head[0].costoEnvio | currency:''}}</td>
+                            </tr>
+                            <tr class="hidden-xs">
+                                <td colspan="2"></td>
+                                <td class="well">Total</td>
+                                <td class="text-right well">{{pedido.head[0].moneda.signo}} {{pedido.head[0].totalFinal + pedido.head[0].costoEnvio | currency:''}}</td>
+                            </tr>
+
+
+                            <tr class="well visible-xs">
+                                <td >Sub-total</td>
+                                <td class="text-right">{{pedido.head[0].moneda.signo}} {{pedido.head[0].totalFinal | currency:''}}</td>
+                            </tr>
+                            <tr class="visible-xs">
+                                <td  class="well">Delivery</td>
+                                <td class="text-right well">{{pedido.head[0].moneda.signo}} {{pedido.head[0].costoEnvio | currency:''}}</td>
+                            </tr>
+                            <tr  class="visible-xs">
+                                <td class="well">Total</td>
+                                <td class="text-right well">{{pedido.head[0].moneda.signo}} {{pedido.head[0].totalFinal + pedido.head[0].costoEnvio | currency:''}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                                
+              </div>
+            </div>
+          </div>
+
+    </div>
+    <br/><br/>
+</div>
+

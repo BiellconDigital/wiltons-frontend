@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta property="og:image" content="http://www.delibouquet.pe/cart/img/logotipo.png" />
+        <title>Delibouquet</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script>document.write('<base href="' + document.location + '" />');</script>
+      
+        <link rel="stylesheet" href="css/intro.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/menu-nav.css">
+        <link rel="stylesheet" href="css/sticky.css">
+        <link rel="stylesheet" href="css/carousel.css">
+        <link rel="stylesheet" href="css/app.css">
+        
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+        <script src="lib/respond/respond.min.js"></script>
+      <![endif]-->
+
+    <!--Modernizr 3.0-->
+    <script src="lib/modernizr/modernizr.js"></script>
+    
+        <script src="lib/jquery-2.0.3.min.js"></script>
+        <script src="lib/jquery.sidr.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="lib/jquery.backstretch.min.js"></script>
+        <script src="lib/jquery.bootstrap.wizard.min.js"></script>
+    </head>
+    <body data-ng-controller="InitController" data-ng-cloak>
+
+
+        <!-- MENU DERECHA PARA MOVILES -->
+        <div class="layerOpacity">
+            <div class="lista">
+                <ul>
+                    <li class="first">
+                        Bienvenido! &nbsp;
+                        <a ui-sref="anon.registrarse" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/registrarse')}" ng-click="selectMenu('/registrarse')"><span class="name-user">{{user.username}}&nbsp;</span></a>
+                        <a ui-sref="user.perfil" data-access-level='accessLevels.user' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/perfil')}" ng-click="selectMenu('/perfil')"><span class="name-user">{{user.username}}&nbsp;</span></a>
+                                
+                    </li>
+                    <li>
+                        <a ui-sref="anon.login" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/login')}" ng-click="selectMenu('/login')">Iniciar sesión</a>
+                        <a href="" data-ng-click="logout()" data-access-level='accessLevels.user' ui-sref-active="active">Cerrar sesión</a>
+                    </li>
+                    <li>
+                        <form ng-submit="buscarProductos()">
+                            <input ng-model="textSearch" placeholder="Delibouquet"/>
+                        </form>
+                    </li>
+                    <li>
+                        <a class="carrito-logo" ng-click="showCart()">
+                            <img src="img/carro-de-compra-mobil.png">  {{cart.getTotalCount()}} &nbsp; Producto(s)
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank"
+                            href="https://www.facebook.com/Delibouquet">
+                        <img src="img/facebook3.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a onclick="manageOverlay();"><img class="minus" src="img/cabecera-menos-mobil.png" ></a>
+        </div>
+
+        <!-- MENU IZQUIERDA PARA MOVILES -->
+        <div id="sidr" class="nav-mobile" >   
+          <ul>
+            <li ng-class="{'active' : isActiveMenu('/')}">
+                <a ui-sref="public.home" ng-click="selectMenu('/')" onclick="toggleMenu();">Inicio</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/delibouquet')}">
+                <a ui-sref="public.delibouquet" ng-click="selectMenu('/delibouquet')" onclick="toggleMenu();">Delibouquet</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/arreglos/')}">
+                <a ui-sref="public.arreglos" ng-click="selectMenu('/arreglos/')" onclick="toggleMenu();">Arreglos</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/pedidos')}">
+                <a ui-sref="user.pedidos" ng-click="selectMenu('/pedidos')" onclick="toggleMenu();">Pedidos</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/contacto')}">
+                <a ui-sref="public.contacto" ng-click="selectMenu('/contacto')" onclick="toggleMenu();">Contacto</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/politicas')}">
+                <a ui-sref="public.politicas" ng-click="selectMenu('/politicas')" onclick="toggleMenu();">Políticas</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/delivery')}">
+                <a ui-sref="public.delivery" ng-click="selectMenu('/delivery')" onclick="toggleMenu();">Delivery</a>
+            </li>
+            <li ng-class="{'active' : isActiveMenu('/formas_pago')}">
+                <a ui-sref="public.formas_pago" ng-click="selectMenu('/formas_pago')" onclick="toggleMenu();">Formas de pago</a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="container">
+            <div class="wrapper">
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Cargando</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Cargando, espere un momento por favor...</p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                
+                <a id="simple-menu" href="#sidr" class="simple-menu" onclick="clickEvent();">
+                    <img src="img/barras_mobil.png">
+                </a>
+
+                <a class="overlay-menu" onclick="manageOverlay();">
+                    <img src="img/cabecera-mas-mobil.png">
+                </a>
+             
+                <div id="sidr" class="nav-mobile" >   
+                  <ul>
+                    <li><a ui-sref="public.home" onclick="toggleMenu();">Inicio</a></li>
+                    <li ><a ui-sref="public.delibouquet" onclick="toggleMenu();">Delibouquet</a></li>
+                    <li ><a ui-sref="public.arreglos" onclick="toggleMenu();">Arreglos</a></li>
+                    <li><a ui-sref="user.pedidos" onclick="toggleMenu();">Pedidos</a></li>
+                    <li><a ui-sref="public.contacto" onclick="toggleMenu();">Contacto</a></li>
+                  </ul>
+                </div>
+
+                <nav id="nav-prin" class="hidden-print">
+                    <div class="info-head">
+                        <div class="logo-fb">
+                        <a target="_blank"
+                            href="https://www.facebook.com/Delibouquet">
+
+                            <div class="logo-fb-img" ></div>
+                        </a>
+                        </div>
+                        
+                        <div class="logo-pint">
+                        <a target="_blank"
+                            href="http://www.pinterest.com/delibouquet">
+
+                            <div class="logo-pint-img" ></div>
+                        </a>
+                        </div>
+                        
+                        <div class="text-delivery">
+                            Delívery
+                        </div>
+                        <img src="img/icono-delivery.png" class="logo-delivery">
+                        <div class="nro-delivery">
+                            (511) 421-5996
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <ul class="menuDerecha">
+                            <li><a ui-sref="public.delibouquet" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
+                                    Delibouquet
+                            </a></li>
+                            <li><a ui-sref="public.arreglos" ng-class="{'color-active' : isActiveMenu('/arreglos/')}" ng-click="selectMenu('/arreglos/')">
+                                    Arreglos
+                            </a></li>
+                        </ul>
+                        <ul class="menuIzquierda">
+                            <li><a ui-sref="user.pedidos" ng-class="{'color-active' : isActiveMenu('/pedidos')}" ng-click="selectMenu('/pedidos')">Pedidos</a></li>
+                            <li><a ui-sref="public.contacto" ng-class="{'color-active' : isActiveMenu('/contacto')}" ng-click="selectMenu('/contacto')">Contacto</a></li>
+                        </ul>   
+                    </div>          
+                    <div class="carrito-header">
+                        <div class="carrito-header-cont">
+                            <div class="text-login">
+                                Bienvenido! 
+                                <a ui-sref="anon.registrarse" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/registrarse')}" ng-click="selectMenu('/registrarse')"><span class="name-user">{{user.username}}&nbsp;</span></a>
+                                <a ui-sref="user.perfil" data-access-level='accessLevels.user' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/perfil')}" ng-click="selectMenu('/perfil')"><span class="name-user">{{user.username}}&nbsp;</span></a>
+                                
+                                <a ui-sref="anon.login" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/login')}" ng-click="selectMenu('/login')">iniciar sesión</a>
+                                <a href="" data-ng-click="logout()" data-access-level='accessLevels.user' ui-sref-active="active">cerrar sesión</a>
+                            </div>
+                            <div class="carrito-logo" ng-click="showCart()">
+                                {{cart.getTotalCount()}}
+                            </div>
+                            
+                            <form ng-submit="buscarProductos()">
+                                <input ng-model="textSearch"/>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <header id="header" class="hidden-print">
+                    <div class="logo">
+                        <a ui-sref="public.home" ng-class="{'color-active' : isActiveMenu('/')}" ng-click="selectMenu('/')"
+                            >
+                            <img src="img/logotipo.png" />      
+                        </a>
+                    </div>
+                    <div class="spacer"></div>
+                </header>
+                
+                <section class="content">
+                    <div data-ui-view id="id_content_view"></div>
+                </section>
+            </div>
+           <footer id="footer" class="hidden-print">
+                        <p>
+                            <a href="http://www.visanet.com.pe" target="_blank">
+                                <img ng-src="img/visaMedianoBlanco.png" height="20" alt="Esta tienda está autorizada por Visa para realizar transacciones electrónicas.">
+                            </a>
+                        </p>
+               
+                        <h3>
+                            Powered by 3.0 Consulting Group
+                        </h3>
+                        <div class="footer-content hidden-xs">
+                                <a class="links linea-separacion" ui-sref="public.politicas" ng-class="{'text-bold' : isActiveMenu('/politicas')}" ng-click="selectMenu('/politicas')">Políticas</a> &nbsp; | &nbsp;
+                                <a class="links linea-separacion" ui-sref="public.delivery" ng-class="{'text-bold' : isActiveMenu('/delivery')}" ng-click="selectMenu('/delivery')">Delivery</a> &nbsp; | &nbsp;
+                                <a class="links" ui-sref="public.formas_pago" ng-class="{'text-bold' : isActiveMenu('/formas_pago')}" ng-click="selectMenu('/formas_pago')">Formas de pago</a>
+                        </div>
+            </footer>
+        </div>
+        <div id="alertBox" class="alert alert-danger" data-ng-show="error">
+            <button type="button" class="close" data-ng-click="error = null;">&times;</button>
+            <span data-ng-bind="error"></span>
+        </div>
+    
+    </body>
+    
+    <script type="text/javascript">
+        var menuOpened=false;
+        var overlayActive=false;
+        $(document).ready(function() {
+          $('#simple-menu').sidr();      
+        });
+
+        $( window ).resize(function() {
+            //console.log("resize...")
+          if(menuOpened){
+            console.log("toogleando...")
+            //toggleMenu();
+            menuOpened=false;   
+          }
+          if(overlayActive){
+              if($( window ).width()>767){
+                $('.layerOpacity').hide();
+                overlayActive=false;
+              }
+          } 
+        });
+
+        function toggleMenu(){
+            $.sidr('close', 'sidr');    
+        }
+
+        function clickEvent(){
+            menuOpened=!menuOpened;
+        }
+
+        function manageOverlay(){
+            if(!overlayActive)
+                $('.layerOpacity').show();
+            else
+                $('.layerOpacity').hide();
+            overlayActive=!overlayActive;
+        }       
+        
+    </script>
+
+      <!-- In production use:
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+      -->
+      <script src="lib/underscore-min.js"></script>
+      <script src="lib/angular/angular.js"></script>
+      <script src="lib/angular/angular-sanitize.min.js"></script>
+      <!-- <script src="lib/angular/angular-route.js"></script> -->
+      <script src="lib/angular/angular-cookies.min.js"></script>
+      <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+      <script src="lib/angular-easyfb.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+
+      <script src="lib/q.min.js"></script>
+        
+    <!-- Load custom scripts via RequireJS -->
+    <script src="lib/require.js" data-main="js/main"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    
+</html>

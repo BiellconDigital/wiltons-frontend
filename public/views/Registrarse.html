@@ -1,0 +1,107 @@
+<div class="layerFondo contenido" id='contenido' ng-controller="RegistrarseController">
+    
+  <h3>Registro de Usuario</h3>
+  <hr/>
+  <div class="container">
+    <div class="row infoUsuario">
+
+      <div class="panel panel-default col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+          <div class="panel-body">
+              <form class="form-horizontal" role="form" name="editUserForm">
+                <div class="form-group">
+                  <label for="email" class="col-sm-1 col-md-1 control-label text-left">Email:</label>
+                  <div class="col-sm-4 col-md-4">
+                      <input required type="email" class="form-control input-sm" name="email" placeholder="email" ng-model="user.email">
+                  </div>
+                  <label for="emailConfir" class="col-sm-3 col-md-3 control-label text-left">Confirmar email:</label>
+                  <div class="col-sm-4 col-md-4">
+                      <input type="email" class="form-control input-sm" id="emailConfir" placeholder="confirmar email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nombre" class="col-sm-4 col-md-2 control-label text-left">Nombre:</label>
+                  <div class="col-sm-4 col-md-4">
+                      <input required type="text" class="form-control input-sm" id="nombre" 
+                             ng-model="user.nombres" placeholder="nombres">
+                  </div>
+                  <div class="col-sm-4 col-md-3">
+                      <input required type="text" class="form-control input-sm" id="nombre" 
+                             ng-model="user.apellidoPaterno" placeholder="ap. paterno">
+                  </div>
+                  <div class="col-sm-4 col-md-3">
+                      <input required type="text" class="form-control input-sm" id="nombre" 
+                             ng-model="user.apellidoMaterno" placeholder="ap. materno">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tipoDocumento" class="col-sm-4 col-md-4 control-label text-left">
+                      Documento Identidad*:
+                  </label>
+                  <div class="col-sm-4 col-md-4">
+                      <select required class="form-control input-sm"
+                               ng-options="tipoDocumento as tipoDocumento.descripcionTdoc for tipoDocumento in tipoDocumentos" 
+                               ng-model="user.tipoDocumento">
+                      </select>
+                      <!--<input type="text" class="form-control input-sm" ng-model="orden.distrito">-->
+                  </div>
+                  <div class="col-sm-4 col-md-4">
+                      <input required type="text" class="form-control input-sm" id="nroDocumento" 
+                             ng-model="user.nroDocumento" placeholder="número">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="fechaNacimiento" class="col-sm-4 col-md-4 control-label text-left">Fecha de nacimiento:</label>
+                  <div class="col-sm-8 col-md-4">
+                      <input required type="date" class="form-control input-sm" name="fechaNacimiento"
+                             ng-model="user.fechaNacimiento">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ciudad" class="col-sm-4 col-md-4 control-label text-left">Ciudad:</label>
+                  <div class="col-sm-8 col-md-8">
+                      <input required type="text" class="form-control input-sm" name="ciudad"
+                             ng-model="user.ciudad">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="direccion" class="col-sm-4 col-md-4 control-label text-left">Dirección:</label>
+                  <div class="col-sm-8 col-md-8">
+                      <input required type="text" class="form-control input-sm" name="direccion"
+                             ng-model="user.direccion">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="telefono" class="col-sm-4 col-md-4 control-label text-left">Teléfono de casa:</label>
+                  <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control input-sm" id="telefono"
+                             ng-model="user.telefonoCasa">
+                  </div>
+                  <div class="col-sm-4 col-md-4">
+                       (cod área - número)
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="celular" class="col-sm-4 col-md-4 control-label text-left">Celular:</label>
+                  <div class="col-sm-4 col-md-4">
+                      <input type="text" class="form-control input-sm" id="celular"
+                             ng-model="user.movil">
+                  </div>
+                  <div class="col-sm-4 col-md-4">
+                       (sólo va numero)
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-8 col-sm-4">
+                      <button type="submit" class="btn btn-block" ng-click="guardarUsuario()"
+                            ng-disabled="!editUserForm.$valid">Guardar</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+      </div>
+
+
+    </div>
+  </div>  
+</div>  

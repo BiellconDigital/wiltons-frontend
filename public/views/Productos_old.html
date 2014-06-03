@@ -1,0 +1,18 @@
+<div ng-controller="ProductosController">
+    
+    <h1 class="page-header">Lista de Productos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="25px">#ID</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="e in productos">
+                <td>{{e.id}}</td>
+                <td><a href="#/album/{{e.id}}">{{e.nombre}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

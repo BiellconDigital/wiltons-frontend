@@ -1,0 +1,163 @@
+marron = #7d6350
+
+@font-face {
+	font-family: 'Heldustry';
+	font-style: normal;
+	font-weight: normal;
+	src:url('../fonts/HeldustryFT_Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mangal';
+	font-style: normal;
+	font-weight: normal;
+	src:url('../fonts/mangal.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'mangalb';
+	font-style: normal;
+	font-weight: normal;
+	src:url('../fonts/mangalb.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Pacifico';
+	font-style: normal;
+	font-weight: normal;
+	src:url('../fonts/Pacifico.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Remachine';
+	font-style: normal;
+	font-weight: normal;
+	src:url('../fonts/RemachineScript.ttf') format('truetype');
+}
+
+body
+	position absolute
+	top 0
+	bottom 0 
+	right 0 
+	left 0
+
+.layerOpacity
+	background-image url(../img/registro_fondo.jpg)
+	background-size 100% 100%
+	color white
+	font-family 'Heldustry'
+	height 100%
+	width 100%
+	z-index 990
+	font-size 1.2em
+	vertical-align center	
+	text-decoration none
+	zoom 1
+	
+	.info
+		position relative
+		width 50%
+		left 27%
+		top 17%
+		.buttons
+			text-align center
+			margin-top 2em
+			margin-bottom 2em
+			text-decoration none
+			color white			
+			.registro
+			.saltar
+				display inline-block
+				border solid white 0.1em
+				text-align center
+				font-size 0.8em
+				padding 0.5em
+				a
+					padding 0
+					&:link
+					&:hover
+					&:visited
+					&:active
+						color white
+						text-decoration none
+			.registro
+				margin-right 4em
+
+
+		.logo
+			width 100%
+			margin-bottom 1.5em
+			text-align center
+			img 
+				width 260px
+		.text
+		.footer
+			text-align center
+		.footer
+			font-size 1.2em
+			font-family 'Pacifico'
+			text-shadow: 2px 2px black;
+		.text 
+			font-size 0.8em
+
+			
+
+@media screen and (max-width:389px ) 
+	.layerOpacity
+		background-size 200% 100%
+		.info
+			width 100%
+			left 0%
+			.logo
+				img
+					width 200px	
+			.text
+				font-size 0.6em
+			.buttons
+				font-size 0.7em
+				.registro
+					margin-right 1em
+			.footer
+				font-size 0.6em
+
+@media screen and (max-width:500px ) and (min-width:390px ) 
+	.layerOpacity
+		background-size 200% 100%
+		.info
+			width 100%
+			left 0%
+			.texto
+				font-size 0.2em
+			.buttons
+				font-size 0.8em
+				.registro
+					margin-right 1em
+			.footer
+				font-size 0.8em
+
+
+@media screen and (max-width:571px ) and (min-width:501px ) 
+	.layerOpacity
+		background-size 200% 100%
+		.info
+			left 27%			
+			.buttons
+				font-size 0.8em
+				.registro
+					margin-right 2em
+			.footer
+				
+				font-size 1em
+
+
+@media screen and (max-width:639px ) and (min-width:572px ) 
+	.layerOpacity
+		.info
+			left 27%
+		
+
+@media screen and (min-width:767px )
+	.layerOpacity
+		.info
+			left 27%

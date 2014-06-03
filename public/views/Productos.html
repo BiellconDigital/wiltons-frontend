@@ -1,0 +1,98 @@
+<div class="container productos" ng-controller="ProductosController">
+
+  <div class="row subcontenido">
+
+    <div class="col-sm-6 col-md-3">
+
+      <ul class="nav nav-pills nav-stacked hidden-xs categoria-lista">
+        <li ng-repeat="cate in categorias_producto" 
+            ng-class="{'active' : isActiveCate(cate)}">
+          <a href="javascript:void(0)" ng-click="loadProductos(cate)" >
+              <div class="pull-right" 
+                ng-class="{'icono-triangulo' : isActiveCate(cate)}">&nbsp;</div>
+            {{cate.descripcion}}
+          </a>
+        </li>
+      </ul>
+
+      <div class="visible-xs" id="select-categoria">
+        <select class="form-control"
+                ng-options="cate2 as cate2.descripcion for cate2 in categorias_producto" 
+                ng-model="selectedCate" ng-change="loadProductos(selectedCate);isActiveCate(selectedCate)">
+         </select>
+
+        <br/>
+      </div>
+
+    </div>
+
+    <div class="col-sm-6 col-md-9">
+      <div class="row">
+
+          <div ng-if="categoriaSelec == null"
+              class="col-sm-12 col-md-12 text-center titulo-bar">
+            Todos
+          </div>
+          <div ng-if="categoriaSelec != null"
+              class="col-sm-12 col-md-12 text-center titulo-bar">
+            {{categoriaSelec.descripcion}}
+          </div>
+
+
+          <div class="col-sm-12 col-md-4" ng-repeat="p in productos" id="item-producto">
+            <div class="thumbnail sin-fondo sin-borde">
+                <img fallback-src="img/sin-imagen.png"
+                  ng-src="/web/m_cart/files/producto/{{p.imagen}}" 
+                  alt="img1" width="179" height="179" class="img-circle">
+              <div class="caption">
+                <h4 class="text-center">{{p.nombre_producto}}</h4>
+                
+                <p ng-if="p.precio1 <= 0 || p.precio2 <= 0" class="precio">
+                    {{p.precio | currency:'S/.'}}
+                </p>
+
+                <div ng-if="isNumber(p.precio1) && isNumber(p.precio2) && p.precio1 > 0 && p.precio2 > 0" ng-init="p.precio = 0"
+                     class="select-precio">
+                    <select class="form-control input-sm btn-primary" 
+                    ng-init="precio=p.precio1;changePrecio(p, precio);"
+
+                    ng-model="precio" ng-change="changePrecio(p, precio)">
+                      <option ng-value="p.precio1"
+                        ng-selected="true">
+                        Chocolate Lindt - {{p.precio1 | currency:'S/.'}}
+                      </option>
+                      <option ng-value="p.precio2">
+                        Chocolate Montblanc - {{p.precio2 | currency:'S/.'}}
+                      </option>
+                    </select>
+                </div>
+                
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td>
+                      <a href="#/detalle-producto/{{p.idproducto}}" role="button"><small>Ver detalle</small></a> 
+                    </td>
+                    <td class="text-right">
+                      <a class="btn btn-sm btn-block btn-agregar" role="button"
+                         ng-click="agregarProducto(p.idproducto, p.nombre_producto, p.imagen, p.precio, 1)"
+                         ng-disabled="p.precio <= 0">
+                          + Agregar a carro
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+        
+      </div>
+
+    </div>
+
+  </div>
+  <br/><br/>
+
+
+</div>
+

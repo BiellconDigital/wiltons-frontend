@@ -1,0 +1,263 @@
+<link rel="image_src" type="image/png" href="http://www.delibouquet.pe/cart/img/logotipo.png" />
+<div class="container productos" ng-controller="ProductoDetalleController">
+
+  <div class="row subcontenido">
+
+    <div class="col-xs-12 col-sm-12 col-md-3">
+
+      <ul class="nav nav-pills nav-stacked hidden-xs categoria-lista">
+        <li ng-repeat="cate in categorias_producto" 
+             ng-class="{'active' : isActiveCate(cate)}">
+          <a href="#/arreglos/{{cate.idcontcate}}">
+              <div class="pull-right" 
+                ng-class="{'icono-triangulo' : isActiveCate(cate)}">&nbsp;</div>
+            {{cate.descripcion}}
+          </a>
+          <ul class="nav nav-pills nav-stacked subcategoria-lista"
+              ng-if="isActiveCate(cate)">
+            <li ng-repeat="prod in productos" class="fondo-cian"
+                ng-class="{'color-active' : isActiveProd(prod.idproducto)}">
+              <a href="#/detalle-producto/{{prod.idproducto}}"  class="fondo-cian"
+                ng-class="{'color-active' : isActiveProd(prod.idproducto)}">
+                  <div class="pull-right"
+                    ng-class="{'icono-triangulo-rojo' : isActiveProd(prod.idproducto)}">&nbsp;</div>
+                {{prod.nombre_producto}}
+              </a>
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+
+      <div class="visible-xs" id="select-categoria">
+        <select class="form-control"
+                ng-options="cate2 as cate2.descripcion for cate2 in categorias_producto" 
+                ng-model="selectedCate" ng-change="loadCategoria(selectedCate.idcontcate);">
+         </select>
+
+        <br/>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-9">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-5 center-block" style="padding: 0 10px;">
+                <div class="row">
+                  <div class="col-sm-3 col-md-2 center-block flechas-carrusel">
+                      <a href="#carousel-producto" data-slide="prev">
+                          <div class="flecha-izquierda"></div>
+                      </a>
+                  </div>
+                  <div class="col-sm-6 col-md-8" >
+                      
+                    <div id="carousel-producto" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <img fallback-src="img/sin-imagen.png"
+                                ng-src="/web/m_cart/files/producto/{{producto.imagen}}" rel="image_src"
+                                class="item active img-circle img-responsive"
+                                style="height: 190px;padding: 0;margin: 0;">
+                            
+                                <img ng-repeat="gale in productoGaleria"
+                                    fallback-src="img/sin-imagen.png"
+                                  ng-src="/web/m_cart/files/producto/galeria/{{gale.imagenGale}}"
+                                  class="item img-circle img-responsive" align='center'
+                                              style="height: 190px;padding: 0;margin: 0;">
+
+                        </div>
+
+                      </div>
+                  </div>
+                  <div class="col-sm-3 col-md-2 center-block flechas-carrusel">
+                      <a href="#carousel-producto" data-slide="next">
+                          <div class="flecha-derecha"></div>
+                      </a>
+                  </div>
+                    
+                <!-- Indicators -->
+                  <div class="col-md-12 hidden-xs">
+                    <br/><br/>
+                    <div class="row">
+                      <div data-target="#carousel-producto" data-slide-to="0" style="cursor: pointer;"
+                          class="active col-sm-6 col-md-4">
+                            <img fallback-src="img/sin-imagen.png"
+                              ng-src="/web/m_cart/files/producto/{{producto.imagen}}" 
+                              class="img-circle img-responsive">
+                      </div>
+                      <div ng-repeat="gale in productoGaleria" id="item-producto"  style="cursor: pointer;"
+                          data-target="#carousel-producto" data-slide-to="{{$index + 1}}"
+                          class="col-sm-6 col-md-4">
+                            <img fallback-src="img/sin-imagen.png"
+                              ng-src="/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}"
+                              class="img-circle img-responsive">
+                      </div>
+
+                    </div>
+
+                </div>
+                    
+                  <div class="col-md-12 center-block hidden-xs">
+                      <br/><br/>
+                      <div class="row">
+                        <div class="col-sm-6 col-md-4" ng-repeat="gale in productoGaleria" id="item-producto">
+                              <img fallback-src="img/sin-imagen.png"
+                                ng-src="/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}" 
+                                class="img-circle img-responsive">
+                        </div>
+                      </div>
+                          
+                  </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                
+                <div class="row" id="resumen-producto">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <h3 id="nombre-producto">{{producto.nombre_producto}}</h3>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-2 label-resumen-prod">
+                        <p>Código:</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-10 text-resumen-prod">
+                        <p>{{producto.codigoProducto}}</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-2 label-resumen-prod">
+                        <p>Precio:</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-10 text-resumen-prod">
+                        <p>{{producto.precio | currency:'S/.'}}</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-2 label-resumen-prod">
+                        <p>Stock:</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 text-resumen-prod">
+                        <p>{{producto.cantidad}} unidades</p>
+                    </div>
+                    
+                    <div class="col-xs-6 label-resumen-prod visible-xs">
+                        <p>Cantidad</p>
+                    </div>
+                    <div class="col-xs-6 text-resumen-prod visible-xs">
+                        <p><input type="number" id="inputCantidad" class="form-control input-sm" ng-model="cantidadP" /></p>
+                    </div>
+                    
+                    <div class="col-xs-6 label-resumen-prod visible-xs">
+                        <p>Escoge tu chocolate</p>
+                    </div>
+                    <div class="col-xs-6 text-resumen-prod visible-xs">
+                        <div ng-if="producto.precio1 > 0 && producto.precio2 > 0" class="form-group">
+                            <select class="form-control input-sm" 
+                            ng-init="precio=producto.precio1;changePrecio(precio);"
+                            ng-model="precio" 
+                            ng-change="changePrecio(precio)">
+                              <option ng-value="producto.precio1"
+                                ng-selected="true">
+                                Chocolate Lindt - {{producto.precio1 | currency:'S/.'}}
+                              </option>
+                              <option ng-value="producto.precio2">
+                                Chocolate Montblanc - {{producto.precio2 | currency:'S/.'}}
+                              </option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-3 col-md-7 text-resumen-prod hidden-xs">
+                        <div class="fb-like" ng-style="{width: '200px'}" data-href="{{ pageUrl }}" data-width="200" data-show-faces="false" data-send="false"></div>
+                    </div>
+
+                </div>
+                <br/>
+                <div class="thumbnail">
+                  <div class="caption">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 hidden-xs">
+                            <form class="form-horizontal" role="form" >
+                                <div class="form-group">
+                                    <label for="inputCantidad" class="col-xs-4 col-sm-4 control-label small">Cantidad </label>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <input type="number" id="inputCantidad" class="form-control input-sm" ng-model="cantidadP" />
+                                    </div>
+                                </div>
+                                <div ng-if="producto.precio1 > 0 && producto.precio2 > 0" class="form-group">
+                                    <label for="inputPrecio" class="col-xs-4 col-sm-4 control-label small">Escoge tu chocolate </label>
+                                    <div class="col-xs-4 col-sm-8 col-md-8">
+                                        <select class="form-control input-sm" 
+                                        ng-model="precio" 
+                                        ng-init="precio=producto.precio1;changePrecio(precio);"
+                                        ng-change="changePrecio(precio)">
+                                        <option ng-value="producto.precio1"
+                                        ng-selected="true">
+                                          Chocolate Lindt - {{producto.precio1 | currency:'S/.'}}
+                                        </option>
+                                        <option ng-value="producto.precio2">
+                                          Chocolate Montblanc - {{producto.precio2 | currency:'S/.'}}
+                                        </option>
+                                      </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-12 col-md-5">
+                            <p>
+                                <a href="" class="btn btn-sm btn-block" role="button"
+                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP); showCart()"
+                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 || producto.precio <= 0"
+                                   ng-model="btnComprar">
+                                    Comprar
+                                </a>
+                            </p>
+                            <p>
+                                <a href="" class="btn btn-sm btn-block" role="button"
+                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP)"
+                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 ||  producto.precio <= 0"
+                                   ng-model="btnSeguirComprando">
+                                    Seguir comprando
+                                </a>
+                            </p>
+                            <p>
+                                <a href="#/arreglos" class="btn btn-sm btn-block" role="button">Atrás</a>
+                            </p>
+                        </div>
+                    </div>
+                      
+                  </div>
+                </div>
+
+                <ul class="nav nav-tabs" id="navProducto">
+                    <li class="active">
+                        <a href="#descripcion" class="text-marron">Descripción</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="descripcion">
+                        <div class="panel panel-default sin-borde-top">
+                          <p class="text-marron visible-xs">Descripción</p>
+                          <div class="panel-body" ng-bind-html="deliberatelyTrustDangerousSnippet(producto.ficha)">
+                                
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="visible-xs">
+                        <div class="fb-like" ng-style="{width: '200px'}" data-href="{{ pageUrl }}" data-width="200" data-show-faces="false" data-send="false"></div>
+                    <br/><br/><br/>
+                </div>
+                
+            </div>
+          
+        
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
