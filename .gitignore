@@ -19,3 +19,4 @@ node_modules
 public/lib/*
 node_modules/*
 
+/nbproject/private/

@@ -9,7 +9,7 @@ define([], function () {
         };
 
         this.routeConfig = function () {
-            var viewsDirectory = VarsApp.baseUrl + '/views/',
+            var viewsDirectory = VarsApp.rootUrl + '/views/',
                 controllersDirectory = VarsApp.baseUrl + '/controllers/',
 
             setBaseDirectories = function (viewsDir, controllersDir) {

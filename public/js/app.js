@@ -1,35 +1,27 @@
 'use strict';
 
-define(['services/routeResolver'], function () {
+define(['services/routeResolver', 'ngStorage','ngSanitize', 'ngTouch'], function (route,io) {
 
-    var app = angular.module('myApp', ['ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'routeResolverServices', 'ezfb']);// 'ngAnimate',  , 'wc.Directives', 'wc.Animations', 'ui.bootstrap'
-
-    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-        'routeResolverProvider', 
-        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', 
-        '$httpProvider', '$FBProvider',
-        function ($stateProvider, $urlRouterProvider, $locationProvider,
-                routeResolverProvider, 
-                $controllerProvider, $compileProvider, $filterProvider, $provide, 
-                $httpProvider, $FBProvider) {
-
-            //Change default views and controllers directory using the following:
-            //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');
-
+    var app = angular.module('myApp', ['routeResolverServices','ngStorage','ui.router','ngAnimate','ngSanitize','mgcrea.ngStrap','ui.bootstrap', 'ngTouch']);
+    
+    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'routeResolverProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$httpProvider', '$popoverProvider', '$asideProvider',
+         function ($stateProvider, $urlRouterProvider, $locationProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $httpProvider,$popoverProvider, $asideProvider) {
             app.register =
             {
                 controller: $controllerProvider.register,
                 directive: $compileProvider.directive,
                 filter: $filterProvider.register,
                 factory: $provide.factory,
-                service: $provide.service
+                service: $provide.service                
             };
 
-    $FBProvider.setLocale('es_LA');
-    $FBProvider.setInitParams({
-        appId: '299461200206662'
-    });  
 
+
+//    $FBProvider.setLocale('es_LA');
+//    $FBProvider.setInitParams({
+//        appId: '299461200206662'
+//    });  
+//
             //Define routes - controllers will be loaded dynamically
             var route = routeResolverProvider.route;
 
