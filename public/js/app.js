@@ -1,8 +1,8 @@
 'use strict';
 
-define(['services/routeResolver', 'ngStorage','ngSanitize', 'ngTouch'], function (route,io) {
+define(['services/routeResolver'], function () {
 
-    var app = angular.module('myApp', ['routeResolverServices','ngStorage','ui.router','ngAnimate','ngSanitize','mgcrea.ngStrap','ui.bootstrap', 'ngTouch']);
+    var app = angular.module('myApp', ['routeResolverServices','ngStorage','ui.router','ngAnimate','ngSanitize','mgcrea.ngStrap','ngTouch']);
     
     app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'routeResolverProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', '$httpProvider', '$popoverProvider', '$asideProvider',
          function ($stateProvider, $urlRouterProvider, $locationProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $httpProvider,$popoverProvider, $asideProvider) {
@@ -15,8 +15,6 @@ define(['services/routeResolver', 'ngStorage','ngSanitize', 'ngTouch'], function
                 service: $provide.service                
             };
 
-
-
 //    $FBProvider.setLocale('es_LA');
 //    $FBProvider.setInitParams({
 //        appId: '299461200206662'
@@ -24,24 +22,11 @@ define(['services/routeResolver', 'ngStorage','ngSanitize', 'ngTouch'], function
 //
             //Define routes - controllers will be loaded dynamically
             var route = routeResolverProvider.route;
+            console.log("mierda-1");
 
-/*
-            $routeProvider
-                .when('/main', route.resolve('Main'))
-                .when('/contacto', route.resolve('Contacto'))
-                .when('/arreglos/:cateId?', route.resolve('Productos'))
-                .when('/detalle-producto/:prodId?', route.resolve('ProductoDetalle'))
-                .when('/delibouquet', route.resolve('Delibouquet'))
-                .when('/politicas', route.resolve('Politicas'))
-                .when('/delivery', route.resolve('Delivery'))
-                .when('/formas-de-pago', route.resolve('FormasPago'))
-                .when('/carro-de-compra', route.resolve('Carro'))
-                .when('/login', route.resolve('Login'))
-                .when('/usuario', route.resolve('Usuario'))
-                .otherwise({redirectTo : '/main'});
-*/
             var access = routingConfig.accessLevels;
 
+            console.log("mierda0");
             // Public routes
             $stateProvider
                 .state('public', {
@@ -183,16 +168,18 @@ define(['services/routeResolver', 'ngStorage','ngSanitize', 'ngTouch'], function
                 }
             });
 
+            console.log("mierda");
 
     }]);
 
     //Only needed for Breeze. Maps Q (used by default in Breeze) to Angular's $q to avoid having to call scope.$apply() 
-    app.run(['$q', '$rootScope', '$timeout', '$state', 'Auth',
-        function ($q, $rootScope, $timeout, $state, Auth) {
+    app.run(['$rootScope', '$timeout', '$state', 'Auth',
+        function ($rootScope, $timeout, $state, Auth) {
+            console.log("mierda2");
             //$rootScope.$apply();
             //breeze.core.extendQ($rootScope, $q);
-
             $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+                console.log("mierda3");
                 if (!Auth.authorize(toState.data.access)) {
                     console.log("no auth...");
 //                    console.log(toState.data.access);

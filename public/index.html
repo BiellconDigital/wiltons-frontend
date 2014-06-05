@@ -21,6 +21,7 @@
    
     <!-- Metis core stylesheet -->
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -35,120 +36,43 @@
     <script src="lib/modernizr/modernizr.js"></script>
   </head>
   
-    <body data-ng-controller="InitController" data-ng-cloak>
+    <body  data-ng-controller="InitController">
 
-        <div class="container">
-            <div class="wrapper">
-                <a id="simple-menu" href="#sidr" class="simple-menu" onclick="clickEvent();">
-                    <img src="img/barras_mobil.png">
-                </a>
-
-                <a class="overlay-menu" onclick="manageOverlay();">
-                    <img src="img/cabecera-mas-mobil.png">
-                </a>
-             
-                <div id="sidr" class="nav-mobile" >   
-                  <ul>
-                    <li><a ui-sref="public.home" onclick="toggleMenu();">Inicio</a></li>
-                    <li ><a ui-sref="public.delibouquet" onclick="toggleMenu();">Delibouquet</a></li>
-                    <li ><a ui-sref="public.arreglos" onclick="toggleMenu();">Arreglos</a></li>
-                    <li><a ui-sref="user.pedidos" onclick="toggleMenu();">Pedidos</a></li>
-                    <li><a ui-sref="public.contacto" onclick="toggleMenu();">Contacto</a></li>
-                  </ul>
+        <div>
+            
+            <header class="row" style="">
+                <div class="col-lg-offset-2 col-lg-8 col-xs-offset-1 col-xs-11" 
+                     style="position: relative;border: 1px solid green;padding-left: 0.5em;">
+                    <div id="menu-standar">
+                        <img ng-src="img/logotipo-wiltons.png" class="">
+                        <menu>
+                            <img ng-src="img/detalle-botonera-superior.png" class="img-responsive">
+                            <ul >
+                                <li >
+                                    <a class="btn-block text-center">NUESTRA HISTORIA</a>
+                                </li>
+                                <li>
+                                    <a class="btn-block text-center">PRDUCTOS</a>
+                                </li>
+                                <li>
+                                    <a class="btn-block text-center">MIS PEDIDOS</a>
+                                </li>
+                                <li>
+                                    <a class="btn-block text-center">PROMOCIÓN Y NOVEDADES</a>
+                                </li>
+                                <li>
+                                    <a class="btn-block text-center">CONTACTO</a>
+                                </li>
+                            </ul>
+                            <img ng-src="img/detalle-botonera-inferior.png" class="img-responsive">
+                        </menu>
+                    </div>
                 </div>
-
-                <nav id="nav-prin" class="hidden-print">
-                    <div class="info-head">
-                        <div class="logo-fb">
-                        <a target="_blank"
-                            href="https://www.facebook.com/Delibouquet">
-
-                            <div class="logo-fb-img" ></div>
-                        </a>
-                        </div>
-                        
-                        <div class="logo-pint">
-                        <a target="_blank"
-                            href="http://www.pinterest.com/delibouquet">
-
-                            <div class="logo-pint-img" ></div>
-                        </a>
-                        </div>
-                        
-                        <div class="text-delivery">
-                            Delívery
-                        </div>
-                        <img src="img/icono-delivery.png" class="logo-delivery">
-                        <div class="nro-delivery">
-                            (511) 421-5996
-                        </div>
-                    </div>
-                    <div class="menu">
-                        <ul class="menuDerecha">
-                            <li><a ui-sref="public.delibouquet" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
-                                    Delibouquet
-                            </a></li>
-                            <li><a ui-sref="public.arreglos" ng-class="{'color-active' : isActiveMenu('/arreglos/')}" ng-click="selectMenu('/arreglos/')">
-                                    Arreglos
-                            </a></li>
-                        </ul>
-                        <ul class="menuIzquierda">
-                            <li><a ui-sref="user.pedidos" ng-class="{'color-active' : isActiveMenu('/pedidos')}" ng-click="selectMenu('/pedidos')">Pedidos</a></li>
-                            <li><a ui-sref="public.contacto" ng-class="{'color-active' : isActiveMenu('/contacto')}" ng-click="selectMenu('/contacto')">Contacto</a></li>
-                        </ul>   
-                    </div>          
-                    <div class="carrito-header">
-                        <div class="carrito-header-cont">
-                            <div class="text-login">
-                                Bienvenido! 
-                                <a ui-sref="anon.registrarse" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/registrarse')}" ng-click="selectMenu('/registrarse')"><span class="name-user">{{user.username}}&nbsp;</span></a>
-                                <a ui-sref="user.perfil" data-access-level='accessLevels.user' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/perfil')}" ng-click="selectMenu('/perfil')"><span class="name-user">{{user.username}}&nbsp;</span></a>
-                                
-                                <a ui-sref="anon.login" data-access-level='accessLevels.anon' ui-sref-active="active" ng-class="{'color-active' : isActiveMenu('/login')}" ng-click="selectMenu('/login')">iniciar sesión</a>
-                                <a href="" data-ng-click="logout()" data-access-level='accessLevels.user' ui-sref-active="active">cerrar sesión</a>
-                            </div>
-                            <div class="carrito-logo" ng-click="showCart()">
-                                {{cart.getTotalCount()}}
-                            </div>
-                            
-                            <form ng-submit="buscarProductos()">
-                                <input ng-model="textSearch"/>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-                <header id="header" class="hidden-print">
-                    <div class="logo">
-                        <a ui-sref="public.home" ng-class="{'color-active' : isActiveMenu('/')}" ng-click="selectMenu('/')"
-                            >
-                            <img src="img/logotipo.png" />      
-                        </a>
-                    </div>
-                    <div class="spacer"></div>
-                </header>
-                
-                <section class="content">
-                    <div data-ui-view id="id_content_view"></div>
-                </section>
-            </div>
+            </header>
             
-            
-           <footer id="footer" class="hidden-print">
-                        <p>
-                            <a href="http://www.visanet.com.pe" target="_blank">
-                                <img ng-src="img/visaMedianoBlanco.png" height="20" alt="Esta tienda está autorizada por Visa para realizar transacciones electrónicas.">
-                            </a>
-                        </p>
-               
-                        <h3>
-                            Powered by 3.0 Consulting Group
-                        </h3>
-                        <div class="footer-content hidden-xs">
-                                <a class="links linea-separacion" ui-sref="public.politicas" ng-class="{'text-bold' : isActiveMenu('/politicas')}" ng-click="selectMenu('/politicas')">Políticas</a> &nbsp; | &nbsp;
-                                <a class="links linea-separacion" ui-sref="public.delivery" ng-class="{'text-bold' : isActiveMenu('/delivery')}" ng-click="selectMenu('/delivery')">Delivery</a> &nbsp; | &nbsp;
-                                <a class="links" ui-sref="public.formas_pago" ng-class="{'text-bold' : isActiveMenu('/formas_pago')}" ng-click="selectMenu('/formas_pago')">Formas de pago</a>
-                        </div>
-            </footer>
+            <section id="panelMain">
+                <div data-ui-view id="id_content_view"></div>
+            </section>
         </div>
         
         <!-- In production use:

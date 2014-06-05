@@ -10,6 +10,12 @@ define(['app'], function (app) {
         $scope.accessLevels = Auth.accessLevels;
         $scope.menu = '';
 
+        $.backstretch("./img/fondo.png");
+        var $window = $(window).on('resize', function() {
+            $.backstretch("./img/fondo.png");
+        });
+
+
 //        $('#id_content_view').css('height', "100%");
 //        $('#id_content_view').css('background-color', "black");
         $scope.logout = function() {

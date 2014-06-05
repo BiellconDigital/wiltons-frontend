@@ -2,7 +2,7 @@
 
 define(['app'], function (app) {
 
-    var authService = function ($http, $rootScope, $q, $cookieStore) {
+    var authService = function ($http, $rootScope) {
         var accessLevels = routingConfig.accessLevels
             , userRoles = routingConfig.userRoles
             , currentUser = null;
@@ -91,6 +91,6 @@ define(['app'], function (app) {
 
     };
 
-    app.factory('Auth', ['$http', '$rootScope', '$q', '$cookieStore', authService]);
+    app.factory('Auth', ['$http', '$rootScope', authService]);
 
 });
