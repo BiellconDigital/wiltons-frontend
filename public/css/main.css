@@ -1,17 +1,29 @@
 @font-face{font-family:'Heldustry';font-style:normal;font-weight:normal;src:url("../fonts/HeldustryFT_Regular.ttf") format('truetype')}
 html{height:100%;margin:0;padding:0}
 body{height:100%;width:90%;margin:0 auto;padding:0}
-header{position:absolute;width:99%;margin:0 auto;z-index:3;}
-header #menu-standar{position:relative;padding:0;margin:0;width:11em;}
-header #menu-standar img{width:11em}
-header #menu-standar menu{width:13em;margin:0 auto;padding:0;}
-header #menu-standar menu ul{background-color:#fff;opacity:.9;list-style:none;width:13em;padding:0;margin:0;}
-header #menu-standar menu ul li{padding:1em;border-bottom:1px dotted #f00}
-#panelContenido{padding:0}
-#fondo{margin-left:0;margin-top:4em;padding:0 .7em;position:absolute;z-index:1}
-#contenido{margin-top:2em;z-index:4}
-@media screen and (min-width: 1024px){body{width:96%}
-header #menu-standar{width:16em;}
-header #menu-standar img{width:16em}
-#fondo{background-color:#fff;padding:0}
+.aside{background-color:#a10442;width:10em !important;padding:0;margin:0}
+header{position:absolute;width:99%;margin:0 auto;z-index:3}
+a{color:#a10442 !important}
+#menu-standar{font-family:'Times New Roman';position:relative;padding:0;margin:0;width:100%;}
+#menu-standar img{width:10em}
+#menu-standar menu{width:100%;margin:0 auto;padding:0;}
+#menu-standar menu ul{background-color:#fff;opacity:.9;list-style:none;width:100%;padding:0;margin:0;}
+#menu-standar menu ul li{padding:1em;border-bottom:1px dotted #a10442;}
+#menu-standar menu ul li a{color:#000}
+#panelContenido{padding:0;overflow:auto;}
+#panelContenido .barraSuperior{z-index:4;position:absolute;width:99%;}
+#panelContenido .barraSuperior .logo{float:right;margin-top:2.8em;}
+#panelContenido .barraSuperior .logo img{width:95px}
+#fondo{margin:5em .5em 0 .5em;padding:0 .7em;position:relative;z-index:1}
+#contenido{margin-top:2em;position:relative;z-index:4}
+#footer{font-size:.7em;font-family:'Times New Roman';margin:0;padding:0;}
+#footer #footer-content{background-color:#ebc100;color:#a10442;font-weight:bold;padding:.7em}
+@media screen and (min-width: 780px){#footer{font-size:.9em}
+}@media screen and (min-width: 1024px){body{width:96%}
+#menu-standar{width:16em;}
+#menu-standar img{width:16em}
+#panelContenido .barraSuperior .logo{margin-top:1.8em;}
+#panelContenido .barraSuperior .logo img{width:160px}
+#fondo{margin:7em .5em 0 .5em;padding:0}
+#footer{font-size:1em}
 }

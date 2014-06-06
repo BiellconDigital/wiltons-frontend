@@ -3,11 +3,19 @@
 define(['app'], function (app) {
 
     var mainController = function ($scope, $location) {
-        var appTitle = 'Home';
-        $scope.appTitle = appTitle;
-        $scope.highlight = function (path) {
-            return $location.path().substr(0, path.length) == path;
-        };
+        $scope.item = 1;
+        $scope.itemImg = 1;
+
+        setInterval(function() {
+            $("#imgBanner").hide();
+//                console.log("interval... " + $scope.item);
+            if ($scope.itemImg === 3)
+                $scope.itemImg = 0;
+            $scope.itemImg++;
+            $("#imgBanner").show("slow");
+            $scope.$apply();
+        }, 3600);
+
 
 //           $("#banner").backstretch([
 //                "./img/banner-portada.jpg"
@@ -16,30 +24,18 @@ define(['app'], function (app) {
 
            
 
-          var $window = $(window).on('resize', function() {
-            $('#contenido').height(
-              $(window).height() - $('#header').height() - $('#footer').height() - 40
-            );
-            if ($(window).width() <= 320) {
-                $("#banner").backstretch("./img/banner-portada-320.jpg");
-            } else if ($(window).width() <= 390) {
-                $("#banner").backstretch("./img/banner-portada-op2.jpg");
-            } else {
-                $("#banner").backstretch("./img/banner-portada.jpg");
-            }
-    
-            /*
-            $("#banner").backstretch([
-                "./img/banner-portada.jpg"
-              , "http://dl.dropbox.com/u/515046/www/garfield-interior.jpg"
-              , "./img/banner-about.jpg"
-            ], {duration: 4000, fade: 750});          
-            */
-            //$('#banner').data('backstretch').pause();
-            //$('#banner').data('backstretch').next();
-
-
-          }).trigger('resize'); //on page load      
+//          var $window = $(window).on('resize', function() {
+//            $('#contenido').height(
+//              $(window).height() - $('#header').height() - $('#footer').height() - 40
+//            );
+//            if ($(window).width() <= 320) {
+//                $("#banner").backstretch("./img/banner-portada-320.jpg");
+//            } else if ($(window).width() <= 390) {
+//                $("#banner").backstretch("./img/banner-portada-op2.jpg");
+//            } else {
+//                $("#banner").backstretch("./img/banner-portada.jpg");
+//            }
+//          }).trigger('resize'); //on page load      
     	
           //$('#modalLoading').modal('hide');
 
