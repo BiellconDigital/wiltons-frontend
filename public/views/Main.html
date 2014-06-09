@@ -11,10 +11,24 @@
         </div>
         
         <div id="fondo">
-            <img id="imgBanner" ng-src="img/banner0{{itemImg}}.jpg" class="img-responsive visible-md visible-lg"
-                 data-animation="am-slide-left">
+            <img id="imgBanner" ng-src="img/banner01{{tipoImg}}.jpg" 
+                class="img-responsive sample-show-hide"
+                ng-show="mostrarBanner[1]"
+                ng-animate="'animate'"
+                data-animation="am-slide-left">
 
-            <img id="imgBanner" ng-src="img/banner0{{itemImg}}tablet.jpg" class="img-responsive visible-xs visible-sm">
+            <img id="imgBanner" ng-src="img/banner02{{tipoImg}}.jpg" 
+                class="img-responsive sample-show-hide"
+                ng-show="mostrarBanner[2]"
+                ng-animate="'animate'"
+                data-animation="am-slide-left">
+
+            <img id="imgBanner" ng-src="img/banner03{{tipoImg}}.jpg" 
+                class="img-responsive sample-show-hide"
+                ng-show="mostrarBanner[3]"
+                ng-animate="'animate'"
+                data-animation="am-slide-left">
+
         </div>
         
             

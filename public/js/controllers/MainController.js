@@ -3,18 +3,43 @@
 define(['app'], function (app) {
 
     var mainController = function ($scope, $location) {
-        $scope.item = 1;
+        $scope.tipoImg = '';
         $scope.itemImg = 1;
+        
+        $scope.mostrarBanner = new Array();
+        
+        $scope.mostrarBanner[0] = true;
+        $scope.mostrarBanner[1] = true;
+        $scope.mostrarBanner[2] = false;
+        $scope.mostrarBanner[3] = false;
+        $scope.item = 1;
+        $scope.activarTime = true;
+
+        $(window).off("resize");
+
+        if ($(window).width() <= 991) {
+            $scope.tipoImg = 'tablet';
+        }
+
+        var $window = $(window).on('resize', function() {
+            if ($(window).width() <= 991) {
+                $scope.tipoImg = 'tablet';
+            } else {
+                $scope.tipoImg = '';
+            }
+        });
 
         setInterval(function() {
-            $("#imgBanner").hide();
+            $scope.mostrarBanner[$scope.itemImg] = false;
+            //$("#imgBanner").hide();
 //                console.log("interval... " + $scope.item);
             if ($scope.itemImg === 3)
                 $scope.itemImg = 0;
             $scope.itemImg++;
-            $("#imgBanner").show("slow");
+            $scope.mostrarBanner[$scope.itemImg] = true;
+            //$("#imgBanner").show("slow");
             $scope.$apply();
-        }, 3600);
+        }, 4600);
 
 
 //           $("#banner").backstretch([
