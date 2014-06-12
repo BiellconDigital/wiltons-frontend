@@ -37,7 +37,7 @@
     "angular-ui-calendar": "latest",
     "angular-wizard": "~0.3.0",
     "angular-touch": "~1.2.16",
-    "ngAnimate-animate.css" : "~0.1.1",
+    "ngAnimate-animate" : "~0.1.1",
     "lodash": "~2.4.1"
   }
 }
