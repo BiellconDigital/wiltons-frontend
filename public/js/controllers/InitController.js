@@ -9,6 +9,7 @@ define(['app'], function (app) {
         $scope.userRoles = Auth.userRoles;
         $scope.accessLevels = Auth.accessLevels;
         $scope.menu = '';
+        $(window).off("resize");
 
         $.backstretch("./img/fondo.png");
         var $window = $(window).on('resize', function() {

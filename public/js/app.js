@@ -22,12 +22,9 @@ define(['services/routeResolver'], function () {
 //
             //Define routes - controllers will be loaded dynamically
             var route = routeResolverProvider.route;
-            console.log("mierda-1");
 
             var access = routingConfig.accessLevels;
 
-            console.log("mierda0");
-            // Public routes
             $stateProvider
                 .state('public', {
                     abstract: true,
@@ -46,7 +43,7 @@ define(['services/routeResolver'], function () {
                 .state('public.arreglos', route.resolve('/arreglos/{cateId}', 'Productos'))//[/:cateId]
                 .state('public.arreglos_busqueda', route.resolve('/arreglos_busqueda/{query}', 'ProductosBusqueda'))//[/:cateId]
                 .state('public.detalle_producto', route.resolve('/detalle-producto/{prodId}', 'ProductoDetalle'))
-                .state('public.delibouquet', route.resolve('/delibouquet', 'Delibouquet'))
+                .state('public.nuestra_historia', route.resolve('/nuestra-historia', 'NuestraHistoria'))
                 .state('public.politicas', route.resolve('/politicas', 'Politicas'))
                 .state('public.delivery', route.resolve('/delivery', 'Delivery'))
                 .state('public.formas_pago', route.resolve('/formas-de-pago', 'FormasPago'));
@@ -168,18 +165,13 @@ define(['services/routeResolver'], function () {
                 }
             });
 
-            console.log("mierda");
-
     }]);
 
     //Only needed for Breeze. Maps Q (used by default in Breeze) to Angular's $q to avoid having to call scope.$apply() 
     app.run(['$rootScope', '$timeout', '$state', 'Auth',
         function ($rootScope, $timeout, $state, Auth) {
-            console.log("mierda2");
             //$rootScope.$apply();
-            //breeze.core.extendQ($rootScope, $q);
             $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-                console.log("mierda3");
                 if (!Auth.authorize(toState.data.access)) {
                     console.log("no auth...");
 //                    console.log(toState.data.access);
