@@ -1,0 +1,472 @@
+<div class="container productos" ng-controller="CarroController">
+
+  <div class="row subcontenido">
+
+    <div class="col-sm-12 col-md-12">
+
+      <div id="rootwizardCart">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+        <ul class="nav nav-tabs">
+                <li><a href="#tab1" data-toggle="tab">1. Carro de compra</a></li>
+                <li><a href="#tab2" data-toggle="tab">2. Despacho</a></li>
+                <li><a href="#tab3" data-toggle="tab">3. Pago</a></li>
+        </ul>
+         </div>
+          </div>
+        </div>
+<!--                        <div id="bar" class="progress progress-striped active">
+          <div class="bar"></div>
+        </div>-->
+        <div class="tab-content">
+          <div class="tab-pane" id="tab1">
+              <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr class="well">
+                      <th colspan="2" class="text-center">Descripción del producto</th>
+                      <th class="text-center hidden-xs">Precio</th>
+                      <th class="text-center hidden-xs">Cantidad</th>
+                      <th class="text-center hidden-xs">Eliminar</th>
+                      <th class="text-center">Sub-total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!-- empty cart message -->
+                    <tr ng-hide="cart.getTotalCount() > 0" >
+                        <td class="tdCenter" colspan="6">
+                            Tu carrito está vacío.
+                        </td>
+                    </tr>
+
+                    <tr ng-repeat="item in cart.items | orderBy:'name'" class="fondo-blanco">
+                        <td width="116" class="hidden-xs">
+                            <img fallback-src="img/sin-imagen.png"
+                            ng-src="/web/m_cart/files/producto/{{item.image}}"
+                                 class="img-circle center-block" width="100">
+                        </td>
+                        <td width="30%" class="hidden-xs">
+                            <p>{{item.name}}</p>
+                        </td>
+                        
+                        <td width="40%" colspan="2" class="visible-xs">
+                            <p>{{item.name}}</p>
+                            <table class="table table-responsive table-bordered">
+                                <tr><td>Precio</td><td>Cantidad</td><td>Eliminar</td></tr>
+                                <tr>
+                                    <td>
+                                        {{item.price | currency:'S/.'}}
+                                    </td>
+                                    <td>
+                                        <input style="width:70px;"
+                                            class="input-sm text-center" type="number" 
+                                            ng-model="item.quantity" 
+                                            ng-change="cart.saveItems();updateOrden();" />
+                                    </td>
+                                    <td class="tdCenter" title="remover">
+                                        <a href="" ng-click="cart.addItem(item.sku, item.name, item.image, item.price, -10000000);updateOrden();" >
+                                            <div class="img-eliminar img-responsive center-block">
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        
+                        <td width="12%" class="hidden-xs">
+                            {{item.price | currency:'S/.'}}
+                        </td>
+                        <td width="12%" class="hidden-xs">
+                            <input style="width:70px;"
+                                class="input-sm text-center" type="number" 
+                                ng-model="item.quantity" 
+                                ng-change="cart.saveItems();updateOrden();" />
+                        </td>
+                        <td width="12%" class="tdCenter hidden-xs" title="remover">
+                            <a href="" ng-click="cart.addItem(item.sku, item.name, item.image, item.price, -10000000);updateOrden();" >
+                                <div class="img-eliminar img-responsive center-block">
+
+                                </div>
+                            </a>
+                        </td>
+                        <td width="14%" class="text-right">
+                            {{item.price * item.quantity | currency:'S/.'}}
+                        </td>
+                    </tr>
+                    
+                    <tr class="well hidden-xs">
+                        <td colspan="4"></td>
+                        <td>Sub-total</td>
+                        <td class="text-right">{{cart.getTotalPrice() | currency:'S/.'}}</td>
+                    </tr>
+                    <tr class="hidden-xs">
+                        <td colspan="4"></td>
+                        <td class="well">Delivery</td>
+                        <td class="text-right well">{{orden.costoEnvio | currency:'S/.'}}</td>
+                    </tr>
+                    <tr class="hidden-xs">
+                        <td colspan="4"></td>
+                        <td class="well">Total</td>
+                        <td class="text-right well">{{orden.total | currency:'S/.'}}</td>
+                    </tr>
+                    
+                    
+                    <tr class="well visible-xs">
+                        <td colspan="2">Sub-total</td>
+                        <td class="text-right">{{cart.getTotalPrice() | currency:'S/.'}}</td>
+                    </tr>
+                    <tr class="visible-xs">
+                        <td  colspan="2" class="well">Delivery</td>
+                        <td class="text-right well">{{orden.costoEnvio | currency:'S/.'}}</td>
+                    </tr>
+                    <tr  class="visible-xs">
+                        <td  colspan="2" class="well">Total</td>
+                        <td class="text-right well">{{orden.total | currency:'S/.'}}</td>
+                    </tr>
+                    
+                </tbody>
+              </table>
+              
+              
+
+              <div class="row">
+                  <div class="col-sm-12 col-md-12 text-right">
+                      
+                      <a ui-sref="anon.login" class="btn" data-access-level='accessLevels.anon' ui-sref-active="active">
+                          <span class="glyphicon glyphicon-ok"></span> Comprar Ahora
+                      </a>
+                      <a class="btn button-next" data-access-level='accessLevels.user' ng-disabled="cart.getTotalCount() <= 0">
+                          <span class="glyphicon glyphicon-ok"></span> Comprar Ahora
+                      </a> &nbsp; 
+                      
+                      <a href="#/arreglos">Continuar Comprando</a>
+                  </div>
+              </div>
+              <br/><br/>
+          </div>
+          
+          
+          <div class="tab-pane" id="tab2">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="thumbnail small">
+                        <div class="panel-body">
+                            <form class="form-horizontal" role="form" name="despachoForm">
+
+                              <div class="form-group">
+                                <label for="nombre" class="col-sm-5 col-md-5 control-label text-left">
+                                    Nombre o Razón Social*:
+                                </label>
+                                <div class="col-sm-7 col-md-7">
+                                    <input type="text" required class="form-control input-sm" ng-model="orden.razonSocial">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="documento" class="col-sm-5 col-md-5 control-label text-left"
+                                       style="text-align: left;">
+                                    DNI o RUC:
+                                </label>
+                                <div class="col-sm-7 col-md-4">
+                                    <input type="text" name="documento" class="form-control input-sm" 
+                                           ng-model="orden.rucCliente">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="direccion" class="col-sm-5 col-md-5 control-label text-left">
+                                    Dirección*:
+                                </label>
+                                <div class="col-sm-7 col-md-7">
+                                    <input type="text" required class="form-control input-sm" ng-model="orden.direccionEnvio">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="distrito" class="col-sm-5 col-md-5 control-label text-left">
+                                    Distrito*:
+                                </label>
+                                <div class="col-sm-7 col-md-7">
+                                    <select required class="form-control input-sm"
+                                             ng-options="distrito as distrito.dist for distrito in disitritos" 
+                                             ng-model="orden.distrito">
+                                    </select>
+                                    <!--<input type="text" class="form-control input-sm" ng-model="orden.distrito">-->
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="razon_compra" class="col-sm-5 col-md-5 control-label text-left">
+                                    Razón de la compra:
+                                </label>
+                                <div class="col-sm-7 col-md-7">
+                                    <select class="form-control input-sm"
+                                             ng-options="razon as razon.descripcion for razon in razonesCompra" 
+                                             ng-model="orden.razon_compra">
+                                    </select>
+                                    
+                                    <!--<input type="text" class="form-control input-sm" ng-model="orden.razon_compra">-->
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="despacho_estandar" class="col-sm-5 col-md-5 control-label text-left">
+                                    Despacho estándar*:
+                                </label>
+                                <div class="col-sm-7 col-md-6">
+                                    <input type="date" required class="form-control input-sm" ng-model="orden.fechaEnvio">
+                                </div>
+                                  
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9 text-right">
+                                    <a href="#/arreglos">Continuar Comprando</a> &nbsp;&nbsp;
+                                    <a href="" class="btn button-next" ng-disabled="!despachoForm.$valid">
+                                         Continuar <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </a>
+                                </div>
+                              </div>
+                            </form>
+                            (*) Estos datos son requeridos
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="thumbnail sin-redondeo small">
+                        Observaciones de despacho:<br/>
+                        Puede indicar información sobre la dirección para facilitar la entrega. Ej: Benavides cruce con Camninos del Inca.
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail sin-redondeo small" id="resumen-cart-despacho">
+                      <table class="table" width="310">
+                        <tr>
+                            <td colspan="2">
+                              <div class="row" 
+                                  ng-repeat="item in cart.items | orderBy:'name'">
+                                  <div class="col-sm-5 col-md-5">
+                                    <img fallback-src="img/sin-imagen.png"
+                                      ng-src="/web/m_cart/files/producto/{{item.image}}"
+                                         class="img-circle img-responsive"
+                                         style="max-width:110px">
+                                  </div>
+                                  <div class="col-sm-7 col-md-7">
+                                      <h4>{{item.name}}</h4>
+                                      <p>Código: {{item.codigoProducto}}</p>
+                                      <p>Precio: {{item.price}}</p>
+                                      <br/>
+                                      <h5>Cantidad: {{item.quantity}}</h5>
+                                  </div>
+                              </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Total Productos ({{cart.getTotalCount()}})
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                Sub Total
+                            </td>
+                            <td class="text-right">
+                                {{cart.getTotalPrice() | currency:'S/.'}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Costo del Despacho
+                            </td>
+                            <td class="text-right">
+                                {{orden.costoEnvio | currency:'S/.'}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b>Total</b></h4>
+                            </td>
+                            <td class="text-right">
+                                <h4><b>{{orden.total | currency:'S/.'}}</b></h4>
+                            </td>
+                        </tr>
+                      </table>
+
+                    </div>
+                    
+                </div>
+            </div>
+              
+          </div>
+          
+
+
+          
+          <div class="tab-pane" id="tab3">
+              <div class="row">
+                <div class="col-md-8">
+                    <div class="thumbnail small">
+                        <div class="panel-body">
+                            <form role="form" name="carroForm">
+                            <p>Datos de facturación</p>
+                            <p>Nombre o razón social:  {{orden.razonSocial}}</p>
+                            <p>DNI o RUC: {{orden.rucCliente}}</p>
+                            <p>Dirección: {{orden.direccionEnvio}}</p>
+                            <p>Distrito: {{orden.distrito.dist}}</p>
+                            <!--<p>Teléfono: </p>-->
+                            <p>Email: {{user.email}}</p>
+
+                            <div class="radio">
+                              <label>
+                                <input required type="radio" ng-model="orden.tipoPago" name="tipoPago" id="optionsRadios1" value="1">
+                                Depósito a cuenta o transferencia bancaria
+                              </label>
+                            </div>
+                            
+<!--                            <div class="radio">
+                              <label>
+                                <input required type="radio" ng-model="orden.tipoPago" name="tipoPago" id="optionsRadios2" value="2" checked>
+                                    Pago con PayPal (Tarjeta de crédito)
+                              </label>
+                            </div>
+-->
+                            <div class="radio">
+                              <label>
+                                <input required type="radio" ng-model="orden.tipoPago" name="tipoPago" id="optionsRadios3" value="3">
+                                Pago con VISA
+                              </label>
+                            </div>
+
+                            <div class="panel panel-default">
+                              <div class="panel-heading">Mis pedidos y mis datos son correctos, continuar.</div>
+<!--                              
+                                  <div ng-if="orden.tipoPago == '2'" class="panel-body">
+                                    <div>
+                                          He leído y aceptado las <a ui-sref="public.politicas" target="_blank"><b>politicas, terminos y condiciones</b></a>
+                                          <input type="checkbox" required class="" ng-model="orden.aceptaPolitica">
+                                    </div>
+                                    <p>
+                                        Ustdes puede comprar de forma segura a traves de PayPal...
+                                    </p>
+                                    <br/>
+                                    <p class="">
+                                        <a 
+                                            ng-click="procesarCompra(2)"
+                                            ng-disabled="cart.getTotalCount() < 1 || !carroForm.$valid  || procesando" >
+                                            <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="checkout PayPal"/>
+                                        </a>    
+                                        <span ng-show="procesando">Procesando...</span>
+                                         &nbsp;
+                                    </p>
+                                  </div>
+                              -->
+                                  <div ng-if="orden.tipoPago == '1'" class="panel-body">
+                                        <div>
+                                              He leído y aceptado las <a ui-sref="public.politicas" target="_blank"><b>politicas, terminos y condiciones</b></a>
+                                              <input type="checkbox" required class="" ng-model="orden.aceptaPolitica">
+                                        </div>
+                                        <p>{{orden.cuentaBanco}}<br/>
+                                        A nombre de: Retoser SAC Una vez realizado el depósito le agradeceremos nos envíe un correo a ventas@delibouquet.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
+                                        </p>
+                                        <br/>
+                                        <a href="" class="btn" role="button" 
+                                           ng-disabled="!carroForm.$valid || procesando" 
+                                           ng-click="procesarCompra(1)">Comprar</a>
+                                           <span ng-show="procesando">Procesando...</span>
+                                            &nbsp;
+                                  </div>
+
+                                  <div ng-if="orden.tipoPago == '3'" class="panel-body">
+                                    <p>
+                                          He leído y aceptado las <a ui-sref="public.politicas" target="_blank"><b>politicas, terminos y condiciones</b></a>
+                                          <input type="checkbox" required class="" ng-model="orden.aceptaPolitica">
+                                    </p>
+                                    <div style="float: none;overflow: auto;">
+                                        <a href="http://www.visanet.com.pe" target="_blank" style="float: left;">
+                                          <img ng-src="img/visa-marron.jpg" style="margin-right: 5px;"/>
+                                        </a>
+                                        <a href="http://www.visanet.com.pe/visa.htm" target="_blank" style="float: left;">
+                                          <img ng-src="img/verified by visa-marron.jpg" />
+                                        </a>
+                                    </div>
+                                    <br class="clearfix"/>
+                                        <a href="" class="btn" role="button" style="width: 94px; margin-top: 7px;"
+                                           ng-disabled='!carroForm.$valid || procesando'
+                                           ng-click="procesarCompra(3)">Comprar</a>
+                                           <span ng-show="procesando">Procesando...</span>
+                                            &nbsp;
+                                    
+                                  </div>
+
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>  
+              </div>
+              <div class="col-md-4">
+                  <div class="thumbnail sin-redondeo small" id="resumen-cart-pago">
+                      <table class="table" width="310">
+                        <tr>
+                          <td colspan="2">
+                            <div ng-repeat="item in cart.items | orderBy:'name'">
+                              <div class="row">
+                                <div class="col-sm-5">
+                                  <img fallback-src="img/sin-imagen.png"
+                                    ng-src="/web/m_cart/files/producto/{{item.image}}"
+                                       class="img-circle img-responsive center-block">
+                                </div>
+                                <div class="col-sm-7">
+                                    <h4>{{item.name}}</h4>
+                                    <p>Código: {{item.codigoProducto}}</p>
+                                    <p>Precio: {{item.price}}</p>
+                                    <br/>
+                                    <h5>Cantidad: {{item.quantity}}</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Total Productos ({{cart.getTotalCount()}})
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="56%">
+                                Sub Total
+                            </td>
+                            <td  width="44%" class="text-right">
+                                {{cart.getTotalPrice() | currency:'S/.'}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Costo del Despacho
+                            </td>
+                            <td class="text-right">
+                                {{orden.costoEnvio | currency:'S/.'}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4><b>Total</b></h4>
+                            </td>
+                            <td class="text-right">
+                                <h4><b>{{orden.total | currency:'S/.'}}</b></h4>
+                            </td>
+                        </tr>
+                      </table>
+
+                  </div>
+              </div>
+
+
+          </div>
+        </div>	
+      </div>
+    
+    </div>
+    
+  </div>
+
+
+</div>
+
+</div>
