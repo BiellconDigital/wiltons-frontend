@@ -73,7 +73,7 @@ define(['app'], function (app) {
           $('#contenido').height(
                   $('#fondo').height() + 28
           );
-          $scope.$apply();
+          //$scope.$apply();
 
           /*
           $("#banner").backstretch([
