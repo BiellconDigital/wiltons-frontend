@@ -2,7 +2,7 @@
 
 define(['services/routeResolver'], function () {
 
-    var app = angular.module('myApp', ['ngCookies', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'routeResolverServices', 'ezfb']);// 'ngAnimate',  , 'wc.Directives', 'wc.Animations', 'ui.bootstrap'
+    var app = angular.module('myApp', ['ngCookies', 'ngSanitize', 'ui.router', 'ngAnimate', 'ui.bootstrap', 'routeResolverServices', 'ezfb']);// 'ngAnimate',  , 'wc.Directives', 'wc.Animations', 'ui.bootstrap'
 
     app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         'routeResolverProvider', 
@@ -66,10 +66,10 @@ define(['services/routeResolver'], function () {
                 .state('public.home', route.resolve('/', 'Main'))
                 .state('public.carro_compra', route.resolve('/carro-de-compra', 'Carro'))
                 .state('public.contacto', route.resolve('/contacto', 'Contacto'))
-                .state('public.arreglos', route.resolve('/arreglos/{cateId}', 'Productos'))//[/:cateId]
-                .state('public.arreglos_busqueda', route.resolve('/arreglos_busqueda/{query}', 'ProductosBusqueda'))//[/:cateId]
+                .state('public.productos', route.resolve('/productos/{cateId}', 'Productos'))//[/:cateId]
+                .state('public.productos_busqueda', route.resolve('/productos_busqueda/{query}', 'ProductosBusqueda'))//[/:cateId]
                 .state('public.detalle_producto', route.resolve('/detalle-producto/{prodId}', 'ProductoDetalle'))
-                .state('public.delibouquet', route.resolve('/delibouquet', 'Delibouquet'))
+                .state('public.nosotros', route.resolve('/nuestra-historia', 'Nosotros'))
                 .state('public.politicas', route.resolve('/politicas', 'Politicas'))
                 .state('public.delivery', route.resolve('/delivery', 'Delivery'))
                 .state('public.formas_pago', route.resolve('/formas-de-pago', 'FormasPago'));

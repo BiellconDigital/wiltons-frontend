@@ -54,7 +54,7 @@
                     </li>
                     <li>
                         <form ng-submit="buscarProductos()">
-                            <input ng-model="textSearch" placeholder="Delibouquet"/>
+                            <input ng-model="textSearch" placeholder="NUESTRA HISTORIA"/>
                         </form>
                     </li>
                     <li>
@@ -64,7 +64,7 @@
                     </li>
                     <li>
                         <a target="_blank"
-                            href="https://www.facebook.com/Delibouquet">
+                            href="https://www.facebook.com/NUESTRA HISTORIA">
                         <img src="img/facebook3.png">
                         </a>
                     </li>
@@ -81,20 +81,20 @@
                    class="btn-block">Inicio</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/delibouquet')}">
-                <a ui-sref="public.delibouquet" ng-click="selectMenu('/delibouquet')" onclick="toggleMenu();"
-                   class="btn-block">Delibouquet</a>
+                <a ui-sref="public.nosotros" ng-click="selectMenu('/delibouquet')" onclick="toggleMenu();"
+                   class="btn-block">NUESTRA HISTORIA</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/arreglos/')}">
-                <a ui-sref="public.arreglos" ng-click="selectMenu('/arreglos/')" onclick="toggleMenu();"
-                   class="btn-block">Arreglos</a>
+                <a ui-sref="public.productos" ng-click="selectMenu('/arreglos/')" onclick="toggleMenu();"
+                   class="btn-block">PRODUCTOS</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/pedidos')}">
                 <a ui-sref="user.pedidos" ng-click="selectMenu('/pedidos')" onclick="toggleMenu();"
-                   class="btn-block">Pedidos</a>
+                   class="btn-block">MI PEDIDO</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/contacto')}">
                 <a ui-sref="public.contacto" ng-click="selectMenu('/contacto')" onclick="toggleMenu();"
-                   class="btn-block">Contacto</a>
+                   class="btn-block">CONTACTO</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/politicas')}">
                 <a ui-sref="public.politicas" ng-click="selectMenu('/politicas')" onclick="toggleMenu();"
@@ -139,10 +139,10 @@
                 <div id="sidr" class="nav-mobile" >   
                   <ul>
                     <li><a ui-sref="public.home" onclick="toggleMenu();">Inicio</a></li>
-                    <li ><a ui-sref="public.delibouquet" onclick="toggleMenu();">Delibouquet</a></li>
-                    <li ><a ui-sref="public.arreglos" onclick="toggleMenu();">Arreglos</a></li>
-                    <li><a ui-sref="user.pedidos" onclick="toggleMenu();">Pedidos</a></li>
-                    <li><a ui-sref="public.contacto" onclick="toggleMenu();">Contacto</a></li>
+                    <li ><a ui-sref="public.nosotros" onclick="toggleMenu();">NUESTRA HISTORIA</a></li>
+                    <li ><a ui-sref="public.productos" onclick="toggleMenu();">PRODUCTOS</a></li>
+                    <li><a ui-sref="user.pedidos" onclick="toggleMenu();">MI PEDIDO</a></li>
+                    <li><a ui-sref="public.contacto" onclick="toggleMenu();">CONTACTO</a></li>
                   </ul>
                 </div>
 
@@ -160,7 +160,7 @@
                     <div class="info-head">
                         <div class="logo-fb">
                         <a target="_blank"
-                            href="https://www.facebook.com/Delibouquet">
+                            href="https://www.facebook.com/NUESTRA HISTORIA">
 
                             <div class="logo-fb-img" ></div>
                         </a>
@@ -207,10 +207,10 @@
                         </div>
                         
                         <ul class="col-sm-5" >
-                            <li class="col-sm-offset-4 col-sm-4"><a ui-sref="public.delibouquet" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
+                            <li class="col-sm-offset-4 col-sm-4"><a ui-sref="public.nosotros" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
                                     NUESTRA HISTORIA
                             </a></li>
-                            <li class="col-sm-4"><a ui-sref="public.arreglos" ng-class="{'color-active' : isActiveMenu('/arreglos/')}" ng-click="selectMenu('/arreglos/')">
+                            <li class="col-sm-4"><a ui-sref="public.productos" ng-class="{'color-active' : isActiveMenu('/arreglos/')}" ng-click="selectMenu('/arreglos/')">
                                     PRODUCTOS
                             </a></li>
                         </ul>
@@ -230,9 +230,13 @@
                     </nav>
                 </header>
                 
+                
+                
                 <section class="content">
                     <div data-ui-view id="id_content_view"></div>
                 </section>
+                
+                
             </div>
            <footer id="footer" class="hidden-print">
                         <div class="footer-content hidden-xs">
@@ -302,6 +306,7 @@
       <script src="lib/underscore-min.js"></script>
       <script src="lib/angular/angular.js"></script>
       <script src="lib/angular/angular-sanitize.min.js"></script>
+      <script src="lib/angular/angular-animate.min.js"></script>
       <!-- <script src="lib/angular/angular-route.js"></script> -->
       <script src="lib/angular/angular-cookies.min.js"></script>
       <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>

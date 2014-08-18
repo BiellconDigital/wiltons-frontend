@@ -1,5 +1,5 @@
 var VarsApp = {
-    baseUrl : '/delib-frontend/app',
+    baseUrl : '/wiltons-frontend/app',
     autor : "Biellcon Digital"
 };
 
