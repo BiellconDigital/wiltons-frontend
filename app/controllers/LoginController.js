@@ -38,20 +38,37 @@ define(['app'], function (app) {
         }
         
         
-        $("#contenido").backstretch("./img/registro_fondo.jpg");
+        $(window).off("resize");
+
+        if ($(window).width() <= 991) {
+            $scope.tipoImg = 'tablet';
+        }
+
+        setTimeout(function() {
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            $("#contenido").backstretch("resize");
+            console.log("redimensiona!");
+        }, 1000);
+        
         var $window = $(window).on('resize', function() {
-                    //alert($(window).width())
-            if ($(window).width() <= 767) {
-                            $('#contenido').height(
-                                    ($(window).height() - $('#header').height() - $('#footer').height() - 20) / 2
-                            );    
+            if ($(window).width() <= 991) {
+                $("#contenido").backstretch("./img/fondos/fondo.png");
             } else {
-                            $('#contenido').height(
-                                    $(window).height() - $('#header').height() - $('#footer').height() - 69
-                            );    
+                $("#contenido").backstretch("./img/fondos/fondo.png");
             }
-            $("#contenido").backstretch("./img/registro_fondo.jpg");
-        }).trigger('resize'); //on page load      
+
+            if ($(window).width() <= 991) {
+                $scope.tipoImg = 'tablet';
+            } else {
+                $scope.tipoImg = '';
+            }
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            //$scope.$apply();
+        }).trigger('resize');
     };
 
     app.register.controller('LoginController', ['$scope', '$rootScope', '$location', '$timeout', 'Auth', loginController]);

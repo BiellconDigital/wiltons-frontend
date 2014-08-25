@@ -1,8 +1,11 @@
 marron = #7d6350
+marron_bajo = #a68974
+
 cian = #EAF9F9
 
 fucsia  = #a10442
 amarillo = #ebc100
+gris = #dbd9d9
 
 @font-face {
 	font-family: 'Heldustry';
@@ -49,7 +52,7 @@ body
 	margin 0
 
 a
-	color marron
+	color fucsia
 
 .text-bold
 	font-weight bold !important
@@ -105,31 +108,31 @@ a
 
 .btn
 	color white
-	background-color marron
+	background-color fucsia
 	border-radius 0
 
 .titulo-bar
-	background-color marron
+	background-color fucsia
 	color white
 	font-size 1.1em
 	padding 0.2em
 
 .categoria-lista
-	border-top 1px solid marron
+	border-top 1px solid fucsia
 	padding-bottom 0.5em
-	border-bottom 1px solid marron
+	border-bottom 1px solid fucsia
 	li.active a
 		border-radius 0
-		background-color marron
+		background-color fucsia
 
 .subcategoria-lista
 	background-color cian
 	padding-bottom 0.5em
-	border-bottom 1px solid marron
+	border-bottom 1px solid fucsia
 	padding 0 0.5em 0 1.2em
 	li.active a
 		border-radius 0
-		color marron !important
+		color fucsia !important
 		font-weight bold !important
 
 .sin-padding
@@ -151,6 +154,13 @@ a
 	label
 		font-weight normal
 
+table.delivery
+	width 440px
+	margin auto
+	tr
+		td
+			padding 0.3em
+
 .icono-triangulo
 	float none
 	background-image url(../img/icono-listado-arreglos.png)
@@ -170,13 +180,13 @@ ul.nav-stacked
 		a
 			padding-right 0.3em
 
-.text-marron
-	color marron !important
+.text-fucsia
+	color fucsia !important
 
 .fondo-blanco
 	background-color white
-.fondo-cian
-	background-color cian !important
+.fondo-gris
+	background-color gris !important
 
 .color-active
 	color #452D14 !important
@@ -229,7 +239,8 @@ footer
 		margin 0
 		text-align center
 		padding 0 !important
-		width 100%
+		width 30%
+		left 35%
 		z-index 6
 		height 33px
 		font-size 0.4em
@@ -268,7 +279,7 @@ footer
 
 header
 	.spacer
-		background marron
+		background fucsia
 		bottom 0
 		margin auto
 		height 1.5px
@@ -296,7 +307,7 @@ header
 				padding-top 0
 				margin-top 0.1em
 			.precio
-				background-color marron
+				background-color fucsia
 				color white
 				padding 0.1em 0.5em
 				margin-bottom 0.6em
@@ -320,7 +331,7 @@ header
 
 	.about
 		background-color white
-		color marron
+		color fucsia
 		font-family "mangal"
 		margin-top -6.8em
 		margin-left 14%
@@ -330,7 +341,7 @@ header
 		text-align center
 		z-index 20
 		h3
-			color marron
+			color fucsia
 			font-size 1.5em
 			font-family "Pacifico"
 			padding-bottom 35px
@@ -340,7 +351,7 @@ header
 			margin 0
 			padding 0
 	.informacion
-		color marron
+		color fucsia
 		font-family "mangal"
 		margin-top -16em
 		margin-left 14%
@@ -413,7 +424,7 @@ header
 		margin-top 1.1em
 		overflow hidden
 		text-align center
-		color marron
+		color fucsia
 		font-size 0.9em !important
 		background-color cian
 		.izq 
@@ -439,11 +450,11 @@ header
 
 		.der
 			text-align left	
-			border-left solid 2px marron
+			border-left solid 2px fucsia
 			padding-left 2em
 
 		.spacer		
-			background marron
+			background fucsia
 			display inline-block
 			height 200px
 		
@@ -498,7 +509,7 @@ header
 			font-family "Pacifico"
 		.container
 			.info
-				color marron
+				color fucsia
 				position absolute
 				margin auto
 				left 0
@@ -506,7 +517,7 @@ header
 				top 23%
 				width 72%
 			.infoUsuario
-				color marron
+				color fucsia
 				position absolute
 				margin auto
 				left 0
@@ -534,23 +545,23 @@ header
 							color white
 							padding-left 0.1em
 							&:hover
-								color marron
+								color fucsia
 								background-color cian
 
 					li.active
 						background-color cian
 						a
 							background-color cian
-							color marron
+							color fucsia
 
 				.tab-content
 					color white
 					.panel-body
-						color marron
+						color fucsia
 					#como-comprar
 						.panel
 							background-color transparent
-							color marron
+							color fucsia
 							font-size 0.8em
 							font-weight normal
 							padding 0
@@ -673,7 +684,7 @@ nav
 				width 100px
 				float left
 				line-height 2.2em
-				color marron
+				color fucsia
 			.logo-delivery
 				margin 2px 9px 0 0
 				float left
@@ -685,13 +696,13 @@ nav
 			height 71px
 			.carrito-header-cont
 				float none
-				color marron
+				color fucsia
 				width 360px
 				font-size 0.9em
 				div
 					float right
 				a
-					color marron
+					color fucsia
 				.text-login
 					float right
 					width 350px
@@ -721,7 +732,7 @@ nav
 					background-image url(../img/lupa-busqueda-blanca.png)
 					background-repeat no-repeat
 					background-position 94% 50%
-					background-color marron
+					background-color fucsia
 					text-indent 1em
 					margin-right 0.8em
 					&:active
@@ -866,7 +877,7 @@ nav
 				padding 8px
 		.contact
 			.izq
-				border-right solid 2px marron
+				border-right solid 2px fucsia
 				padding-right 2em
 		.main-banner
 			margin-top 1em
@@ -899,6 +910,7 @@ nav
 		h3
 			margin auto
 			width 100%
+			left 0
 			text-align center
 		p
 			margin-left 1%
@@ -998,11 +1010,11 @@ nav
 								padding-top 2em
 								.thumbnail
 									border 0
-									border-bottom 1px solid marron
+									border-bottom 1px solid fucsia
 									margin-bottom 1em
 									text-align center
 								.subtitulo-paso-compra
-									color marron
+									color fucsia
 
 	.thumbnail
 		border-radius 0
@@ -1024,7 +1036,7 @@ nav
 			li				
 				display inline-block
 				a
-					color marron
+					color fucsia
 					font-size 1em
 					text-decoration none
 

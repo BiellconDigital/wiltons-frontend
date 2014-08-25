@@ -1,30 +1,39 @@
-
 'use strict';
 
 define(['app'], function (app) {
 
     var formasPagoController = function ($scope, $location) {
-        var appTitle = 'Formas de Pago';
-        $scope.appTitle = appTitle;
-        $scope.highlight = function (path) {
-            return $location.path().substr(0, path.length) == path;
-        };
-			$("#banner_formaspago").backstretch("./img/registro_fondo.jpg");
-			//$("#contenido").css("height", "300");
-		    var $window = $(window).on('resize', function() {
-				//alert($(window).width())
-		    	if ($(window).width() <= 767) {
-					$('#contenido').height(
-						($(window).height() - $('#header').height() - $('#footer').height() - 20) / 2
-					);    
-		    	} else {
-					$('#contenido').height(
-						$(window).height() - $('#header').height() - $('#footer').height() - 150
-					);    
-	    		}
-				$("#banner_formaspago").backstretch("./img/registro_fondo.jpg");
-			}).trigger('resize'); //on page load      
+        $(window).off("resize");
+
+        if ($(window).width() <= 991) {
+            $scope.tipoImg = 'tablet';
+        }
+
+        setTimeout(function() {
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            $("#contenido").backstretch("resize");
+            console.log("redimensiona!");
+        }, 1000);
         
+        var $window = $(window).on('resize', function() {
+            if ($(window).width() <= 991) {
+                $("#contenido").backstretch("./img/fondos/fondo.png");
+            } else {
+                $("#contenido").backstretch("./img/fondos/fondo.png");
+            }
+
+            if ($(window).width() <= 991) {
+                $scope.tipoImg = 'tablet';
+            } else {
+                $scope.tipoImg = '';
+            }
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            //$scope.$apply();
+        }).trigger('resize');
     };
 
     app.register.controller('FormasPagoController', ['$scope', '$location', formasPagoController]);

@@ -13,17 +13,12 @@ define(['app'], function (app) {
         } catch (e) {
             
         }
-//        $scope.user = $scope.copy;
-        $scope.appTitle = appTitle;
-        $scope.highlight = function (path) {
-            return $location.path().substr(0, path.length) == path;
-        }
-
-            userService.user.listTipoDocumento(
-                function(resp) {
-                    $scope.tipoDocumentos = resp.data;
-                }
-            );
+        
+        userService.user.listTipoDocumento(
+            function(resp) {
+                $scope.tipoDocumentos = resp.data;
+            }
+        );
         
         $scope.guardarUsuario = function() {
             userService.user.saveUser($scope.user,
@@ -81,28 +76,37 @@ define(['app'], function (app) {
               $(this).tab('show');
             })
             
-//            $('#dropdownMenuUsuario a').click(function (e) {
-//              e.preventDefault()
-//              $(this).tab('show');
-//            })
-            
-            $("#contenido").backstretch("./img/registro_fondo.jpg");
-            var $window = $(window).on('resize', function() {
-                //alert($(window).width())
-                if ($(window).width() <= 767) {
-                    $('#contenido').height(
-                        ($(window).height() - $('#header').height() - $('#footer').height() - 20) / 3 - 25
-                    );    
-                } else {
-                    $('#contenido').height(
-                        $(window).height() - $('#header').height() - $('#footer').height() - 60
-                    );    
-                }
-                $('#navMenuUsuario').height(
-                        $(window).height() - $('#header').height() - $('#footer').height() - 200
-                );    
-                $("#contenido").backstretch("./img/registro_fondo.jpg");
-            }).trigger('resize'); //on page load      
+        $(window).off("resize");
+
+        if ($(window).width() <= 991) {
+            $scope.tipoImg = 'tablet';
+        }
+
+        setTimeout(function() {
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            $("#contenido").backstretch("resize");
+            console.log("redimensiona!");
+        }, 1000);
+        
+        var $window = $(window).on('resize', function() {
+            if ($(window).width() <= 991) {
+                $("#contenido").backstretch("./img/fondos/fondo.png");
+            } else {
+                $("#contenido").backstretch("./img/fondos/fondo.png");
+            }
+
+            if ($(window).width() <= 991) {
+                $scope.tipoImg = 'tablet';
+            } else {
+                $scope.tipoImg = '';
+            }
+            $('#contenido').height(
+                    $('#imgFondo').height() + 58
+            );
+            //$scope.$apply();
+        }).trigger('resize');
         
     };
 
