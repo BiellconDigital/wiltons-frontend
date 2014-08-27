@@ -47,26 +47,10 @@
               <div class="caption">
                 <h4 class="text-center">{{p.nombre_producto}}</h4>
                 
-                <p ng-if="p.precio1 <= 0 || p.precio2 <= 0" class="precio">
+                <p class="precio">
                     {{p.precio | currency:'S/.'}}
                 </p>
 
-                <div ng-if="isNumber(p.precio1) && isNumber(p.precio2) && p.precio1 > 0 && p.precio2 > 0" ng-init="p.precio = 0"
-                     class="select-precio">
-                    <select class="form-control input-sm btn-primary" 
-                    ng-init="precio=p.precio1;changePrecio(p, precio);"
-
-                    ng-model="precio" ng-change="changePrecio(p, precio)">
-                      <option ng-value="p.precio1"
-                        ng-selected="true">
-                        Chocolate Lindt - {{p.precio1 | currency:'S/.'}}
-                      </option>
-                      <option ng-value="p.precio2">
-                        Chocolate Montblanc - {{p.precio2 | currency:'S/.'}}
-                      </option>
-                    </select>
-                </div>
-                
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tr>
                     <td>

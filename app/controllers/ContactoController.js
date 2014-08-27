@@ -26,7 +26,7 @@ define(['app'], function (app) {
 
 
 function initialize() {
-	var myLatlng = new google.maps.LatLng(-12.1443000,-77.0180000);
+	var myLatlng = new google.maps.LatLng(-12.125058,-76.999407);
 	var mapOptions = {
 		zoom: 17,
 		center: myLatlng,
@@ -40,10 +40,10 @@ function initialize() {
 	   // '<h2 id="firstHeading" class="firstHeading">Maido Mitsuharu</h2>'+
 	    '<div id="bodyContent">'+
 		'<div class="foto_mapa"></div>' +
-	    '<p class="text-marron">Amoramar Jr. Garcia y Garcia 175<br/>' +
-		'	Barranco - Lima, Perú <br/>' +
-		'	Teléfonos: (511)241-8724 / 241 8142 <br/>' +
-		'	Email: <a href="mailto:informes@delibouquet.pe">informes@delibouquet.pe</a> </p>'
+	    '<p class="text-marron">Av Aviacion 5161 Higuereta<br/>' +
+		'	Lima, Perú <br/>' +
+		'	Teléfonos: (+511) 987-972065, (+511) 448-8546 <br/>' +
+		'	Email: <a href="mailto:ventas@wiltons.pe">ventas@wiltons.pe</a> </p>'
 	   '</div>'+
 	    '</div>';
 
@@ -52,14 +52,14 @@ function initialize() {
 	});
 
 
-	var image = 'img/amor-amar.png';
-	var myLatLng = new google.maps.LatLng(-12.1443000,-77.0180000);
+//	var image = 'img/amor-amar.png';
+	var myLatLng = new google.maps.LatLng(-12.125058,-76.999407);
 	var beachMarker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		title:"Delibouquet",
-		animation: google.maps.Animation.DROP,
-		icon: image
+		title:"Wiltons",
+		animation: google.maps.Animation.DROP
+//		icon: image
 	});
   
    
