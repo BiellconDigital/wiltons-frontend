@@ -54,7 +54,7 @@
                     </li>
                     <li>
                         <form ng-submit="buscarProductos()">
-                            <input ng-model="textSearch" placeholder="NUESTRA HISTORIA"/>
+                            <input ng-model="textSearch" placeholder="nombre del producto"/>
                         </form>
                     </li>
                     <li>
@@ -78,14 +78,14 @@
           <ul>
             <li ng-class="{'active' : isActiveMenu('/')}">
                 <a ui-sref="public.home" ng-click="selectMenu('/')" onclick="toggleMenu();"
-                   class="btn-block">Inicio</a>
+                   class="btn-block">INICIO</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/delibouquet')}">
                 <a ui-sref="public.nosotros" ng-click="selectMenu('/delibouquet')" onclick="toggleMenu();"
                    class="btn-block">NUESTRA HISTORIA</a>
             </li>
-            <li ng-class="{'active' : isActiveMenu('/arreglos/')}">
-                <a ui-sref="public.productos" ng-click="selectMenu('/arreglos/')" onclick="toggleMenu();"
+            <li ng-class="{'active' : isActiveMenu('/productos/')}">
+                <a ui-sref="public.productos" ng-click="selectMenu('/productos/')" onclick="toggleMenu();"
                    class="btn-block">PRODUCTOS</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/pedidos')}">
@@ -98,15 +98,15 @@
             </li>
             <li ng-class="{'active' : isActiveMenu('/politicas')}">
                 <a ui-sref="public.politicas" ng-click="selectMenu('/politicas')" onclick="toggleMenu();"
-                   class="btn-block">Políticas</a>
+                   class="btn-block">POLÍTICAS</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/delivery')}">
                 <a ui-sref="public.delivery" ng-click="selectMenu('/delivery')" onclick="toggleMenu();"
-                   class="btn-block">Delivery</a>
+                   class="btn-block">DELIVERY</a>
             </li>
             <li ng-class="{'active' : isActiveMenu('/formas_pago')}">
                 <a ui-sref="public.formas_pago" ng-click="selectMenu('/formas_pago')" onclick="toggleMenu();"
-                   class="btn-block">Formas de pago</a>
+                   class="btn-block">FORMAS DE PAGO</a>
             </li>
           </ul>
         </div>
@@ -138,7 +138,7 @@
              
                 <div id="sidr" class="nav-mobile" >   
                   <ul>
-                    <li><a ui-sref="public.home" onclick="toggleMenu();">Inicio</a></li>
+                    <li><a ui-sref="public.home" onclick="toggleMenu();">INICI</a></li>
                     <li ><a ui-sref="public.nosotros" onclick="toggleMenu();">NUESTRA HISTORIA</a></li>
                     <li ><a ui-sref="public.productos" onclick="toggleMenu();">PRODUCTOS</a></li>
                     <li><a ui-sref="user.pedidos" onclick="toggleMenu();">MI PEDIDO</a></li>
@@ -147,9 +147,12 @@
                 </div>
 
                 
-<div class="logo">
+<div class="logo hidden-print">
     <a ui-sref="public.home" ng-class="{'color-active' : isActiveMenu('/')}" ng-click="selectMenu('/')">
-        <img src="img/logotipo-wiltons.png" />      
+        
+        <img class="hidden-xs" src="img/logotipo-wiltons.png" />      
+        <img class="visible-xs" src="img/logotipo-wiltons-movil.png" />      
+        
     </a>
 
 </div>
@@ -210,7 +213,7 @@
                             <li class="col-sm-offset-4 col-sm-4"><a ui-sref="public.nosotros" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
                                     NUESTRA HISTORIA
                             </a></li>
-                            <li class="col-sm-4"><a ui-sref="public.productos" ng-class="{'color-active' : isActiveMenu('/arreglos/')}" ng-click="selectMenu('/arreglos/')">
+                            <li class="col-sm-4"><a ui-sref="public.productos" ng-class="{'color-active' : isActiveMenu('/productos/')}" ng-click="selectMenu('/productos/')">
                                     PRODUCTOS
                             </a></li>
                         </ul>
@@ -311,7 +314,7 @@
       <script src="lib/angular/angular-cookies.min.js"></script>
       <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
       <script src="lib/angular-easyfb.min.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
       <script src="lib/q.min.js"></script>
         

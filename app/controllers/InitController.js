@@ -36,7 +36,7 @@ define(['app'], function (app) {
         };
         
         $scope.buscarProductos = function() {
-            $location.path( "/arreglos_busqueda/" + $scope.textSearch);
+            $location.path( "/productos_busqueda/" + $scope.textSearch);
         };
         
         $scope.selectMenu = function (menu) {

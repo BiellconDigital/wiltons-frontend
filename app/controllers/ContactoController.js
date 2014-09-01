@@ -43,7 +43,7 @@ function initialize() {
 	    '<p class="text-marron">Av Aviacion 5161 Higuereta<br/>' +
 		'	Lima, Perú <br/>' +
 		'	Teléfonos: (+511) 987-972065, (+511) 448-8546 <br/>' +
-		'	Email: <a href="mailto:ventas@wiltons.pe">ventas@wiltons.pe</a> </p>'
+		'	Email: <a href="mailto:pedidos@wiltons.pe">pedidos@wiltons.pe</a> </p>'
 	   '</div>'+
 	    '</div>';
 

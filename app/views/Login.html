@@ -1,19 +1,12 @@
 <div class="contenido" id='contenido' ng-controller="LoginController" style="overflow: visible">
     <div class="banner" id="banner" style="overflow: visible">
     
-            <img ng-src="img/fondos/fondo-generico.jpg" style="position: absolute"
-                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
-                ng-show="true" id="imgFondo"
-                ng-animate="'animate'">
-            <img ng-src="img/fondos/fondo-genericoTablet.jpg"  style="position: absolute"
-                class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
-                ng-show="true" id="imgFondo"
-                ng-animate="'animate'">
+      <div id="fondo">
+          <article id="content-text" class="testing-css"
+                     style="padding-top: 9%;width: 94%">
 
-
-            <article class="" style="position: relative;background-color: transparent;margin: 2.4em;padding-top: 9%;">
                 <h4><b>Iniciar sesión</b></h4>
-                <div class="row" >
+                <div >
 
                             <div class="col-sm-6 col-md-7 sin-borde">
                                 <div class="thumbnail padding-thumbs panels-login sin-borde fondo-gris">
@@ -78,5 +71,13 @@
                         </div>
             </article>
 
+            <img ng-src="img/fondos/fondo-generico.jpg"
+                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
+                ng-show="true" id="imgFondo"
+                ng-animate="'animate'">
+
+
+
+        </div>
     </div>
 </div>

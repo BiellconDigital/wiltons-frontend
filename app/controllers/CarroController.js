@@ -11,7 +11,7 @@ define(['app'], function (app) {
         $scope.razonesCompra = null;
         $scope.orden.costoEnvio = 15.00;
         $scope.orden.subTotal = dataService.cart.getTotalPrice();
-        $scope.orden.cuentaBanco = "Cta. Cte. No. 193 - 2100552 - 0 - 96";
+        $scope.orden.cuentaBanco = "Cta. Cte. BCP 194-0931731-0-23";
         $scope.horaDespacho = userService.cartUser.listHoraDespacho();
         $scope.procesando = false;
         var dataVisa = {url_visa : '', eticket: 0, result: ''};

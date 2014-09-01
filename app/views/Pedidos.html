@@ -1,18 +1,24 @@
 <div class="container productos" ng-controller="PedidosController">
     <div class="row subcontenido">
+        <div class="visible-xs col-xs-12">
+            <br/><br/>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
               <h3>Listado de compras</h3>
         </div>
 
           <div class="col-sm-6 col-md-3" ng-repeat="p in pedidos | orderBy:'-idOrden':false" id="item-producto">
             <div class="thumbnail sin-fondo sin-borde">
-              <img ng-src="/web/m_cart/files/producto/{{p.imagen}}" alt="img1" class="img-circle img-responsive">
-              <div class="caption text-center">
-                <a href="#/pedido/{{p.idOrden}}">
-                  <h4 class="text-center">{{p.productoNombre}}</h4>
-                </a>
-                <p>Fecha - {{p.fechaProcesado}}</p>
-              </div>
+                <img fallback-src="img/sin-imagen.png"
+                  ng-src="/web/m_cart/files/producto/{{p.imagen}}" 
+                  alt="img1" class="img-circle img-responsive">
+                
+                <div class="caption text-center">
+                  <a href="#/pedido/{{p.idOrden}}">
+                    <h4 class="text-center">{{p.productoNombre}}</h4>
+                  </a>
+                  <p>Fecha - {{p.fechaProcesado}}</p>
+                </div>
             </div>
           </div>
 

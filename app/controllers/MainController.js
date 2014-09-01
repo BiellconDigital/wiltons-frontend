@@ -47,15 +47,17 @@ define(['app'], function (app) {
         
         setTimeout(function() {
             $('#contenido').height(
-                    $('#fondo').height() + 28
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
             console.log("redimensiona!");
         }, 1000);
         
-        $('#contenido').height(
-          $(window).height() - $('#header').height() - $('#footer').height()
-        );
+        $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
+        
+//        $('#contenido').height(
+//          $(window).height() - $('#header').height() - $('#footer').height()
+//        );
 
 
         var $window = $(window).on('resize', function() {
@@ -71,7 +73,7 @@ define(['app'], function (app) {
               $scope.tipoImg = '';
           }
           $('#contenido').height(
-                  $('#fondo').height() + 28
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
           );
           //$scope.$apply();
 

@@ -19,6 +19,12 @@ define(['app'], function (app) {
          $scope.likeURL = $sce.trustAsResourceUrl('http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.delibouquet.pe%2Fcart%2Findex.html%23%2Fdetalle-producto%2F' + $stateParams.prodId + '&width&layout=standard&action=like&show_faces=false&share=false&height=80');
         
         $('.carousel').carousel();
+        $scope.carouselPrev = function () {
+            $('.carousel').carousel('prev');
+        }
+        $scope.carouselNext = function () {
+            $('.carousel').carousel('next');
+        }
         
         var load = function() {
 //            console.log('call load()...');

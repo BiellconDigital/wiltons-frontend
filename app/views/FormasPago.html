@@ -1,29 +1,30 @@
 <div class="contenido" id='contenido' ng-controller="FormasPagoController" style="overflow: visible">
     <div class="banner" id="banner" style="overflow: visible">
     
-        <img ng-src="img/fondos/fondo-generico.jpg" style="position: absolute"
-            class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
-            ng-show="true" id="imgFondo"
-            ng-animate="'animate'">
-        <img ng-src="img/fondos/fondo-genericoTablet.jpg"  style="position: absolute"
-            class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
-            ng-show="true" id="imgFondo"
-            ng-animate="'animate'">
+      <div id="fondo">
+            <article id="content-text"
+                     style="padding-top: 3.9%;">
 
+                <h1 class="text-center hidden-xs">Formas de Pago</h1>
+                <h3 class="text-center visible-xs">Formas de Pago</h3>
+                <p><b>Deposito a cuenta.</b></p>
+                <p>
+                BANCO DE CREDITO<br/>
+                Cta. Cte. No. <br/>
 
-        <article class="informacion" style="position: relative;background-color: transparent;margin: 2.7em;padding-top: 2%;">
-            <h2>Formas de Pago</h2>
-            <div>
-                    <p><b>Deposito a cuenta.</b></p>
-                    <p>
-                    BANCO DE CREDITO<br/>
-                    Cta. Cte. No. <br/>
+                A nombre de: XXXXX Una vez realizado el depósito le agradeceremos nos envíe un correo a ventas@wiltons.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
+                </p>
 
-                    A nombre de: XXXXX Una vez realizado el depósito le agradeceremos nos envíe un correo a ventas@wiltons.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
-                    </p>
-
-
-            </div>
         </article>
-    </div>
+            <img ng-src="img/fondos/fondo-generico.jpg"
+                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
+                ng-show="true"
+                ng-animate="'animate'">
+            <img ng-src="img/fondos/fondo-genericoTablet.jpg"
+                class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
+                ng-show="true"
+                ng-animate="'animate'">
+
+          </div>
+      </div>
 </div>

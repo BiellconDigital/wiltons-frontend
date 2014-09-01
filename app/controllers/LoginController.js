@@ -40,35 +40,48 @@ define(['app'], function (app) {
         
         $(window).off("resize");
 
+        $scope.quitarAlto = 80;
         if ($(window).width() <= 991) {
             $scope.tipoImg = 'tablet';
+            $scope.quitarAlto = 60;
         }
 
         setTimeout(function() {
             $('#contenido').height(
-                    $('#imgFondo').height() + 58
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
+            $('#content-text').height(
+                    $('#fondo').height() - $scope.quitarAlto
+            );
             console.log("redimensiona!");
         }, 1000);
         
+        $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
+        
         var $window = $(window).on('resize', function() {
-            if ($(window).width() <= 991) {
-                $("#contenido").backstretch("./img/fondos/fondo.png");
-            } else {
-                $("#contenido").backstretch("./img/fondos/fondo.png");
-            }
+          if ($(window).width() <= 991) {
+              $("#contenido").backstretch("./img/fondos/fondo.png");
+          } else {
+              $("#contenido").backstretch("./img/fondos/fondo.png");
+          }
 
-            if ($(window).width() <= 991) {
-                $scope.tipoImg = 'tablet';
-            } else {
-                $scope.tipoImg = '';
-            }
-            $('#contenido').height(
-                    $('#imgFondo').height() + 58
-            );
-            //$scope.$apply();
+          if ($(window).width() <= 991) {
+            $scope.tipoImg = 'tablet';
+            $scope.quitarAlto = 60;
+          } else {
+            $scope.tipoImg = '';
+            $scope.quitarAlto = 80;
+          }
+          $('#contenido').height(
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
+          );
+          $('#content-text').height(
+                  $('#fondo').height() - $scope.quitarAlto
+          );
+
         }).trigger('resize');
+    
     };
 
     app.register.controller('LoginController', ['$scope', '$rootScope', '$location', '$timeout', 'Auth', loginController]);

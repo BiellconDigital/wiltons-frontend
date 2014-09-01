@@ -1,6 +1,9 @@
 <div class="container productos" ng-controller="CarroController">
 
   <div class="row subcontenido">
+    <div class="visible-xs col-xs-12">
+        <br/><br/><br/>
+    </div>
 
     <div class="col-sm-12 col-md-12">
 
@@ -140,7 +143,7 @@
                           <span class="glyphicon glyphicon-ok"></span> Comprar Ahora
                       </a> &nbsp; 
                       
-                      <a href="#/arreglos">Continuar Comprando</a>
+                      <a href="#/productos">Continuar Comprando</a>
                   </div>
               </div>
               <br/><br/>
@@ -216,7 +219,7 @@
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9 text-right">
-                                    <a href="#/arreglos">Continuar Comprando</a> &nbsp;&nbsp;
+                                    <a href="#/productos">Continuar Comprando</a> &nbsp;&nbsp;
                                     <a href="" class="btn button-next" ng-disabled="!despachoForm.$valid">
                                          Continuar <span class="glyphicon glyphicon-arrow-right"></span>
                                     </a>
@@ -326,13 +329,6 @@
                               </label>
                             </div>
 -->
-                            <div class="radio">
-                              <label>
-                                <input required type="radio" ng-model="orden.tipoPago" name="tipoPago" id="optionsRadios3" value="3">
-                                Pago con VISA
-                              </label>
-                            </div>
-
                             <div class="panel panel-default">
                               <div class="panel-heading">Mis pedidos y mis datos son correctos, continuar.</div>
 <!--                              
@@ -362,7 +358,7 @@
                                               <input type="checkbox" required class="" ng-model="orden.aceptaPolitica">
                                         </div>
                                         <p>{{orden.cuentaBanco}}<br/>
-                                        A nombre de: Retoser SAC Una vez realizado el depósito le agradeceremos nos envíe un correo a ventas@delibouquet.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
+                                        A nombre de: Wilton’s S.A.C ó cancelando en caja al local de la Av. Aviación 5161 Urb. Higuereta Santiago de Surco. Una vez realizado el depósito le agradeceremos nos envíe un correo a pedidos@wiltons.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
                                         </p>
                                         <br/>
                                         <a href="" class="btn" role="button" 
@@ -370,28 +366,6 @@
                                            ng-click="procesarCompra(1)">Comprar</a>
                                            <span ng-show="procesando">Procesando...</span>
                                             &nbsp;
-                                  </div>
-
-                                  <div ng-if="orden.tipoPago == '3'" class="panel-body">
-                                    <p>
-                                          He leído y aceptado las <a ui-sref="public.politicas" target="_blank"><b>politicas, terminos y condiciones</b></a>
-                                          <input type="checkbox" required class="" ng-model="orden.aceptaPolitica">
-                                    </p>
-                                    <div style="float: none;overflow: auto;">
-                                        <a href="http://www.visanet.com.pe" target="_blank" style="float: left;">
-                                          <img ng-src="img/visa-marron.jpg" style="margin-right: 5px;"/>
-                                        </a>
-                                        <a href="http://www.visanet.com.pe/visa.htm" target="_blank" style="float: left;">
-                                          <img ng-src="img/verified by visa-marron.jpg" />
-                                        </a>
-                                    </div>
-                                    <br class="clearfix"/>
-                                        <a href="" class="btn" role="button" style="width: 94px; margin-top: 7px;"
-                                           ng-disabled='!carroForm.$valid || procesando'
-                                           ng-click="procesarCompra(3)">Comprar</a>
-                                           <span ng-show="procesando">Procesando...</span>
-                                            &nbsp;
-                                    
                                   </div>
 
                             </div>
