@@ -1,33 +1,39 @@
 <div class="contenido" id="contenido" ng-controller="NosotrosController">
-  <div class="banner " id="banner">
+  <div class="banner" id="banner">
 
-      <div id="fondo">
-            <article id="content-text"
-                     style="text-align: right;">
-            
-            <div class="hidden-xs">
-                <br/><br/><br/>
-            </div>
-            <br/>
-            <div class="col-sm-5 col-sm-offset-7 col-xs-12">
-                <h4><b>
-                    Acerca de Nosotros
-                    </b>
-                </h4>
-                <p>
-                    Desde 1979 somos una empresa dedicada a la panadería y pastelería fina, cuyo objetivo principal es la satisfacción total de nuestros clientes, ofreciendo productos y servicios de alta calidad.
-                </p>
-                <p>
-                    Con el transcurrir de los años  y la experiencia adquirida estamos convencidos de qye para poder lograr nuestro obejtivo, la estandarización en nuestros procesos  de
-                    procucción, la implementación de tecnología de punta, un exhausto control de calidad, y la generación de productos innovadores y creativos, nos han convertido en una buena alternativa para nuestros clientes.                
-                </p>
-            </div>
-        </article>
-        <img ng-src="img/fondos/fondo-nuestra-historia.jpg" 
+      <div id="fondo" class="">
+          
+        <div id="content-panel" class="">
+            <article id="content-text" class=""
+                         style="margin: auto;">
+
+                <div class="content-body" style="text-align: right;">
+                
+                    <div class="col-sm-5 col-sm-offset-7 col-lg-4 col-lg-offset-8 col-xs-12" >
+                    <div class="hidden-xs">
+                        <br/><br/><br/>
+                    </div>
+                    <br/>
+                        <h4><b>
+                            Acerca de Nosotros
+                            </b>
+                        </h4>
+                        <p>
+                            Desde 1979 somos una empresa dedicada a la panadería y pastelería fina, cuyo objetivo principal es la satisfacción total de nuestros clientes, ofreciendo productos y servicios de alta calidad.
+                        </p>
+                        <p>
+                            Con el transcurrir de los años  y la experiencia adquirida estamos convencidos de qye para poder lograr nuestro obejtivo, la estandarización en nuestros procesos  de
+                            procucción, la implementación de tecnología de punta, un exhausto control de calidad, y la generación de productos innovadores y creativos, nos han convertido en una buena alternativa para nuestros clientes.                
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <img id="imgFondo"  ng-src="img/fondos/fondo-nuestra-historia.jpg" 
             class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
             ng-show="true"
             ng-animate="'animate'">
-        <img ng-src="img/fondos/fondo-genericoTablet.jpg" 
+        <img id="imgFondo" ng-src="img/fondos/fondo-genericoTablet.jpg" 
             class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
             ng-show="true"
             ng-animate="'animate'">
@@ -36,5 +42,4 @@
         
                   
   </div>
-    <br/><br/>
 </div>

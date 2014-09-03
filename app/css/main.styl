@@ -161,11 +161,17 @@ table.delivery
 		td
 			padding 0.3em
 
-#content-text
+#content-panel
 	position absolute
 	background-color transparent
-	margin 2.7em
-	overflow auto
+	width 100%
+
+#content-text
+	position relative
+	background-color transparent
+	overflow visible
+	.content-body
+		margin 2.7em
 
 .icono-triangulo
 	float none
@@ -386,8 +392,10 @@ header
 			padding-top 1.5em
 			overflow auto
 			width 92%
-			left 4%
+			margin-left 4%
 			z-index 11
+			#imgFondo
+				margin auto
 			// img
 			// 	z-index 11
 			// 	height 540px
@@ -859,9 +867,6 @@ nav
 		margin 0
 		font-size 0.9em
 
-	#content-text
-		margin 1.6em
-
 	footer
 		h3
 			margin auto
@@ -875,10 +880,10 @@ nav
 
 	.content
 		.contenido
-			.text
-				left -4%
-			.text2
-				font-size 3.5em
+			#content-text
+				overflow visible
+				.content-body
+					margin 1.4em
 
 		.about
 			margin-top 0
@@ -1067,6 +1072,9 @@ nav
 
 @media screen and (min-width: 1440px)
 
+	body
+		font-size 1.7em !important
+
 	nav		
 		.info-head
 			margin-left 1%
@@ -1084,14 +1092,7 @@ nav
 			// 		max-width 100%
 			// 		height auto
 			// 		margin 0
-			.text
-				top 25%
-				height 200px
-				font-size 5.4em
-			.text2
-				top 13%
-				height 140px
-				font-size 5.4em
+
 		.contact-map
 			#map_canvas
 				height 560px

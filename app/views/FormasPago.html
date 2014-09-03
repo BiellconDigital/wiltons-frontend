@@ -1,9 +1,12 @@
 <div class="contenido" id='contenido' ng-controller="FormasPagoController" style="overflow: visible">
     <div class="banner" id="banner" style="overflow: visible">
     
-      <div id="fondo">
-            <article id="content-text"
-                     style="padding-top: 3.9%;">
+      <div id="fondo"  style="overflow: visible;">
+        <div id="content-panel" class="">
+          <article id="content-text" class=""
+                     style="margin: auto;">
+
+            <div class="content-body" style="padding-top: 8%;overflow: auto;height: 100%">
 
                 <h1 class="text-center hidden-xs">Formas de Pago</h1>
                 <h3 class="text-center visible-xs">Formas de Pago</h3>
@@ -14,13 +17,15 @@
 
                 A nombre de: XXXXX Una vez realizado el depósito le agradeceremos nos envíe un correo a ventas@wiltons.pe indicando su nombre completo, número de orden, fecha del depósito, banco y monto respectivo ó el voucher de pago escaneado. Luego de esto procesaremos su pedido.
                 </p>
+            </div>
 
         </article>
-            <img ng-src="img/fondos/fondo-generico.jpg"
+          </div>
+            <img id="imgFondo" ng-src="img/fondos/fondo-generico.jpg"
                 class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
                 ng-show="true"
                 ng-animate="'animate'">
-            <img ng-src="img/fondos/fondo-genericoTablet.jpg"
+            <img id="imgFondo" ng-src="img/fondos/fondo-genericoTablet.jpg"
                 class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
                 ng-show="true"
                 ng-animate="'animate'">

@@ -1,12 +1,14 @@
-<div class="contenido" id='contenido' ng-controller="LoginController" style="overflow: visible">
-    <div class="banner" id="banner" style="overflow: visible">
+<div class="contenido" id='contenido' ng-controller="LoginController"  style="overflow: visible;">
+    <div class="banner" id="banner"  style="overflow: visible;">
     
-      <div id="fondo">
-          <article id="content-text" class="testing-css"
-                     style="padding-top: 9%;width: 94%">
+    <div id="fondo" class="" style="overflow: visible;">
+        <div id="content-panel" class="">
+          <article id="content-text" class=""
+                     style="margin: auto;">
 
-                <h4><b>Iniciar sesión</b></h4>
-                <div >
+                <div class="content-body" style="padding-top: 10%;">
+                    <br/>
+                        <h4><b>Iniciar sesión</b></h4>
 
                             <div class="col-sm-6 col-md-7 sin-borde">
                                 <div class="thumbnail padding-thumbs panels-login sin-borde fondo-gris">
@@ -70,13 +72,17 @@
 
                         </div>
             </article>
+        </div>
 
-            <img ng-src="img/fondos/fondo-generico.jpg"
-                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
-                ng-show="true" id="imgFondo"
-                ng-animate="'animate'">
-
-
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico.jpg" 
+            class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
+            ng-show="true"
+            ng-animate="'animate'">
+        <img id="imgFondo" ng-src="img/fondos/fondo-genericoTablet.jpg" 
+            class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
+            ng-show="true"
+            ng-animate="'animate'">
+         
 
         </div>
     </div>

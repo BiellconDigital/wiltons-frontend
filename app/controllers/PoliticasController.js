@@ -5,10 +5,10 @@ define(['app'], function (app) {
     var politicasController = function ($scope, $location) {
         $(window).off("resize");
 
-        $scope.quitarAlto = 80;
+        $scope.quitarAlto = 60;
         if ($(window).width() <= 991) {
             $scope.tipoImg = 'tablet';
-            $scope.quitarAlto = 60;
+            $scope.quitarAlto = 40;
         }
 
         setTimeout(function() {
@@ -18,6 +18,9 @@ define(['app'], function (app) {
             $("#contenido").backstretch("resize");
             $('#content-text').height(
                     $('#fondo').height() - $scope.quitarAlto
+            );
+            $('#content-text').width(
+                  $('.' + $scope.fondoClass).width() - 10
             );
             console.log("redimensiona!");
         }, 1000);
@@ -38,16 +41,22 @@ define(['app'], function (app) {
 
           if ($(window).width() <= 991) {
             $scope.tipoImg = 'tablet';
-            $scope.quitarAlto = 60;
+            $scope.quitarAlto = 30;
+            $scope.fondoClass = 'imgFondoMovil';
           } else {
             $scope.tipoImg = '';
-            $scope.quitarAlto = 80;
+            $scope.quitarAlto = 50;
+            $scope.fondoClass = 'imgFondoNormal';
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
           );
           $('#content-text').height(
                   $('#fondo').height() - $scope.quitarAlto
+          );
+
+          $('#content-text').width(
+                  $('.' + $scope.fondoClass).width() - 10
           );
 
         }).trigger('resize');
