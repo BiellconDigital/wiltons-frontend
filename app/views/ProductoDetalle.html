@@ -59,13 +59,13 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <img fallback-src="img/sin-imagen.png"
-                                ng-src="/web/m_cart/files/producto/{{producto.imagen}}" rel="image_src"
+                                ng-src="/backend/web/m_cart/files/producto/{{producto.imagen}}" rel="image_src"
                                 class="item active img-circle img-responsive"
                                 style="height: 190px;padding: 0;margin: 0;">
                             
                                 <img ng-repeat="gale in productoGaleria"
                                     fallback-src="img/sin-imagen.png"
-                                  ng-src="/web/m_cart/files/producto/galeria/{{gale.imagenGale}}"
+                                  ng-src="/backend/web/m_cart/files/producto/galeria/{{gale.imagenGale}}"
                                   class="item img-circle img-responsive" align='center'
                                               style="height: 190px;padding: 0;margin: 0;">
 
@@ -86,14 +86,14 @@
                       <div data-target="#carousel-producto" data-slide-to="0" style="cursor: pointer;"
                           class="active col-sm-6 col-md-4">
                             <img fallback-src="img/sin-imagen.png"
-                              ng-src="/web/m_cart/files/producto/{{producto.imagen}}" 
+                              ng-src="/backend/web/m_cart/files/producto/{{producto.imagen}}" 
                               class="img-circle img-responsive">
                       </div>
                       <div ng-repeat="gale in productoGaleria" id="item-producto"  style="cursor: pointer;"
                           data-target="#carousel-producto" data-slide-to="{{$index + 1}}"
                           class="col-sm-6 col-md-4">
                             <img fallback-src="img/sin-imagen.png"
-                              ng-src="/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}"
+                              ng-src="/backend/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}"
                               class="img-circle img-responsive">
                       </div>
 
@@ -106,7 +106,7 @@
                       <div class="row">
                         <div class="col-sm-6 col-md-4" ng-repeat="gale in productoGaleria" id="item-producto">
                               <img fallback-src="img/sin-imagen.png"
-                                ng-src="/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}" 
+                                ng-src="/backend/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}" 
                                 class="img-circle img-responsive">
                         </div>
                       </div>
