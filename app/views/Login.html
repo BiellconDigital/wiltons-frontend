@@ -1,13 +1,11 @@
 <div class="contenido" id='contenido' ng-controller="LoginController"  style="overflow: visible;">
     <div class="banner" id="banner"  style="overflow: visible;">
     
-    <div id="fondo" class="" style="overflow: visible;">
-        <div id="content-panel" class="">
-          <article id="content-text" class=""
-                     style="margin: auto;">
+    <div id="fondo" class="">
+        <div id="content-panel" class="user-data-panel">
+            <article id="content-text" class="user-data">
 
-                <div class="content-body" style="padding-top: 10%;">
-                    <br/>
+                <div class="content-body">
                         <h4><b>Iniciar sesión</b></h4>
 
                             <div class="col-sm-6 col-md-7 sin-borde">
@@ -74,15 +72,11 @@
             </article>
         </div>
 
-        <img id="imgFondo"  ng-src="img/fondos/fondo-generico.jpg" 
-            class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+            class="img-responsive sample-show-hide"
             ng-show="true"
             ng-animate="'animate'">
-        <img id="imgFondo" ng-src="img/fondos/fondo-genericoTablet.jpg" 
-            class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
-            ng-show="true"
-            ng-animate="'animate'">
-         
+
 
         </div>
     </div>

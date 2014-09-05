@@ -48,34 +48,62 @@ define(['app'], function (app) {
         
         $(window).off("resize");
 
-        if ($(window).width() <= 991) {
+        $scope.quitarAlto = 60;
+        if ($(window).width() <= 870) {
             $scope.tipoImg = 'tablet';
+            $scope.quitarAlto = 40;
         }
+        $('#content-text').width($(window).width()*0.8);
 
         setTimeout(function() {
             $('#contenido').height(
-                    $('#imgFondo').height() + 58
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
+//            $('#content-text').height(
+//                    $('#imgFondo').height() - $scope.quitarAlto
+//            );
+            $('#content-text').width(
+                  $('#imgFondo').width()
+            );
             console.log("redimensiona!");
         }, 1000);
         
-        var $window = $(window).on('resize', function() {
-            if ($(window).width() <= 991) {
-                $("#contenido").backstretch("./img/fondos/fondo.png");
-            } else {
-                $("#contenido").backstretch("./img/fondos/fondo.png");
-            }
+        $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
+        
+//        $('#contenido').height(
+//          $(window).height() - $('#header').height() - $('#footer').height()
+//        );
 
-            if ($(window).width() <= 991) {
-                $scope.tipoImg = 'tablet';
-            } else {
+
+        var $window = $(window).on('resize', function() {
+          if ($(window).width() <= 870) {
+              $("#contenido").backstretch("./img/fondos/fondo.png");
+          } else {
+              $("#contenido").backstretch("./img/fondos/fondo.png");
+          }
+
+          if ($(window).width() <= 870) {
+            $scope.tipoImg = 'tablet';
+            $scope.quitarAlto = 30;
+          } else if ($(window).width() <= 1280) {
                 $scope.tipoImg = '';
-            }
-            $('#contenido').height(
-                    $('#imgFondo').height() + 58
-            );
-            //$scope.$apply();
+                $scope.quitarAlto = 50;
+          } else {
+            $scope.tipoImg = 'PC';
+            $scope.quitarAlto = 70;
+          }
+          $('#contenido').height(
+                  $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
+          );
+//          $('#content-text').height(
+//                  $('#imgFondo').height() - $scope.quitarAlto
+//          );
+
+          $('#content-text').width(
+                  $('#imgFondo').width()
+          );
+
         }).trigger('resize');
         
     };

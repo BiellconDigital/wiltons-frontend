@@ -29,12 +29,14 @@ width 100%{height:100%;max-height:100%;overflow:hidden}
 .sin-borde-top{border-top:0}
 .text-left{text-align:left !important}
 .text-white{color:#fff}
+.test-timesroman{font-family:"Times New Roman" !important}
 .form-group label{font-weight:normal}
 table.delivery{width:440px;margin:auto;}
 table.delivery tr td{padding:.3em}
-#content-panel{position:absolute;background-color:transparent;width:100%}
-#content-text{position:relative;background-color:transparent;overflow:visible;}
-#content-text .content-body{margin:2.7em}
+#content-panel{margin-top:1em;position:absolute;background-color:transparent;width:100%}
+#content-text{position:relative;background-color:transparent;overflow:auto;}
+#content-text .content-body{margin:2.7em;overflow:auto}
+.user-data{margin:2.7em auto;padding-top:4%}
 .icono-triangulo{float:none;background-image:url("../img/icono-listado-arreglos.png");padding-left:8px;width:15px;height:14px}
 .icono-triangulo-rojo{float:none;background-image:url("../img/icono-listado-arreglos-rojo.png");padding-left:8px;width:15px;height:14px}
 ul.nav-stacked li a{padding-right:.3em}
@@ -59,7 +61,7 @@ footer .footer-content a.links{height:29px;line-height:29px;padding:0;margin:0;c
 header .spacer{background:#a10442;bottom:0;margin:auto;height:1.5px;margin-bottom:8px;width:86%}
 .content{height:100%;}
 .content .productos{margin-top:1.1em;margin-bottom:0;text-size:1em;background-color:#eaf9f9;height:101%;}
-.content .productos .subcontenido{padding:1.5em 16% 0 16%;background-color:#eaf9f9;height:auto}
+.content .productos .subcontenido{padding:1.5em 12% 0 12%;background-color:#eaf9f9;height:auto}
 .content .productos .sin-fondo{background-color:transparent;box-shadow:none;}
 .content .productos .sin-fondo h4{padding-top:0;margin-top:.1em}
 .content .productos .sin-fondo .precio{background-color:#a10442;color:#fff;padding:.1em .5em;margin-bottom:.6em}
@@ -84,7 +86,7 @@ header .spacer{background:#a10442;bottom:0;margin:auto;height:1.5px;margin-botto
 .content .contenido .infoUsuario #navMenuUsuario li.active{font-weight:bold;}
 .content .contenido .infoUsuario #navMenuUsuario li.active a{color:#a10442}
 .content .contenido .infoUsuario .tab-content #como-comprar .panel{background-color:transparent;color:#a10442;font-size:.9em;font-weight:normal;padding:0;border:0;}
-.content .contenido .infoUsuario .tab-content #como-comprar .panel .thumbnail{height:10em;padding:.8em 1.8em 1em 1.2em}
+.content .contenido .infoUsuario .tab-content #como-comprar .panel .thumbnail{height:9.5em;padding:.8em 1.8em 1em 1.2em}
 .content .contenido .infoUsuario .tab-content #como-comprar .panel .subtitulo-paso-compra{color:#fff;line-height:2em;font-size:1.2em}
 .content .main-banner{margin-top:1em;overflow:hidden;}
 .content .main-banner img{height:400px;width:100%}
@@ -184,7 +186,10 @@ table.delivery{width:100%;margin:0;font-size:.9em}
 footer h3{margin:auto;width:100%;left:0;text-align:center}
 footer p{margin-left:1%}
 footer .links{display:none !important}
-.content .contenido #content-text{overflow:visible;}
+.user-data-panel{background-color:#fff !important}
+.user-data{margin:1.1em auto;padding-top:7.4%;background-color:#fff !important;}
+.user-data .tab-pane{padding:0 1em}
+.content .contenido #content-text{overflow:auto;}
 .content .contenido #content-text .content-body{margin:1.4em}
 .content .about{margin-top:0;margin-left:3%;margin-right:3%}
 .content .informacion{margin-top:-3.3em;margin-left:3%;margin-right:3%}
@@ -234,8 +239,19 @@ nav .menu li a{color:#a10442;font-size:1em;text-decoration:none}
 footer{margin-top:2em;}
 footer .container{margin:auto 5%;width:90%;}
 footer .container .links{margin:2px 2px;line-height:18px;width:10%;font-size:.5em}
-}@media screen and (min-width: 1440px){body{font-size:1.7em !important}
+}@media screen and (min-width: 1400px){body{font-size:1.7em !important}
 nav .info-head{margin-left:1%}
 nav .carrito-header{margin-right:1%}
+.logo{margin:0 40%;width:15%;}
+.logo a img{width:220px}
+.content .contenido .banner{width:86%;margin-left:7%}
 .content .contact-map #map_canvas{height:560px}
+footer{height:45px;line-height:45px;}
+footer h3{height:43px;font-size:.46em;line-height:42px}
+footer .footer-content{font-size:.48em;}
+footer .footer-content a.links{height:39px;line-height:39px}
+}@media screen and (min-width: 1600px){body{font-size:1.9em !important}
+.logo{margin:0 43%;width:12%;}
+.logo a img{width:250px}
+.logo .contact-map #map_canvas{height:600px}
 }

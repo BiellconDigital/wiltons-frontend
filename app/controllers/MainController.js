@@ -24,12 +24,13 @@ define(['app'], function (app) {
         $scope.mostrarBanner[1] = true;
         $scope.mostrarBanner[2] = false;
         $scope.mostrarBanner[3] = false;
+        $scope.mostrarBanner[4] = false;
         $scope.item = 1;
         $scope.activarTime = true;
 
         $(window).off("resize");
 
-        if ($(window).width() <= 991) {
+        if ($(window).width() <= 870) {
             $scope.tipoImg = 'tablet';
         }
 
@@ -37,7 +38,7 @@ define(['app'], function (app) {
             $scope.mostrarBanner[$scope.itemImg] = false;
             //$("#imgBanner").hide();
 //                console.log("interval... " + $scope.item);
-            if ($scope.itemImg === 3)
+            if ($scope.itemImg === 4)
                 $scope.itemImg = 0;
             $scope.itemImg++;
             $scope.mostrarBanner[$scope.itemImg] = true;
@@ -61,16 +62,18 @@ define(['app'], function (app) {
 
 
         var $window = $(window).on('resize', function() {
-          if ($(window).width() <= 991) {
+          if ($(window).width() <= 870) {
               $("#contenido").backstretch("./img/fondos/fondo.png");
           } else {
               $("#contenido").backstretch("./img/fondos/fondo.png");
           }
 
-          if ($(window).width() <= 991) {
+          if ($(window).width() <= 870) {
               $scope.tipoImg = 'tablet';
-          } else {
+          } else if ($(window).width() <= 1280) {
               $scope.tipoImg = '';
+          } else {
+              $scope.tipoImg = 'PC';
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent

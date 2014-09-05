@@ -1,12 +1,12 @@
 <div class="contenido" id='contenido' ng-controller="PoliticasController" style="overflow: visible">
     <div class="banner" id="banner" style="overflow: visible">
     
-      <div id="fondo"  style="overflow: visible;">
+      <div id="fondo" >
         <div id="content-panel" class="">
           <article id="content-text" class=""
                      style="margin: auto;">
 
-            <div class="content-body" style="padding-top: 9%;overflow: auto;height: 100%">
+            <div class="content-body" style="padding-top: 9%;overflow: auto;">
 
             <h1 class="text-center hidden-xs">Política para Atención de Pedidos:</h1>
             <h4 class="text-center visible-xs">Política para Atención de Pedidos:</h4>
@@ -38,14 +38,10 @@ distrito al cual se dirige.
             </div>
         </article>
           </div>
-            <img id="imgFondo" ng-src="img/fondos/fondo-generico.jpg"
-                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
-                ng-show="true"
-                ng-animate="'animate'">
-            <img id="imgFondo" ng-src="img/fondos/fondo-genericoTablet.jpg"
-                class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
-                ng-show="true"
-                ng-animate="'animate'">
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+            class="img-responsive sample-show-hide"
+            ng-show="true"
+            ng-animate="'animate'">
 
           </div>
       </div>

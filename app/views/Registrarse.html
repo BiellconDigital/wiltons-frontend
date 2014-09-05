@@ -1,20 +1,12 @@
 <div class="contenido" id='contenido' ng-controller="RegistrarseController" style="overflow: visible">
     <div class="banner" id="banner" style="overflow: visible">
     
-            <img ng-src="img/fondos/fondo-generico.jpg" style="position: absolute"
-                class="img-responsive imgFondoNormal sample-show-hide visible-md visible-lg"
-                ng-show="true" id="imgFondo"
-                ng-animate="'animate'">
-            <img ng-src="img/fondos/fondo-genericoTablet.jpg"  style="position: absolute"
-                class="img-responsive imgFondoMovil sample-show-hide hidden-md hidden-lg"
-                ng-show="true" id="imgFondo"
-                ng-animate="'animate'">
-
-
-            <article class="" style="position: relative;background-color: transparent;margin: 2.4em;padding-top: 4%;">
+    <div id="fondo" class="">
+        <div id="content-panel" class="user-data-panel">
+            <article id="content-text" class="user-data">
     
+            <div class="container" style="width: 99%">
             <h3 class="text-center">Registro de Usuario</h3>
-            <div class="container">
             <div class="row infoUsuario">
 
               <div class="panel panel-default col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 fondo-gris">
@@ -69,21 +61,6 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="ciudad" class="col-sm-4 col-md-4 control-label text-left">Ciudad:</label>
-                          <div class="col-sm-8 col-md-8">
-                              <input required type="text" class="form-control input-sm" name="ciudad"
-                                     ng-model="user.ciudad">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="direccion" class="col-sm-4 col-md-4 control-label text-left">Dirección:</label>
-                          <div class="col-sm-8 col-md-8">
-                              <input required type="text" class="form-control input-sm" name="direccion"
-                                     ng-model="user.direccion">
-                          </div>
-                        </div>
-                        <div class="form-group">
                           <label for="telefono" class="col-sm-4 col-md-4 control-label text-left">Teléfono de casa:</label>
                           <div class="col-sm-4 col-md-4">
                               <input type="text" class="form-control input-sm" id="telefono"
@@ -117,6 +94,14 @@
             </div>
             </div>
             </article>
+        </div>
 
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+            class="img-responsive sample-show-hide"
+            ng-show="true"
+            ng-animate="'animate'">
+
+
+        </div>
     </div>
 </div>
