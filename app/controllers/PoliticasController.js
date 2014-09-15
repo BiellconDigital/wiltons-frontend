@@ -42,13 +42,16 @@ define(['app'], function (app) {
 
           if ($(window).width() <= 870) {
             $scope.tipoImg = 'tablet';
-            $scope.quitarAlto = 30;
+            $scope.quitarAlto = 85;
           } else if ($(window).width() <= 1280) {
                 $scope.tipoImg = '';
-                $scope.quitarAlto = 50;
+                $scope.quitarAlto = 135;
+          } else if ($(window).width() <= 1400) {
+                $scope.tipoImg = 'PC';
+                $scope.quitarAlto = 145;
           } else {
-            $scope.tipoImg = 'PC';
-            $scope.quitarAlto = 70;
+                $scope.tipoImg = 'PC';
+                $scope.quitarAlto = 180;
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent

@@ -90,20 +90,20 @@ define(['app'], function (app) {
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
-//            $('#content-text').height(
-//                    $('#imgFondo').height() - $scope.quitarAlto
-//            );
+            $('#content-text').height(
+                    $('#imgFondo').height() - $scope.quitarAlto
+            );
             $('#content-text').width(
-                  $('#imgFondo').width()
+                  $('#imgFondo').width() - 30
             );
             console.log("redimensiona!");
         }, 1000);
         
         $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
         
-//        $('#contenido').height(
-//          $(window).height() - $('#header').height() - $('#footer').height()
-//        );
+        $('#contenido').height(
+          $(window).height() - $('#header').height() - $('#footer').height()
+        );
 
 
         var $window = $(window).on('resize', function() {
@@ -115,23 +115,26 @@ define(['app'], function (app) {
 
           if ($(window).width() <= 870) {
             $scope.tipoImg = 'tablet';
-            $scope.quitarAlto = 30;
+            $scope.quitarAlto = 90;
           } else if ($(window).width() <= 1280) {
                 $scope.tipoImg = '';
-                $scope.quitarAlto = 50;
+                $scope.quitarAlto = 125;
+          } else if ($(window).width() <= 1400) {
+                $scope.tipoImg = 'PC';
+                $scope.quitarAlto = 135;
           } else {
-            $scope.tipoImg = 'PC';
-            $scope.quitarAlto = 70;
+                $scope.tipoImg = 'PC';
+                $scope.quitarAlto = 170;
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
           );
-//          $('#content-text').height(
-//                  $('#imgFondo').height() - $scope.quitarAlto
-//          );
+          $('#content-text').height(
+                  $('#imgFondo').height() - $scope.quitarAlto
+          );
 
           $('#content-text').width(
-                  $('#imgFondo').width()
+                  $('#imgFondo').width() - 30
           );
 
         }).trigger('resize');

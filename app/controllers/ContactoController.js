@@ -26,7 +26,7 @@ define(['app'], function (app) {
 
 
 function initialize() {
-	var myLatlng = new google.maps.LatLng(-12.125058,-76.999407);
+	var myLatlng = new google.maps.LatLng(-12.127823,-77.000513);
 	var mapOptions = {
 		zoom: 17,
 		center: myLatlng,
@@ -53,7 +53,7 @@ function initialize() {
 
 
 //	var image = 'img/amor-amar.png';
-	var myLatLng = new google.maps.LatLng(-12.125058,-76.999407);
+	var myLatLng = new google.maps.LatLng(-12.127823,-77.000513);
 	var beachMarker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,

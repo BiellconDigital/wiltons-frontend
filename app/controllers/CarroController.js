@@ -9,11 +9,18 @@ define(['app'], function (app) {
         $scope.disitritos = null;
         $scope.orden = {};
         $scope.razonesCompra = null;
-        $scope.orden.costoEnvio = 15.00;
+        $scope.orden.costoEnvio = null;
         $scope.orden.subTotal = dataService.cart.getTotalPrice();
         $scope.orden.cuentaBanco = "Cta. Cte. BCP 194-0931731-0-23";
         $scope.horaDespacho = userService.cartUser.listHoraDespacho();
         $scope.procesando = false;
+//        $scope.orden.costosEnvio = {
+//            'ATE' : 25.00,
+//            'BARRANCO' : 10.00,
+//            'BELLAVISTA' : 25.00,
+//            'BREÑA' : 15.00,
+//        };
+        
         var dataVisa = {url_visa : '', eticket: 0, result: ''};
 
         $scope.updateOrden = function() {

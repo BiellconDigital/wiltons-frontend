@@ -190,7 +190,7 @@
                                 <div class="col-sm-7 col-md-7">
                                     <select required class="form-control input-sm"
                                              ng-options="distrito as distrito.dist for distrito in disitritos" 
-                                             ng-model="orden.distrito">
+                                             ng-model="orden.distrito" ng-change="orden.costoEnvio = orden.distrito.costoEnvio;updateOrden();">
                                     </select>
                                     <!--<input type="text" class="form-control input-sm" ng-model="orden.distrito">-->
                                 </div>

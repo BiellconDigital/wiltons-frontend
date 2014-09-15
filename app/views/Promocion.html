@@ -1,0 +1,27 @@
+<div class="contenido" id="contenido" ng-controller="PromocionController">
+  <div class="banner" id="banner">
+
+      <div id="fondo" class="">
+          
+        <div id="content-panel" class="nosotros">
+            <article id="content-text"
+                         style="margin: auto;">
+
+                <div class="content-body">
+                    <div ng-repeat="contenido in contenidos">
+                        <img fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive"/>
+                        <br/>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+            class="img-responsive sample-show-hide"
+            ng-show="true"
+            ng-animate="'animate'">
+    </div>
+        
+                  
+  </div>
+</div>

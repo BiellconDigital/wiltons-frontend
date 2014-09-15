@@ -70,6 +70,7 @@ define(['services/routeResolver'], function () {
                 .state('public.productos_busqueda', route.resolve('/productos_busqueda/{query}', 'ProductosBusqueda'))//[/:cateId]
                 .state('public.detalle_producto', route.resolve('/detalle-producto/{prodId}', 'ProductoDetalle'))
                 .state('public.nosotros', route.resolve('/nuestra-historia', 'Nosotros'))
+                .state('public.promocion', route.resolve('/promocion-y-novedades', 'Promocion'))
                 .state('public.politicas', route.resolve('/politicas', 'Politicas'))
                 .state('public.delivery', route.resolve('/delivery', 'Delivery'))
                 .state('public.formas_pago', route.resolve('/formas-de-pago', 'FormasPago'));

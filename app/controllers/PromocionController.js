@@ -2,7 +2,21 @@
 
 define(['app'], function (app) {
 
-    var formasPagoController = function ($scope, $location) {
+    var promocionController = function ($scope, $rootScope, $stateParams, $filter, $http, $location
+            ,contenidoService) {
+        
+       var load = function() {
+             contenidoService.listaContenidos(6, 5,
+                 function(resp) {
+                    $scope.contenidos = resp.data;
+                }
+             );
+     
+        }
+
+        load();
+
+        
         $(window).off("resize");
 
         $scope.quitarAlto = 60;
@@ -48,10 +62,10 @@ define(['app'], function (app) {
                 $scope.quitarAlto = 135;
           } else if ($(window).width() <= 1400) {
                 $scope.tipoImg = 'PC';
-                $scope.quitarAlto = 145;
+                $scope.quitarAlto = 165;
           } else {
                 $scope.tipoImg = 'PC';
-                $scope.quitarAlto = 180;
+                $scope.quitarAlto = 260;
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
@@ -65,8 +79,10 @@ define(['app'], function (app) {
           );
 
         }).trigger('resize');
+    
     };
 
-    app.register.controller('FormasPagoController', ['$scope', '$location', formasPagoController]);
+    app.register.controller('PromocionController', ['$scope', '$rootScope', '$stateParams', '$filter', '$http', '$location'
+        ,'contenidoService', promocionController]);
     
 });
