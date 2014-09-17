@@ -24,7 +24,6 @@
     }
 
     .carousel .item {
-      height: 500px;
       width: 1600px;
       overflow:hidden;
       float: left;
@@ -34,7 +33,6 @@
 /*      top: 0;
       left: 0;
 */      
-      height: 500px;
     }
 
     .carousel-caption {
@@ -62,11 +60,9 @@
 
     @media (min-width: 1200px) {
       .carousel .item {
-        height: 650px;
         width: 1700px;
       }
       .carousel img {
-        height: 650px;
         margin: -50px 0 0 -160px;
       }
 
@@ -74,11 +70,9 @@
 
     @media (min-width: 1600px) {
       .carousel .item {
-        height: 800px;
         width: 2100px;
       }
       .carousel img {
-        height: 800px;
         margin: 0px 0 0 -140px;
       }
 
@@ -88,11 +82,9 @@
     @media (max-width: 979px) {
 
       .carousel .item {
-        height: 500px;
         width: 1600px;
       }
       .carousel img {
-        height: 500px;
         margin: -150px 0 0 -310px;
       }
 
@@ -109,11 +101,9 @@
 
       }
       .carousel .item {
-        height: 520px;
         width: 1400px;
       }
       .carousel img {
-        height: 520px;
         margin: -150px 0 0 -260px;
       }
       .carousel-caption {

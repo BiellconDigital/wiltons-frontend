@@ -37,6 +37,8 @@ table.delivery tr td{padding:.3em}
 #content-panel{margin-top:1em;position:absolute;background-color:transparent;width:100%}
 #content-text{position:relative;background-color:transparent;margin-top:100px !important;overflow:auto;}
 #content-text .content-body{margin:0 2.7em;overflow:auto}
+#content-text-blank{position:relative;background-color:transparent;margin-top:10px !important;overflow:auto;}
+#content-text-blank .content-body{margin:0 2.7em;overflow:auto}
 .user-data{margin:2.4em auto;padding-top:3.5%}
 .icono-triangulo{float:none;background-image:url("../img/icono-listado-arreglos.png");padding-left:8px;width:15px;height:14px}
 .icono-triangulo-rojo{float:none;background-image:url("../img/icono-listado-arreglos-rojo.png");padding-left:8px;width:15px;height:14px}
@@ -191,6 +193,8 @@ footer .links{display:none !important}
 .user-data{margin:0 1.1em !important;padding:0 !important}
 .content .contenido #content-text{margin-top:55px !important;overflow:auto;}
 .content .contenido #content-text .content-body{margin:0 1.4em}
+.content .contenido #content-text-blank{margin-top:8px !important;overflow:auto;}
+.content .contenido #content-text-blank .content-body{margin:0 1.4em}
 .content .contenido .tab-content #como-comprar{padding-left:1em;width:99%;}
 .content .contenido .tab-content #como-comprar .panel{padding-top:.5em;}
 .content .contenido .tab-content #como-comprar .panel .thumbnail{padding:.8em 1em}
@@ -259,6 +263,7 @@ footer .footer-content a.links{height:39px;line-height:39px}
 .logo a img{width:250px}
 .content .contenido .banner{width:84%;margin-left:8%}
 .content .contenido #content-text{margin-top:135px !important}
+.content .contenido #content-text-blank{margin-top:15px !important}
 .content .productos{margin-top:2.5em;}
 .content .productos #item-producto{height:20em}
 .nosotros{margin-top:100px !important}

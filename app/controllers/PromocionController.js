@@ -24,17 +24,17 @@ define(['app'], function (app) {
             $scope.tipoImg = 'tablet';
             $scope.quitarAlto = 40;
         }
-        $('#content-text').width($(window).width()*0.8);
+        $('#content-text-blank').width($(window).width()*0.8);
 
         setTimeout(function() {
             $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
-            $('#content-text').height(
+            $('#content-text-blank').height(
                     $('#imgFondo').height() - $scope.quitarAlto
             );
-            $('#content-text').width(
+            $('#content-text-blank').width(
                   $('#imgFondo').width() - 10
             );
             console.log("redimensiona!");
@@ -56,25 +56,25 @@ define(['app'], function (app) {
 
           if ($(window).width() <= 870) {
             $scope.tipoImg = 'tablet';
-            $scope.quitarAlto = 85;
+            $scope.quitarAlto = 35;
           } else if ($(window).width() <= 1280) {
                 $scope.tipoImg = '';
-                $scope.quitarAlto = 135;
+                $scope.quitarAlto = 52;
           } else if ($(window).width() <= 1400) {
                 $scope.tipoImg = 'PC';
-                $scope.quitarAlto = 165;
+                $scope.quitarAlto = 71;
           } else {
                 $scope.tipoImg = 'PC';
-                $scope.quitarAlto = 260;
+                $scope.quitarAlto = 83;
           }
           $('#contenido').height(
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
           );
-          $('#content-text').height(
+          $('#content-text-blank').height(
                   $('#imgFondo').height() - $scope.quitarAlto
           );
 
-          $('#content-text').width(
+          $('#content-text-blank').width(
                   $('#imgFondo').width() - 10
           );
 

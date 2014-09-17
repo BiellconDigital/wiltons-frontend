@@ -3,20 +3,20 @@
 
       <div id="fondo" class="">
           
-        <div id="content-panel" class="nosotros">
-            <article id="content-text"
+        <div id="content-panel" class="">
+            <article id="content-text-blank"
                          style="margin: auto;">
 
                 <div class="content-body">
-                    <div ng-repeat="contenido in contenidos">
+                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2">
                         <img fallback-src="img/sin-imagen.png" 
-                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive"/>
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive center-block"/>
                         <br/>
                     </div>
                 </div>
             </article>
         </div>
-        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico01{{tipoImg}}.jpg" 
             class="img-responsive sample-show-hide"
             ng-show="true"
             ng-animate="'animate'">

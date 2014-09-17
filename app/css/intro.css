@@ -4,7 +4,7 @@
 @font-face{font-family:'Pacifico';font-style:normal;font-weight:normal;src:url("../fonts/Pacifico.ttf") format('truetype')}
 @font-face{font-family:'Remachine';font-style:normal;font-weight:normal;src:url("../fonts/RemachineScript.ttf") format('truetype')}
 body{position:absolute;top:0;bottom:0;right:0;left:0}
-.layerOpacity{background-image:url("../img/registro_fondo.jpg");background-size:100% 100%;color:#fff;font-family:'Heldustry';height:100%;width:100%;z-index:990;font-size:1.2em;vertical-align:center;text-decoration:none;zoom:1;}
+.layerOpacity{background-image:url("../img/fondos/fondo-inicio-tablet.jpg");background-size:100% 100%;color:#fff;font-family:'Heldustry';height:100%;width:100%;z-index:990;font-size:1.2em;vertical-align:center;text-decoration:none;zoom:1;}
 .layerOpacity .info{position:relative;width:50%;left:27%;top:17%;}
 .layerOpacity .info .buttons{text-align:center;margin-top:2em;margin-bottom:2em;text-decoration:none;color:#fff;}
 .layerOpacity .info .buttons .registro,.layerOpacity .info .buttons .saltar{display:inline-block;border:solid #fff .1em;text-align:center;font-size:.8em;padding:.5em;}
@@ -35,5 +35,6 @@ body{position:absolute;top:0;bottom:0;right:0;left:0}
 .layerOpacity .info .buttons .registro{margin-right:2em}
 .layerOpacity .info .footer{font-size:1em}
 }@media screen and (max-width:639px ) and (min-width:572px ){.layerOpacity .info{left:27%}
-}@media screen and (min-width:767px ){.layerOpacity .info{left:27%}
+}@media screen and (min-width:768px ){.layerOpacity{background-image:url("../img/fondos/fondo-inicio.jpg");}
+.layerOpacity .info{left:27%}
 }
