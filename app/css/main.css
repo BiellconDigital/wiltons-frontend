@@ -267,4 +267,6 @@ footer .footer-content a.links{height:39px;line-height:39px}
 .content .productos{margin-top:2.5em;}
 .content .productos #item-producto{height:20em}
 .nosotros{margin-top:100px !important}
+}.layerIntro{background-image:url("../img/fondos/fondo-inicio-tablet.jpg");background-size:100% 100%;height:100%;position:absolute;width:100%;z-index:990;vertical-align:center;zoom:1}
+@media screen and (min-width:768px ){.layerIntro{background-image:url("../img/fondos/fondo-inicio.jpg")}
 }

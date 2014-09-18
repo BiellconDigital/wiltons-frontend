@@ -9,7 +9,19 @@ define(['app'], function (app) {
         $scope.userRoles = Auth.userRoles;
         $scope.accessLevels = Auth.accessLevels;
         $scope.menu = '';
-
+        if ($location.path() === "" || $location.path() === "/") {
+            console.log("ruta: " + $location.path());
+            $scope.mostrarFondo = true;
+            setTimeout(function() {
+                $scope.mostrarFondo = false;
+                $scope.$apply();
+            }, 4000);
+            
+        } else {
+            $scope.mostrarFondo = false;
+        }
+        
+        
 //        $('#id_content_view').css('height', "100%");
 //        $('#id_content_view').css('background-color', "black");
         $scope.logout = function() {
@@ -48,10 +60,7 @@ define(['app'], function (app) {
         };
 
         $scope.selectMenu($location.path());
-        //console.log($location.path());
         //$scope.isActiveMenu($location.path());
-        
-        
         $rootScope.appUrl = "/wiltons-backend/web/api";
     };
 
