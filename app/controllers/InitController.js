@@ -13,8 +13,9 @@ define(['app'], function (app) {
             console.log("ruta: " + $location.path());
             $scope.mostrarFondo = true;
             setTimeout(function() {
-                $scope.mostrarFondo = false;
-                $scope.$apply();
+                //$scope.mostrarFondo = false;
+                //$scope.$apply();
+                $(".layerIntro").fadeOut( "slow" );
             }, 4000);
             
         } else {
@@ -50,7 +51,11 @@ define(['app'], function (app) {
         $scope.buscarProductos = function() {
             $location.path( "/productos_busqueda/" + $scope.textSearch);
         };
-        
+        $scope.manageOverlay = function() {
+            console.log("esconder layer orig...");
+            $('.layerOpacity').hide();
+        };
+
         $scope.selectMenu = function (menu) {
             $scope.menu = menu;
         };

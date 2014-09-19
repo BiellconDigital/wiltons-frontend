@@ -59,7 +59,7 @@
                         <a href="" data-ng-click="logout()" data-access-level='accessLevels.user' ui-sref-active="active">Cerrar sesión</a>
                     </li>
                     <li>
-                        <form ng-submit="buscarProductos()">
+                        <form ng-submit="buscarProductos();manageOverlay();">
                             <input ng-model="textSearch" placeholder="nombre del producto"/>
                         </form>
                     </li>
@@ -271,7 +271,6 @@
     
     <script type="text/javascript">
         var menuOpened=false;
-        var overlayActive=false;
         $(document).ready(function() {
           $('#simple-menu').sidr();      
         });
@@ -283,12 +282,9 @@
             //toggleMenu();
             menuOpened=false;   
           }
-          if(overlayActive){
-              if($( window ).width()>767){
-                $('.layerOpacity').hide();
-                overlayActive=false;
-              }
-          } 
+            if($( window ).width()>767){
+              $('.layerOpacity').hide();
+            }
         });
 
         function toggleMenu(){
@@ -300,11 +296,7 @@
         }
 
         function manageOverlay(){
-            if(!overlayActive)
-                $('.layerOpacity').show();
-            else
-                $('.layerOpacity').hide();
-            overlayActive=!overlayActive;
+            $('.layerOpacity').toggle();
         }       
         
     </script>
