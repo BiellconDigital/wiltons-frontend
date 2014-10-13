@@ -8,7 +8,19 @@
                          style="margin: auto;">
 
                 <div class="content-body">
-                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-xs">
+                        <img fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.adjunto}}" class="img-responsive center-block"/>
+                        <br/>
+                    </div>
+
+                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-sm">
+                        <img fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen2}}" class="img-responsive center-block"/>
+                        <br/>
+                    </div>
+
+                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-md visible-lg">
                         <img fallback-src="img/sin-imagen.png" 
                             ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive center-block"/>
                         <br/>
