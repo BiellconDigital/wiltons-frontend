@@ -161,9 +161,17 @@
                             <form class="form-horizontal" role="form" >
                                 <div class="form-group">
                                     <label for="inputCantidad" class="col-xs-4 col-sm-4 control-label small">Cantidad </label>
-                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="col-xs-8 col-sm-4 col-md-8">
                                         <input type="number" id="inputCantidad" class="form-control input-sm" ng-model="cantidadP" />
                                     </div>
+                                    <label for="inputVariente" class="col-xs-4 col-sm-4 control-label small">Variante </label>
+                                    <div class="col-xs-8 col-sm-8" id="producto-variantes">
+                                      <select class="form-control" id="inputVariente"
+                                              ng-options="pv as pv.descripcion for pv in productoVariantes" 
+                                              ng-model="selectedPV" ng-change="changeNombre(selectedPV.descripcion);">
+                                       </select>
+                                    </div>
+                                    
                                 </div>
                             </form>
                         </div>
@@ -171,7 +179,7 @@
                             <p>
                                 <a href="" class="btn btn-sm btn-block" role="button"
                                    ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP); showCart()"
-                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 || producto.precio <= 0"
+                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 || producto.precio <= 0 || selectedPV == null"
                                    ng-model="btnComprar">
                                     Comprar
                                 </a>
@@ -179,7 +187,7 @@
                             <p>
                                 <a href="" class="btn btn-sm btn-block" role="button"
                                    ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP)"
-                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 ||  producto.precio <= 0"
+                                   ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 ||  producto.precio <= 0 || selectedPV == null"
                                    ng-model="btnSeguirComprando">
                                     Seguir comprando
                                 </a>

@@ -14,6 +14,7 @@ define(['app'], function (app) {
 
         $scope.categoriaSelec = null;
         $scope.cateID;
+        $scope.nombreProdOrig = "";
         $scope.cart = dataService.cart;
         $scope.productos = {};
          $scope.likeURL = $sce.trustAsResourceUrl('http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.delibouquet.pe%2Fcart%2Findex.html%23%2Fdetalle-producto%2F' + $stateParams.prodId + '&width&layout=standard&action=like&show_faces=false&share=false&height=80');
@@ -32,7 +33,7 @@ define(['app'], function (app) {
                     .success(function(data, status, headers, config) {
                         $scope.producto = data.data;
                         angular.copy($scope.producto, $scope.copy);
-
+                        $scope.nombreProdOrig = $scope.producto.nombre_producto;
                         if ($scope.producto.precio1 > 0 
                                 && $scope.producto.precio2 > 0)
                             $scope.producto.precio = 0.0;
@@ -43,6 +44,11 @@ define(['app'], function (app) {
                                     angular.copy($scope.productoGaleria, $scope.copy);
                                 });
                         
+                        $http.get($rootScope.appUrl + '/producto-variante', {params: { operacion : 'lista', idproducto: $stateParams.prodId }})
+                                .success(function(data, status, headers, config) {
+                                    $scope.productoVariantes = data.data;
+                                    angular.copy($scope.productoVariantes, $scope.copy);
+                                });
                         
                         if (!$rootScope.categorias_producto) {
                             $http.get($rootScope.appUrl + '/producto-categoria')
@@ -119,6 +125,10 @@ define(['app'], function (app) {
             };
         }
 
+        $scope.changeNombre = function(variante) {
+//            alert(precio);
+            $scope.producto.nombre_producto = $scope.nombreProdOrig + ' - ' + variante;
+        }
 
     };
 
