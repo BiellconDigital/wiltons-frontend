@@ -110,7 +110,11 @@ define(['app'], function (app) {
             })
 
         $scope.agregarProducto = function(idproducto, nombre_producto, imagen, precio, cantidad) {
-            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad);
+            var codigo = null
+            if ($scope.selectedPV.codigo != null)
+                codigo = $scope.selectedPV.codigo;
+            console.log(codigo);
+            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad, codigo);
 
             if (result === "new") {
                 $rootScope.error = "Se agregó nuevo producto al carro de compras.";

@@ -63,8 +63,8 @@
                       <a href="#/detalle-producto/{{p.idproducto}}" role="button"><small>Ver detalle</small></a> 
                     </td>
                     <td class="text-right">
-                      <a class="btn btn-sm btn-block btn-agregar" role="button"
-                         ng-click="agregarProducto(p.idproducto, p.nombre_producto, p.imagen, p.precio, 1)"
+                      <a class="btn btn-sm btn-block btn-agregar" role="button" ng-show="p.number_variantes <= 0"
+                         ng-click="agregarProducto(p.idproducto, p.nombre_producto, p.imagen, p.precio, 1, null)"
                          ng-disabled="p.precio <= 0">
                           + Agregar a carro
                       </a>

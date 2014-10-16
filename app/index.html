@@ -98,6 +98,10 @@
                 <a ui-sref="user.pedidos" ng-click="selectMenu('/pedidos')" onclick="toggleMenu();"
                    class="btn-block">MI PEDIDO</a>
             </li>
+            <li ng-class="{'active' : isActiveMenu('/promocion-y-novedades')}">
+                <a ui-sref="public.promocion" ng-click="selectMenu('/promocion-y-novedades')" onclick="toggleMenu();"
+                   class="btn-block">PROMOCIÓN Y NOVEDADES</a>
+            </li>
             <li ng-class="{'active' : isActiveMenu('/contacto')}">
                 <a ui-sref="public.contacto" ng-click="selectMenu('/contacto')" onclick="toggleMenu();"
                    class="btn-block">CONTACTO</a>
@@ -148,6 +152,11 @@
                     <li ><a ui-sref="public.nosotros" onclick="toggleMenu();">NUESTRA HISTORIA</a></li>
                     <li ><a ui-sref="public.productos" onclick="toggleMenu();">PRODUCTOS</a></li>
                     <li><a ui-sref="user.pedidos" onclick="toggleMenu();">MI PEDIDO</a></li>
+                    <li><a ui-sref="public.promocion" 
+                           ng-class="{'color-active' : isActiveMenu('/promocion-y-novedades')}" 
+                           onclick="toggleMenu();"
+                           ng-click="selectMenu('/promocion-y-novedades')">PROMOCIÓN Y NOVEDADES</a>
+                    </li>
                     <li><a ui-sref="public.contacto" onclick="toggleMenu();">CONTACTO</a></li>
                   </ul>
                 </div>
@@ -188,7 +197,7 @@
                         </div>
                         <img src="img/icono-delivery.png" class="logo-delivery">
                         <div class="nro-delivery">
-                            (511) 448-8546
+                            448-8546
                         </div>
                     </div>
                             
