@@ -1,37 +1,29 @@
-<div class="contenido" id="contenido" ng-controller="PromocionController">
+<div class="contenido " id="contenido" ng-controller="PromocionController">
   <div class="banner" id="banner">
 
-      <div id="fondo" class="">
+      <div id="fondo" style="margin-left:7%;margin-right:7%;">
           
-        <div id="content-panel" class="">
             <article id="content-text-blank"
-                         style="margin: auto;">
+                         style="margin: auto;background-color:#a10442;">
 
-                <div class="content-body">
-                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-xs">
-                        <img fallback-src="img/sin-imagen.png" 
-                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.adjunto}}" class="img-responsive center-block"/>
-                        <br/>
-                    </div>
+                <div class="owl-carousel visible-xs" id="owl-promociones-movil">
+                        <img ng-repeat="contenido in contenidos" 
+                            fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.adjunto}}" class="img-responsive center-block" style="display: block;width: 100%;height: auto;"/>
+                </div>
 
-                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-sm">
-                        <img fallback-src="img/sin-imagen.png" 
-                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen2}}" class="img-responsive center-block"/>
-                        <br/>
-                    </div>
+                <div class="owl-carousel visible-sm" id="owl-promociones-tablet">
+                        <img ng-repeat="contenido in contenidos" 
+                            fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen2}}" class="img-responsive center-block" style="display: block;width: 100%;height: auto;"/>
+                </div>
 
-                    <div ng-repeat="contenido in contenidos" class="col-xs-12 col-sm-8 col-sm-offset-2 visible-md visible-lg">
-                        <img fallback-src="img/sin-imagen.png" 
-                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive center-block"/>
-                        <br/>
-                    </div>
+                <div class="owl-carousel visible-md visible-lg" id="owl-promociones-pc">
+                        <img ng-repeat="contenido in contenidos" 
+                            fallback-src="img/sin-imagen.png" 
+                            ng-src="{{rootUrl}}/backend/web/m_web/files/content/{{contenido.imagen}}" class="img-responsive center-block" style="display: block;width: 100%;height: auto;"/>
                 </div>
             </article>
-        </div>
-        <img id="imgFondo"  ng-src="img/fondos/fondo-generico01{{tipoImg}}.jpg" 
-            class="img-responsive sample-show-hide"
-            ng-show="true"
-            ng-animate="'animate'">
     </div>
         
                   

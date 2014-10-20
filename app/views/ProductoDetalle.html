@@ -87,14 +87,16 @@
                           class="active col-sm-6 col-md-4">
                             <img fallback-src="img/sin-imagen.png"
                               ng-src="/backend/web/m_cart/files/producto/{{producto.imagen}}" 
-                              class="img-circle img-responsive">
+                              class="img-circle img-responsive"
+                              style="max-width:100px;">
                       </div>
                       <div ng-repeat="gale in productoGaleria" id="item-producto"  style="cursor: pointer;"
                           data-target="#carousel-producto" data-slide-to="{{$index + 1}}"
                           class="col-sm-6 col-md-4">
                             <img fallback-src="img/sin-imagen.png"
                               ng-src="/backend/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}"
-                              class="img-circle img-responsive">
+                              class="img-circle img-responsive"
+                              style="max-width:100px;">
                       </div>
 
                     </div>
@@ -148,6 +150,21 @@
                         <p><input type="number" id="inputCantidad" class="form-control input-sm" ng-model="cantidadP" /></p>
                     </div>
                     
+                    <div class="col-xs-6 label-resumen-prod visible-xs"
+                      ng-show="productoVariantes.length">
+                        <p>Variante</p>
+                    </div>
+                    <div class="col-xs-6 text-resumen-prod visible-xs"  id="producto-variantes"
+                      ng-show="productoVariantes.length > 0">
+                        <p>
+                        <select class="form-control"
+                                ng-options="pv as pv.descripcion for pv in productoVariantes" 
+                                ng-model="selectedPV" ng-change="changeNombre(selectedPV.descripcion);">
+                         </select>
+                        </p>
+                    </div>
+                    
+
                     <div class="col-sm-3 col-md-7 text-resumen-prod hidden-xs">
                         <div class="fb-like" ng-style="{width: '200px'}" data-href="{{ pageUrl }}" data-width="200" data-show-faces="false" data-send="false"></div>
                     </div>

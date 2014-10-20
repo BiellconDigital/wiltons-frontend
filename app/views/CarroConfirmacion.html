@@ -195,7 +195,9 @@
                         <tbody>
                             <tr ng-repeat="item in pedido.detalle | orderBy:'productoNombre'" class="fondo-blanco">
                                 <td width="30%" class="hidden-xs">
-                                    <p>{{item.productoNombre}} ({{item.codigoVariante}})</p>
+                                    <p>{{item.productoNombre}} (<span ng-bind="mostrarCodigo(item)"></span>)
+
+                                    </p>
                                 </td>
 
                                 <td width="40%" class="visible-xs">

@@ -21,6 +21,16 @@ define(['app'], function (app) {
 
         load();
 
+        $scope.mostrarCodigo = function(item) {
+            console.log("mostrar codigo");
+            console.log(item);
+//            console.log(item.codigoProducto);
+            if (item.codigoVariante != null && item.codigoVariante != "")
+                return item.codigoVariante;
+            else
+                return item.codigoProducto;
+        }
+        
         
     };
 

@@ -74,7 +74,13 @@ define(['app'], function (app) {
         }
         
         load();
-        
+
+        $scope.mostrarCodigo = function(item) {
+            if (item.codigoVariante != null && item.codigoVariante != "")
+                return item.codigoVariante;
+            else
+                return item.codigoProducto;
+        }
         
     };
     

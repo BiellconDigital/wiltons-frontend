@@ -17,7 +17,7 @@
                       <div class="caption text-center">
                           <h4 class="text-center">{{p.productoNombre}}</h4>
 
-                        <p>Código: {{p.codigoVariante}}</p>
+                        <p>Código: <span ng-bind="mostrarCodigo(p)"></span></p>
                         <p>Cantidad: {{p.cantidad}}</p>
                       </div>
                     </div>
