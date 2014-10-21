@@ -63,6 +63,7 @@ define(['app'], function (app) {
 
         $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
 
+        $("#contenido").backstretch("./img/fondos/fondo.png");
 
         var $window = $(window).on('resize', function() {
           var nameV = "";
@@ -86,6 +87,7 @@ define(['app'], function (app) {
               $('#contenido').height(
                     $scope.heightContent < alturaImg + alturaMas ? alturaImg + alturaMas : $scope.heightContent
               );
+              $("#contenido").backstretch("resize");
           }, 1100);
         }).trigger('resize');
     

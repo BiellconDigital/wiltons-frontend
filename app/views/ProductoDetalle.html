@@ -88,7 +88,7 @@
                             <img fallback-src="img/sin-imagen.png"
                               ng-src="/backend/web/m_cart/files/producto/{{producto.imagen}}" 
                               class="img-circle img-responsive"
-                              style="max-width:100px;">
+                              style="width:98%;">
                       </div>
                       <div ng-repeat="gale in productoGaleria" id="item-producto"  style="cursor: pointer;"
                           data-target="#carousel-producto" data-slide-to="{{$index + 1}}"
@@ -96,24 +96,12 @@
                             <img fallback-src="img/sin-imagen.png"
                               ng-src="/backend/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}"
                               class="img-circle img-responsive"
-                              style="max-width:100px;">
+                              style="width:98%;">
                       </div>
 
                     </div>
 
                 </div>
-                    
-                  <div class="col-md-12 center-block hidden-xs">
-                      <br/><br/>
-                      <div class="row">
-                        <div class="col-sm-6 col-md-4" ng-repeat="gale in productoGaleria" id="item-producto">
-                              <img fallback-src="img/sin-imagen.png"
-                                ng-src="/backend/web/m_cart/files/producto/galeria/thumb_{{gale.imagenGale}}" 
-                                class="img-circle img-responsive">
-                        </div>
-                      </div>
-                          
-                  </div>
                     
                 </div>
             </div>
