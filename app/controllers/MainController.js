@@ -51,7 +51,6 @@ define(['app'], function (app) {
                   $scope.heightContent < $('#fondo').height() ? $('#fondo').height() + 28 : $scope.heightContent
             );
             $("#contenido").backstretch("resize");
-            console.log("redimensiona!");
         }, 1000);
         
         $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;

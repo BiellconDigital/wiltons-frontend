@@ -61,7 +61,7 @@ define(['app'], function (app) {
         
         $(window).off("resize");
 
-        $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()-10;
+        $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height();
 
         $("#contenido").backstretch("./img/fondos/fondo.png");
 
@@ -85,6 +85,7 @@ define(['app'], function (app) {
               console.log($('#' + nameV + " img")[0].height);
               var alturaImg = $('#' + nameV + " img")[0].height;
               $('#contenido').height(
+//                    $scope.heightContent =  $(window).height() - $('#header').height() - $('#footer').height()
                     $scope.heightContent < alturaImg + alturaMas ? alturaImg + alturaMas : $scope.heightContent
               );
               $("#contenido").backstretch("resize");

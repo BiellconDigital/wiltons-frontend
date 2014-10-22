@@ -177,12 +177,13 @@ footer .links{display:none !important}
 .content .main-banner{margin-top:1em;overflow:hidden}
 nav{display:none !important}
 footer .links{display:none !important}
+}@media screen and (max-width:600px ){.logo a img{width:100px}
 }@media screen and (max-width:767px ){.simple-menu{display:block}
 .overlay-menu{display:block}
 .nav-mobile{display:block}
 .padding-thumbs{padding:23px 18px}
 .logo{margin:0 14%;}
-.logo a img{width:150px}
+.logo a img{width:130px}
 nav{display:none !important}
 header .spacer{width:90%}
 #id_content_view{margin-top:45px}
