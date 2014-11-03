@@ -72,10 +72,10 @@ define(['app'], function (app) {
 
               if($(window).width() <= 768) {
                 nameV = "owl-promociones-movil";
-                alturaMas = 50;
+                alturaMas = 70;
               } else if($(window).width() <= 991) {
                 nameV = "owl-promociones-tablet";
-                alturaMas = 60;
+                alturaMas = 70;
               } else {
                 nameV = "owl-promociones-pc";
                 alturaMas = 110;

@@ -1,31 +1,53 @@
-<div class="layerFondo contenido" id='contenido' ng-controller="RecuperarClaveController">
+<div class="contenido" id='contenido' ng-controller="RecuperarClaveController" style="overflow: visible;">
+
+    <div class="banner" id="banner"  style="overflow: visible;">
     
-  <h3>Recuperar Clave</h3>
-  <hr/>
-  <div class="container">
-    <div class="row infoUsuario">
+    <div id="fondo" class="">
+        <div id="content-panel" >
+            <article id="content-text" class="user-data"
+                     style="margin: auto;">
 
-      <div class="panel panel-default col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-          <div class="panel-body">
-              
-              <form class="form-horizontal" role="form" name="recuperarClaveForm">
-                <div class="form-group">
-                  <label for="email" class="col-sm-3 col-md-3 control-label">Email:</label>
-                  <div class="col-sm-9 col-md-9">
-                      <input required type="email" class="form-control" id="email" placeholder="email" ng-model="user.email">
-                  </div>
+                <div class="content-body" style="overflow: auto;">
+    
+                  <h3>Recuperar Clave</h3>
+                  <hr/>
+                  <div class="">
+                    <div class=" infoUsuario">
+
+                      <div class="panel panel-default col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                          <div class="panel-body">
+                              
+                              <form class="form-horizontal" role="form" name="recuperarClaveForm">
+                                <div class="form-group">
+                                  <label for="email" class="col-sm-3 col-md-3 control-label">Email:</label>
+                                  <div class="col-sm-9 col-md-9">
+                                      <input required type="email" class="form-control" id="email" placeholder="email" ng-model="user.email">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-sm-offset-8 col-sm-4">
+                                      <button type="submit" class="btn btn-block" ng-click="recuperarClave()"
+                                            ng-disabled="!recuperarClaveForm.$valid">Enviar</button>
+                                  </div>
+                                </div>
+                              </form>
+                          </div>
+                      </div>
+
+
+                    </div>
+                  </div> 
+
                 </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-8 col-sm-4">
-                      <button type="submit" class="btn btn-block" ng-click="recuperarClave()"
-                            ng-disabled="!recuperarClaveForm.$valid">Enviar</button>
-                  </div>
-                </div>
-              </form>
-          </div>
-      </div>
+            </article>
+        </div>
+
+        <img id="imgFondo"  ng-src="img/fondos/fondo-generico{{tipoImg}}.jpg" 
+            class="img-responsive sample-show-hide"
+            ng-show="true"
+            ng-animate="'animate'">
 
 
+        </div>
     </div>
-  </div>  
-</div>  
+</div>

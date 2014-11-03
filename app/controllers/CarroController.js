@@ -39,6 +39,8 @@ define(['app'], function (app) {
                     $scope.razonesCompra = resp.data;
                 }
              );
+            $scope.orden.razonSocial = $scope.user.nombres + ' ' + $scope.user.apellidoPaterno + ' ' + $scope.user.apellidoMaterno;
+            $scope.orden.rucCliente = $scope.user.nroDocumento;
         }
         load();
         

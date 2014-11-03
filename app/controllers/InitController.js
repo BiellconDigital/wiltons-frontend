@@ -2,13 +2,15 @@
 
 define(['app'], function (app) {
 
-    var initController = function ($scope, $rootScope, $http, $location, dataService, Auth) {
+    var initController = function ($scope, $rootScope, $http, $location, $window, dataService, Auth) {
         var appTitle = 'Inicio';
         $scope.appTitle = appTitle;
         $scope.user = Auth.user;
         $scope.userRoles = Auth.userRoles;
         $scope.accessLevels = Auth.accessLevels;
         $scope.menu = '';
+        console.log($window.browserNoSup);
+//        alert($window.browserNoSup);
         if ($location.path() === "" || $location.path() === "/") {
             console.log("ruta: " + $location.path());
             $scope.mostrarFondo = true;
@@ -69,6 +71,6 @@ define(['app'], function (app) {
         $rootScope.appUrl = "/wiltons-backend/web/api";
     };
 
-    app.controller('InitController', ['$scope', '$rootScope', '$http', '$location', 'dataService', 'Auth', initController]);
+    app.controller('InitController', ['$scope', '$rootScope', '$http', '$location', '$window', 'dataService', 'Auth', initController]);
     
 });
