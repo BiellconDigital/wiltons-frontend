@@ -122,7 +122,9 @@
                         <p>Precio:</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-10 text-resumen-prod">
-                        <p>{{producto.precio | currency:'S/.'}}</p>
+                        <p>{{producto.precio | currency:'S/.'}}
+                            &nbsp;/&nbsp;<span class="small" ng-bind="producto.nameUnidadMedidaVenta"/>
+                        </p>
                     </div>
                     
                     <div class="col-xs-6 label-resumen-prod visible-xs">
@@ -179,7 +181,7 @@
                         <div class="col-sm-12 col-md-5">
                             <p>
                                 <a href="" class="btn btn-sm btn-block" role="button"
-                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP); showCart()"
+                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP, producto.nameUnidadMedidaVenta); showCart()"
                                    ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 || producto.precio <= 0 
                                    ||  (selectedPV == null && productoVariantes.length > 0)"
                                    ng-model="btnComprar">
@@ -188,7 +190,7 @@
                             </p>
                             <p>
                                 <a href="" class="btn btn-sm btn-block" role="button"
-                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP)"
+                                   ng-click="agregarProducto(producto.idproducto, producto.nombre_producto, producto.imagen, producto.precio, cantidadP, producto.nameUnidadMedidaVenta)"
                                    ng-disabled="!isNumber(cantidadP) || cantidadP <= 0 ||  producto.precio <= 0 
                                    || (selectedPV == null && productoVariantes.length > 0)"
                                    ng-model="btnSeguirComprando">

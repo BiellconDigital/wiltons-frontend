@@ -54,7 +54,7 @@
                 <h4 class="text-center">{{p.nombre_producto}}</h4>
                 
                 <p class="precio">
-                    {{p.precio | currency:'S/.'}}
+                    {{p.precio | currency:'S/.'}} (<span class="small" ng-bind="p.nameUnidadMedidaVenta"/>)
                 </p>
 
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -64,7 +64,7 @@
                     </td>
                     <td class="text-right">
                       <a class="btn btn-sm btn-block btn-agregar" role="button" ng-show="p.number_variantes <= 0"
-                         ng-click="agregarProducto(p.idproducto, p.nombre_producto, p.imagen, p.precio, 1, null)"
+                         ng-click="agregarProducto(p.idproducto, p.nombre_producto, p.imagen, p.precio, 1, null, p.nameUnidadMedidaVenta)"
                          ng-disabled="p.precio <= 0">
                           + Agregar a carro
                       </a>

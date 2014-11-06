@@ -57,9 +57,9 @@ define(['app'], function (app) {
             p.precio = angular.copy(precio);
         }
 
-        $scope.agregarProducto = function(idproducto, nombre_producto, imagen, precio, cantidad, variante) {
+        $scope.agregarProducto = function(idproducto, nombre_producto, imagen, precio, cantidad, variante, nameUnidadMedidaVenta) {
             console.log(variante);
-            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad, variante);
+            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad, variante, nameUnidadMedidaVenta);
 
             if (result === "new") {
                 $rootScope.error = "Se agregó nuevo producto al carro de compras.";

@@ -31,7 +31,7 @@ shoppingCart.prototype.loadItems = function () {
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
                 if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                    item = new cartItem(item.sku, item.name, item.image, item.price, item.quantity, item.variante);
+                    item = new cartItem(item.sku, item.name, item.image, item.price, item.quantity, item.variante, item.unidadMedida);
                     this.items.push(item);
                 }
             }
@@ -50,7 +50,7 @@ shoppingCart.prototype.saveItems = function () {
 }
 
 // adds an item to the cart
-shoppingCart.prototype.addItem = function (sku, name, image, price, quantity, variante) {
+shoppingCart.prototype.addItem = function (sku, name, image, price, quantity, variante, unidadMedida) {
     quantity = this.toNumber(quantity);
     result = null;
     if (quantity != 0) {
@@ -71,7 +71,7 @@ shoppingCart.prototype.addItem = function (sku, name, image, price, quantity, va
 
         // new item, add now
         if (!found) {
-            var item = new cartItem(sku, name, image, price, quantity, variante);
+            var item = new cartItem(sku, name, image, price, quantity, variante, unidadMedida);
             this.items.push(item);
             result = "new";
         }
@@ -374,13 +374,14 @@ function checkoutParameters(serviceName, merchantID, options) {
 //----------------------------------------------------------------
 // items in the cart
 //
-function cartItem(sku, name, image, price, quantity, variante) {
+function cartItem(sku, name, image, price, quantity, variante, unidadMedida) {
     this.sku = sku;
     this.name = name;
     this.image = image;
     this.price = price * 1;
     this.quantity = quantity * 1;
     this.variante = variante;
+    this.unidadMedida = unidadMedida;
 }
 
 shoppingCart.prototype.setCostoEnvio = function(monto) {

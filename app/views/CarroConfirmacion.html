@@ -209,7 +209,8 @@
                                                 {{item.precioUnitario | currency:'S/.'}}
                                             </td>
                                             <td class="text-right">
-                                                {{item.cantidad}}
+                                                {{item.cantidad}}&nbsp;
+                                                {{item.nameUnidadMedidaVenta}}
                                             </td>
                                         </tr>
                                     </table>
@@ -219,7 +220,8 @@
                                     {{item.precioUnitario | currency:'S/.'}}
                                 </td>
                                 <td width="12%" class="hidden-xs text-right">
-                                    {{item.cantidad}}
+                                    {{item.cantidad}}&nbsp;
+                                    {{item.nameUnidadMedidaVenta}}
                                 </td>
                                 <td width="14%" class="text-right">
                                     {{item.precioTotal | currency:'S/.'}}

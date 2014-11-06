@@ -109,12 +109,12 @@ define(['app'], function (app) {
               $(this).tab('show');
             })
 
-        $scope.agregarProducto = function(idproducto, nombre_producto, imagen, precio, cantidad) {
+        $scope.agregarProducto = function(idproducto, nombre_producto, imagen, precio, cantidad, nameUnidadMedidaVenta) {
             var codigo = null
             if ($scope.selectedPV != null)
                 codigo = $scope.selectedPV.codigo;
             console.log(codigo);
-            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad, codigo);
+            result = $scope.cart.addItem(idproducto, nombre_producto, imagen, precio, cantidad, codigo, nameUnidadMedidaVenta);
 
             if (result === "new") {
                 $rootScope.error = "Se agregó nuevo producto al carro de compras.";

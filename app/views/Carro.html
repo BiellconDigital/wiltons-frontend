@@ -64,7 +64,8 @@
                                         <input style="width:70px;"
                                             class="input-sm text-center" type="number" 
                                             ng-model="item.quantity" 
-                                            ng-change="cart.saveItems();updateOrden();" />
+                                            ng-change="cart.saveItems();updateOrden();" />&nbsp;
+                                        {{item.unidadMedida}}
                                     </td>
                                     <td class="tdCenter" title="remover">
                                         <a href="" ng-click="cart.addItem(item.sku, item.name, item.image, item.price, -10000000);updateOrden();" >
@@ -84,7 +85,8 @@
                             <input style="width:70px;"
                                 class="input-sm text-center" type="number" 
                                 ng-model="item.quantity" 
-                                ng-change="cart.saveItems();updateOrden();" />
+                                ng-change="cart.saveItems();updateOrden();" />&nbsp;
+                                {{item.unidadMedida}}
                         </td>
                         <td width="12%" class="tdCenter hidden-xs" title="remover">
                             <a href="" ng-click="cart.addItem(item.sku, item.name, item.image, item.price, -10000000);updateOrden();" >
