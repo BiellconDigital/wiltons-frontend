@@ -1,4 +1,5 @@
 <div class="container productos" ng-controller="CarroController">
+  
 
   <div class="row subcontenido">
     <div class="visible-xs col-xs-12">
@@ -215,9 +216,27 @@
                                     Despacho estándar*:
                                 </label>
                                 <div class="col-sm-7 col-md-6">
-                                    <input type="date" required class="form-control input-sm" ng-model="orden.fechaEnvio">
+
+                                    <input type="date"  id="fechadia"  required  class="form-control input-sm" ng-model="orden.fechaEnvio" >  
+
                                 </div>
-                                  
+                                  <script type="text/javascript">
+                                      var date = new Date();
+                                      var day = date.getDate()+3;
+                                      var month = date.getMonth() + 1;
+                                      var year = date.getFullYear();
+
+                                      if (month < 10) month = "0" + month;
+                                      if (day < 10) day = "0" + day;
+
+                                      var today = year + "-" + month + "-" + day;       
+                                      document.getElementById("fechadia").min = today;
+                                      document.getElementById("fechadia").value = today;
+
+
+                                     // document.getElementById("fechadia").valueAsDate = new Date();
+
+                                      </script>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9 text-right">
