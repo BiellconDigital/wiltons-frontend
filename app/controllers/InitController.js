@@ -72,7 +72,7 @@ define(['app'], function (app) {
         //$scope.isActiveMenu($location.path());
         
         
-        $rootScope.appUrl = "/backend/web/api";
+        $rootScope.appUrl = "/wiltons-backend/web/api";
     };
 
     app.controller('InitController', ['$scope', '$rootScope', '$http', '$location', '$window', 'dataService', 'Auth', initController]);

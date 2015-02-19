@@ -1,0 +1,57 @@
+<div class="container productos" ng-controller="ProductosEspController">
+
+  <div class="row subcontenido">
+    <div class="visible-xs col-xs-12">
+        <br/><br/><br/>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="row">
+
+          <div class="hidden-xs">
+              <br/><br/><br/><br/>
+          </div>
+
+          <div class="col-sm-12 col-md-4" ng-repeat="p in productos" id="item-producto">
+            <div class="thumbnail sin-fondo sin-borde">
+                <img fallback-src="img/sin-imagen.png"
+                  ng-src="/backend/web/m_cart/files/producto/{{p.imagen}}" 
+                  alt="img1" width="179" height="179" class="img-circle">
+              <div class="caption">
+                <h4 class="text-center">{{p.nombre_producto}}</h4>
+                
+                <p class="precio">
+                    {{p.precio | currency:'S/.'}} (<span class="small" ng-bind="p.nameUnidadMedidaVenta"/>)
+                </p>
+
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td width="40%">
+                      &nbsp;
+                    </td>
+                    <td class="text-right">
+                      <a href="#/detalle-producto-esp/{{p.idproducto}}" 
+                        class="btn btn-sm btn-block" role="button">Ver detalle</a> 
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-12" ng-if="productos.length == 0">
+            NO HAY PRODUCTOS ESPECIALES DISPONIBLES
+          </div>
+          
+          
+        
+      </div>
+
+    </div>
+
+  </div>
+  <br/><br/>
+
+
+</div>
+

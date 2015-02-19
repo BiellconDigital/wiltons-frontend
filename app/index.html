@@ -103,6 +103,10 @@
                 <a ui-sref="public.productos" ng-click="selectMenu('/productos/')" onclick="toggleMenu();"
                    class="btn-block">PRODUCTOS</a>
             </li>
+            <li ng-class="{'active' : isActiveMenu('/productos/')}">
+                <a ui-sref="public.productos_esp" ng-click="selectMenu('/productos-especiales/')" onclick="toggleMenu();"
+                   class="btn-block">ESPECIALES</a>
+            </li>
             <li ng-class="{'active' : isActiveMenu('/pedidos')}">
                 <a ui-sref="user.pedidos" ng-click="selectMenu('/pedidos')" onclick="toggleMenu();"
                    class="btn-block">MI PEDIDO</a>
@@ -160,6 +164,7 @@
                     <li><a ui-sref="public.home" onclick="toggleMenu();">INICI</a></li>
                     <li ><a ui-sref="public.nosotros" onclick="toggleMenu();">NUESTRA HISTORIA</a></li>
                     <li ><a ui-sref="public.productos" onclick="toggleMenu();">PRODUCTOS</a></li>
+                    <li ><a ui-sref="public.productos_esp" onclick="toggleMenu();">ESPECIALES</a></li>
                     <li><a ui-sref="user.pedidos" onclick="toggleMenu();">MI PEDIDO</a></li>
                     <li><a ui-sref="public.promocion" 
                            ng-class="{'color-active' : isActiveMenu('/promocion-y-novedades')}" 
@@ -234,11 +239,14 @@
                         </div>
                         
                         <ul class="col-sm-5 test-timesroman" >
-                            <li class="col-sm-offset-4 col-sm-4"><a ui-sref="public.nosotros" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
+                            <li class="col-sm-offset-3 col-sm-3"><a ui-sref="public.nosotros" ng-class="{'color-active' : isActiveMenu('/delibouquet')}" ng-click="selectMenu('/delibouquet')">
                                     NUESTRA HISTORIA
                             </a></li>
-                            <li class="col-sm-4"><a ui-sref="public.productos" ng-class="{'color-active' : isActiveMenu('/productos/')}" ng-click="selectMenu('/productos/')">
+                            <li class="col-sm-3"><a ui-sref="public.productos" ng-class="{'color-active' : isActiveMenu('/productos/')}" ng-click="selectMenu('/productos/')">
                                     PRODUCTOS
+                            </a></li>
+                            <li class="col-sm-3"><a ui-sref="public.productos_esp" ng-class="{'color-active' : isActiveMenu('/productos-especiales/')}" ng-click="selectMenu('/productos-especiales/')">
+                                    ESPECIALES
                             </a></li>
                         </ul>
                         

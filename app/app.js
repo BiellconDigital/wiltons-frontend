@@ -73,7 +73,9 @@ define(['services/routeResolver'], function () {
                 .state('public.promocion', route.resolve('/promocion-y-novedades', 'Promocion'))
                 .state('public.politicas', route.resolve('/politicas', 'Politicas'))
                 .state('public.delivery', route.resolve('/delivery', 'Delivery'))
-                .state('public.formas_pago', route.resolve('/formas-de-pago', 'FormasPago'));
+                .state('public.formas_pago', route.resolve('/formas-de-pago', 'FormasPago'))
+                .state('public.productos_esp', route.resolve('/productos-especiales', 'ProductosEsp'))//[/:cateId]
+                .state('public.detalle_producto_esp', route.resolve('/detalle-producto-esp/{prodId}', 'ProductoEspDetalle'));
 
             // Anonymous routes
             $stateProvider
